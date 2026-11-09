@@ -522,11 +522,9 @@ def build(app_id, language='en', preview_only=False):
     if credit(language):
         locale['credit'] = credit(language)['corner']
     json.dump(locale, open(os.path.join(src, 'javascript', 'kit', 'locale.json'), 'w', encoding='utf-8', newline='\n'), ensure_ascii=False)
-    if preview_only:
-        print('%s %s: offline preview in %s (NO SDK, NOT INSTALLABLE)' % (app_id, ver, stage))
-        return
-    shutil.copy(os.path.join(SDK, 'index.js'), os.path.join(src, 'node_modules', 'oap-sdk', 'index.js'))
-    shutil.copy(os.path.join(SDK, 'package.json'), os.path.join(src, 'node_modules', 'oap-sdk', 'package.json'))
+    if not preview_only:
+        shutil.copy(os.path.join(SDK, 'index.js'), os.path.join(src, 'node_modules', 'oap-sdk', 'index.js'))
+        shutil.copy(os.path.join(SDK, 'package.json'), os.path.join(src, 'node_modules', 'oap-sdk', 'package.json'))
 
     # --- rhmiData: package format (inside source/) and installed format ---
     icon = spec['id'] + '_icon.png'
@@ -559,6 +557,13 @@ def build(app_id, language='en', preview_only=False):
     for lang in LANGS:
         json.dump(strings, open(os.path.join(pr, 'variantGroups', 'Common', 'texts', lang + '.json'), 'w', encoding='utf-8', newline='\n'), ensure_ascii=False)
     make_icon(spec, os.path.join(pr, 'variantGroups', 'Common', 'images', icon))
+
+    # Store publishing consumes the SDK-free package tree. Preview builds still
+    # need its RHMI metadata, but must stop before installed-format files and
+    # vehicle archives that require the owner's SDK are produced.
+    if preview_only:
+        print('%s %s: offline preview/Store stage in %s (NO SDK, NOT INSTALLABLE)' % (app_id, ver, stage))
+        return
 
     ir = os.path.join(stage, 'rhmiData')
     os.makedirs(os.path.join(ir, 'uiDescription'))
