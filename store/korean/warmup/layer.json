@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 28930,
+  "sha256": "ead56b97aaa7abca2af327641ea82e1e9bb1a8720f7ed4cf36af088afd7312fc",
+  "parts": [
+    "part-000"
+  ],
+  "id": "warmup",
+  "version": "1.7.3",
+  "compiled_version": "1.7.3-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "9d237b01202c457ba336b074cbbd83bd59969c559a282b127e8e9bb7635b3690"
+}

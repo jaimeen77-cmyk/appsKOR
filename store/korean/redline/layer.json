@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 94977,
+  "sha256": "ed306a26b56d015ba1dc1734bd30e22b56815e3a7334ef2356ab7111cfa23aff",
+  "parts": [
+    "part-000"
+  ],
+  "id": "redline",
+  "version": "1.15.2",
+  "compiled_version": "1.15.2-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "4442b6b3bb378d1b6e0cd83b315266ff901aa537b0da2283b7fd27a0dead2e8f"
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 38949,
+  "sha256": "9af4b78fda87f6a7bed50edea0b195eaea8254bc7a5447ab29a2a044a9f4c624",
+  "parts": [
+    "part-000"
+  ],
+  "id": "service",
+  "version": "1.6.0",
+  "compiled_version": "1.6.0-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "24b6a1dc1549635f3129d6668f0360d958596f2899980f5ddc7b492726ac3bb8"
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 35388,
+  "sha256": "6b68f72308915c5dbfb0b29caff60fafd89b06bff90e57d21f8ab63ad956346b",
+  "parts": [
+    "part-000"
+  ],
+  "id": "dyno",
+  "version": "1.5.2",
+  "compiled_version": "1.5.2-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "03244dcea5bcd0127a47fe8b05216b7c131c8a2ab55051d8249c1d9957c69fb2"
+}

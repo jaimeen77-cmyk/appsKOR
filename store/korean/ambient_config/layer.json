@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 14558,
+  "sha256": "71dca60c6b606cf38d51f80e2612f93660b9c90f16ba24d12d18a666d31f05d9",
+  "parts": [
+    "part-000"
+  ],
+  "id": "ambient_config",
+  "version": "1.1.0",
+  "compiled_version": "1.1.0-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "3c9624bcfc2c085545f0d50e1ff815d6ec3b3ad54795c5c0383c01a4920114e2"
+}

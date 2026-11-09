@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 40101,
+  "sha256": "25c9fde811646701186b97fa23c39d9b16370ab406380586b06a1d2050ca0c0d",
+  "parts": [
+    "part-000"
+  ],
+  "id": "brake_test",
+  "version": "1.5.19",
+  "compiled_version": "1.5.19-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "41a1882678238285e838f52b2076d843bf04c12b59b267eb0cc82e265966f3b6"
+}

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 38628,
+  "sha256": "4426192db4ca786a17b47ff58f78465a2d688b3d48cba22aa137b9b740a396eb",
+  "parts": [
+    "part-000"
+  ],
+  "id": "gforce",
+  "version": "1.6.20",
+  "compiled_version": "1.6.20-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "9a54f5560e21910d97376b372a1f86f86d646d7cb4e83ba3e2d9eb782fbf914f"
+}

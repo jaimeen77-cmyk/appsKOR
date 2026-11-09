@@ -1,21 +1,5 @@
 {
   "schema": 1,
-  "apps": {
-    "path": "apps/*",
-    "manifest": "app.json",
-    "icon": "icon.png",
-    "mguHmi": ["ID7"],
-    "requires": { "idrive7-renderd": "2.1.7", "mgu-inputgate": "1.0.0" },
-    "build": {
-      "python": "kit/tools/build.py",
-      "args": ["{id}"],
-      "sdk": "oap-sdk",
-      "output": "dist/{id}@{version}.tgz",
-      "network": ["doom"],
-      "shared": ["kit/runtime", "kit/platform", "kit/localization", "kit/tools/build.py", "kit/tools/pack_data.py",
-        "kit/tools/localize.py", "kit/tools/locale-revisions.json", "kit/tools/oapgen", "oap-sdk"]
-    }
-  },
   "tools": [
     {
       "id": "idrive7-renderd",
@@ -23,7 +7,9 @@
       "title": "GPU renderer",
       "description": "The apps' own GPU renderer (mgu-render): draws them at 60 fps, beside the MGU Store's Renderer; installed with the apps",
       "provides": "renderer",
-      "mguHmi": ["ID7"]
+      "mguHmi": [
+        "ID7"
+      ]
     },
     {
       "id": "mgu-inputgate",
@@ -31,9 +17,13 @@
       "version": "1.0.0",
       "title": "Controller gate",
       "description": "Lets the apps have the iDrive controller (tabs, page buttons, settings, Doom); loads into the HMI at the next start",
-      "needs": ["renderer"],
+      "needs": [
+        "renderer"
+      ],
       "optional": false,
-      "mguHmi": ["ID7"],
+      "mguHmi": [
+        "ID7"
+      ],
       "preload": {
         "library": "mgu-inputgate.so",
         "unit": "hmi.service",
@@ -41,6 +31,458 @@
         "strikes": 2,
         "checkAfterSeconds": 120,
         "healthySeconds": 60
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "ambient_config",
+      "kind": "app",
+      "path": "store/apps/ambient_config",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/ambient_config"
+        ]
+      }
+    },
+    {
+      "id": "brake_test",
+      "kind": "app",
+      "path": "store/apps/brake_test",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/brake_test"
+        ]
+      }
+    },
+    {
+      "id": "car_vitals",
+      "kind": "app",
+      "path": "store/apps/car_vitals",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/car_vitals"
+        ]
+      }
+    },
+    {
+      "id": "doom",
+      "kind": "app",
+      "path": "store/apps/doom",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/doom"
+        ]
+      }
+    },
+    {
+      "id": "draggy",
+      "kind": "app",
+      "path": "store/apps/draggy",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/draggy"
+        ]
+      }
+    },
+    {
+      "id": "dtc_scanner",
+      "kind": "app",
+      "path": "store/apps/dtc_scanner",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/dtc_scanner"
+        ]
+      }
+    },
+    {
+      "id": "dyno",
+      "kind": "app",
+      "path": "store/apps/dyno",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/dyno"
+        ]
+      }
+    },
+    {
+      "id": "edrive",
+      "kind": "app",
+      "path": "store/apps/edrive",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/edrive"
+        ]
+      }
+    },
+    {
+      "id": "gforce",
+      "kind": "app",
+      "path": "store/apps/gforce",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/gforce"
+        ]
+      }
+    },
+    {
+      "id": "live_adjustments",
+      "kind": "app",
+      "path": "store/apps/live_adjustments",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/live_adjustments"
+        ]
+      }
+    },
+    {
+      "id": "live_data",
+      "kind": "app",
+      "path": "store/apps/live_data",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/live_data"
+        ]
+      }
+    },
+    {
+      "id": "redline",
+      "kind": "app",
+      "path": "store/apps/redline",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/redline"
+        ]
+      }
+    },
+    {
+      "id": "service",
+      "kind": "app",
+      "path": "store/apps/service",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/service"
+        ]
+      }
+    },
+    {
+      "id": "warmup",
+      "kind": "app",
+      "path": "store/apps/warmup",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/warmup"
+        ]
+      }
+    },
+    {
+      "id": "zf8hp",
+      "kind": "app",
+      "path": "store/apps/zf8hp",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/zf8hp"
+        ]
       }
     }
   ]

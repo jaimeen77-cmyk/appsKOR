@@ -1,0 +1,7 @@
+{
+  "id": "car_vitals",
+  "sourceId": "car_vitals",
+  "version": "2.26.0",
+  "title": "M 차량 정보 (한국어)",
+  "description": "한국어 고정 빌드 · 엔진 회전수·출력·온도 등 실시간 차량 정보"
+}

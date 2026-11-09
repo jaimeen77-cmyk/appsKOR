@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 1082929,
+  "sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "parts": [
+    "part-000",
+    "part-001",
+    "part-002",
+    "part-003",
+    "part-004",
+    "part-005"
+  ],
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b"
+}

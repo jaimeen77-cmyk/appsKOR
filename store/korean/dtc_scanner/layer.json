@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 3466997,
+  "sha256": "abd817e7ef2337b7d4908c4fbd7aa4b6f7b4219bf8a37e80bf1bdae59ed7266c",
+  "parts": [
+    "part-000",
+    "part-001",
+    "part-002",
+    "part-003",
+    "part-004",
+    "part-005",
+    "part-006",
+    "part-007",
+    "part-008",
+    "part-009",
+    "part-010",
+    "part-011",
+    "part-012",
+    "part-013",
+    "part-014",
+    "part-015",
+    "part-016",
+    "part-017"
+  ],
+  "id": "dtc_scanner",
+  "version": "2.9.6",
+  "compiled_version": "2.9.6-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "382a93a6be137d517253d8d81c12cc02872ef261861d08a1480c351685b6897e"
+}

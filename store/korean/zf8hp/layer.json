@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 30100,
+  "sha256": "b31a554cf53810e7c8060573c1518b3c8b043563535292ae1f3d0ef72902eeec",
+  "parts": [
+    "part-000"
+  ],
+  "id": "zf8hp",
+  "version": "1.5.5",
+  "compiled_version": "1.5.5-ko.1",
+  "common_sha256": "edcdea3085eb195f5a97acabacd804ae438b8039f3c1f3d0054551d2f0389323",
+  "source_commit": "213c033cb259372449ae7f8c967c8ca71be6c73b",
+  "source_hash": "5754a13cc979cc5be9809cb2a4f33b1f1cb7275d1cf7c430030cdc17b2d9c521"
+}
