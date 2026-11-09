@@ -39,6 +39,18 @@ cars with a HUD, but nobody has checked yet.
 2. Use **HUD position and size** → *Size* and *Position* to move the tach. The pattern follows as you go.
 3. Set **Show on HUD** to **On**.
 
+### With Cluster functions
+
+Cluster functions (the HUD map, turn signals and gear) stands on the HUD whenever it is on. Turning
+Redline's HUD on takes the HUD over: Cluster functions gives way, except while Redline's tach is hidden in
+Comfort / Eco Pro. Redline's HUD stays on from drive to drive. With *HUD position and size* → *Give the HUD back
+to Cluster functions at switch-off* (off by default) on, Redline's *Show on HUD* goes back to *Off* when the car is
+switched off or the head unit starts again, and Cluster functions has the HUD again. Without Cluster functions
+installed, Redline's HUD stays on either way.
+Both apps keep their state in `/dev/shm/mgu-hud` (`kit/runtime/hud_claim.js`), cleared at each head-unit start;
+where it cannot be written, nothing is handed back. Cluster functions' side: TheoneLT83/Cluster-apps
+`apps/robertn_waze_cluster/app/main.js` (`HudClaim.others`, `HudClaim.standing`, app id `robertn_waze_cluster`).
+
 ### What it shows
 
 **Layouts** (*Layout*):
