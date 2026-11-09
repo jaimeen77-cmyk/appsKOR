@@ -59,10 +59,14 @@
   <img src="docs/media/redline.gif" alt="Redline: full-screen rev bar, shift lights and gear, animated at 60 fps" width="100%">
 </p>
 
+<p align="center">
+  <img src="docs/media/redline_hud_banner.gif" alt="Redline on the windscreen head-up display: Standard, Arc, Ramp, Dial, 80s digital and VFD layouts on the demo drive" width="100%">
+</p>
+
 Real electric range, battery health and a charge log for plug-in hybrids, and live battery
 power, cell temperatures and climate power use. A sport cluster with
 boost, fuel pressures, ignition timing, misfires and tyre data. Shift lights and a full-screen
-tach, a virtual dyno, brake and drag timers, a G-meter, an oil warm-up guide, a fault-code
+tach, also on the windscreen head-up display, a virtual dyno, brake and drag timers, a G-meter, an oil warm-up guide, a fault-code
 scanner / cleaner, the car's service items, and Doom for when you're parked. They run on the car's own app platform, use the HMI's real buttons and
 settings menus, read live vehicle data and survive reboots. Everything can be removed again
 with one command.
@@ -128,28 +132,32 @@ More in [How apps draw](#44-how-apps-draw-remote-hmi-rhmi) and [`kit/renderd`](k
 
 <table>
 <tr>
-<td width="50%"><img src="docs/media/m_vitals.gif" alt="M Vitals engine page"><br><b>M Vitals</b>: rpm, boost, speed + gear, power, torque</td>
-<td width="50%"><img src="docs/media/gforce.gif" alt="G-Force"><br><b>G-Force</b>: friction circle with trail, grip envelope, peaks, records</td>
+<td width="50%"><img src="docs/screens/redline.png" alt="Redline"><br><b>Redline</b>: Live Cockpit rev bar, big gear, shift scoring</td>
+<td width="50%"><img src="docs/media/redline_hud.gif" alt="Redline on the windscreen HUD: Standard, Arc, Ramp and Dial layouts on the demo drive"><br><b>Redline</b> on the windscreen HUD (cluster-render): shift lights early by your reaction time, gear, grades and readouts; Standard and the M-style Arc, Ramp and Dial</td>
 </tr>
 <tr>
+<td><img src="docs/screens/redline_hud.png" alt="Redline's nine HUD layouts"><br><b>Redline</b> HUD: nine layouts, picked and edited by picture on the app's HUD looks page</td>
+<td><img src="docs/media/m_vitals.gif" alt="M Vitals engine page"><br><b>M Vitals</b>: rpm, boost, speed + gear, power, torque</td>
+</tr>
+<tr>
+<td><img src="docs/media/gforce.gif" alt="G-Force"><br><b>G-Force</b>: friction circle with trail, grip envelope, peaks, records</td>
 <td><img src="docs/media/draggy.gif" alt="Drag Timer"><br><b>Drag Timer</b>: live speed trace, splits, ¼ mile</td>
+</tr>
+<tr>
 <td><img src="docs/media/brake_test.gif" alt="Brake Test"><br><b>Brake Test</b>: 100-0 distance, deceleration trace, fade</td>
-</tr>
-<tr>
 <td><img src="docs/media/m_vitals_chassis.gif" alt="M Vitals chassis page"><br><b>M Vitals</b>: g-force, tyre pressures + temperatures, xDrive split</td>
+</tr>
+<tr>
 <td><img src="docs/media/warmup.gif" alt="Warm-Up"><br><b>Warm-Up</b>: time to working temperature, safe rev limit</td>
-</tr>
-<tr>
 <td><img src="docs/screens/m_vitals_fuel.png" alt="M Vitals fuel and ignition page"><br><b>M Vitals</b>: intake air, HPFP / LPFP fuel pressure, ignition timing, misfires per cylinder</td>
+</tr>
+<tr>
 <td><img src="docs/screens/edrive.png" alt="eDrive"><br><b>eDrive</b>: real electric range, battery health, last charge, 12 V</td>
-</tr>
-<tr>
 <td><img src="docs/screens/edrive_log.png" alt="eDrive charge log"><br><b>eDrive</b>: charge log with cost and totals</td>
-<td><img src="docs/screens/dyno.png" alt="Virtual Dyno"><br><b>Virtual Dyno</b>: power and torque curve from a pull</td>
 </tr>
 <tr>
+<td><img src="docs/screens/dyno.png" alt="Virtual Dyno"><br><b>Virtual Dyno</b>: power and torque curve from a pull</td>
 <td><img src="docs/screens/dtc_scanner.png" alt="Fault Scanner"><br><b>Fault Scanner</b>: fault codes of every control unit, with their texts</td>
-<td><img src="docs/screens/redline.png" alt="Redline"><br><b>Redline</b>: G20-style rev bar, big gear, shift scoring</td>
 </tr>
 <tr>
 <td><img src="docs/screens/service.png" alt="Service"><br><b>Service</b>: service requirements, next service, details per item; an Engine page with oil life, spark plugs, engine hours and the particulate filter</td>
@@ -165,26 +173,25 @@ More in [How apps draw](#44-how-apps-draw-remote-hmi-rhmi) and [`kit/renderd`](k
 </tr>
 <tr>
 <td><img src="docs/screens/edrive_12v_history.png" alt="eDrive 12 V history"><br><b>eDrive</b> without a hybrid system, History: the last hour's voltage and charge, the charge the car recorded and the time per charge band</td>
-<td></td>
-</tr>
-<tr>
 <td><img src="docs/screens/live_adjustments.png" alt="Engine Config, exhaust flap following the driving mode"><br><b>Engine Config</b>: exhaust flap open, closed, handed back to the car (OEM) or following the driving mode (Sport open, Eco Pro closed), held against the DME's timeout</td>
+</tr>
+<tr>
 <td><img src="docs/screens/live_adjustments_closed.png" alt="Engine Config, exhaust flap closed"><br><b>Engine Config</b>: flap closed, the selected mode in red; Close handed back to the car above a set engine speed; more adjustments can be added as tabs</td>
-</tr>
-<tr>
 <td><img src="docs/screens/live_adjustments_map.png" alt="Live Adjustments, engine map"><br><b>Live Adjustments</b> (tuned DME): engine map 1–4 with one press; the DME echoes the request back</td>
+</tr>
+<tr>
 <td><img src="docs/screens/live_adjustments_cooling.png" alt="Live Adjustments, Max Cooling"><br><b>Live Adjustments</b> (tuned DME): Max Cooling on / off</td>
-</tr>
-<tr>
 <td><img src="docs/screens/live_adjustments_map_readback.png" alt="Live Adjustments, engine map read back"><br><b>Live Adjustments</b> (tuned DME, not yet tested on a car): engine map confirmed by reading it back from the DME</td>
+</tr>
+<tr>
 <td><img src="docs/screens/live_adjustments_burbles.png" alt="Live Adjustments, burbles"><br><b>Live Adjustments</b> (tuned DME, not yet tested on a car): burble aggression 0–12 picked with – / +, sent on Apply and read back; Off</td>
-</tr>
-<tr>
 <td><img src="docs/screens/live_data.png" alt="Live Data, a screen of gauges"><br><b>Live Data</b>: a screen of your own, sport-display bar and numbers with the last 5 minutes</td>
-<td><img src="docs/screens/live_data_trips.png" alt="Live Data, trips"><br><b>Live Data</b>: the trip computer, distance, fuel and cost per trip</td>
 </tr>
 <tr>
+<td><img src="docs/screens/live_data_trips.png" alt="Live Data, trips"><br><b>Live Data</b>: the trip computer, distance, fuel and cost per trip</td>
 <td><img src="docs/screens/live_data_engine.png" alt="Live Data, engine values"><br><b>Live Data</b>: the engine unit's values in groups, read live</td>
+</tr>
+<tr>
 <td><img src="docs/screens/live_data_pick.png" alt="Live Data, choosing a gauge's value"><br><b>Live Data</b>: a gauge's value chosen from a group, each with what it reads now</td>
 </tr>
 </table>
@@ -222,7 +229,7 @@ the unit and kept across reboots.
 
 | App | What it does |
 |---|---|
-| **Redline** | A G20 Live Cockpit style rev display: a wide rev bar across the middle that fills left to right in slanted segments (theme colour to red at your shift point), digital rpm above it and a big gear below it, digital speed, and a 12-LED shift-light bar. At the shift point the shift lights, the gear and a SHIFT prompt turn solid red; the *Blink and flash* setting (off by default) makes them strobe and flashes the whole screen red. Gear read from the gearbox or learned from rpm/speed. Every upshift made by hand near the shift point is scored (EARLY / SPOT ON / LATE / LIMITER), with a shift log and accuracy stats; everyday shifts well below it and the gearbox's own shifts in D / S are logged as CRUISE / AUTO and left out of the score. Cold oil is always flagged; the cold-engine guard (on by default) also lowers the shift point until the oil is warm. The *Engine* setting (Auto / Diesel / Petrol; Auto reads the engine type from the car, petrol when it says nothing) sets the end of the rev scale: 6000 rpm for a diesel, 8000 for a petrol. Redline and cold rev limit on Auto follow it (diesel 5000 / 3000, petrol 7000 / 4500); a number picked by hand wins. *Rev scale up to* sets the end of the scale by hand (5000-10000 rpm); on Auto it follows the redline as before the Engine setting: redline + 800 rounded up to 1000 (7000 -> 8000, 6000 -> 7000, 5000 -> 6000). A hand-set scale caps the redline. **HUD output (experimental, needs [cluster-render](https://github.com/robertnisipeanu/idrive-apps)):** the shift cue on the windscreen HUD as well: GT3-style shift lights that flash early by your reaction time (learned from manual shifts), the rev bar, gear with D / S / M, downshift arrows, the grade of each upshift, and up to four readouts (rpm, boost, torque, power, g, oil / water / gearbox / outside temperature). Six layouts and three colour schemes, chosen and edited on the app's *HUD looks* page with a live preview; it can also learn the rev limiter and per-gear shift points. Details in [apps/redline/README.md](apps/redline/README.md). |
+| **Redline** | <b>On the centre screen</b><ul><li>Live Cockpit tach: rev bar, rpm, gear, speed and 12 shift lights.</li><li>Shift point: the lights, gear and a SHIFT prompt turn red (optional strobe and screen flash).</li><li>Grades every hand upshift aimed at the shift point (EARLY / SPOT ON / LATE / LIMITER), with a shift log and accuracy stats.</li><li>Cold-engine guard: a lower shift point until the oil is warm.</li><li>Diesel and petrol defaults, read from the car; any of them can be set by hand.</li></ul><b>On the windscreen HUD</b>, by <a href="https://github.com/biscotit">@biscotit</a> (experimental, needs <a href="https://github.com/robertnisipeanu/idrive-apps">cluster-render</a>)<ul><li>Shift lights timed to your reaction, the gear with D / S / M, downshift arrows (every gear you can drop, or the best one), shift grades and up to four readouts.</li><li>KNOCK when the engine pulls timing, and your launch time (0-100 km/h or 0-60 mph) against your best.</li><li>Nine layouts, including three after BMW M's own HUDs (F80 M3/M4, G80 M3/M4, E60 M5).</li><li>Colour schemes, shift-light styles and gear font, set up on the <i>HUD looks</i> page with a live preview.</li><li>One HUD for every mode, or a Sport HUD and a Comfort / Eco Pro HUD of its own (or none in Comfort).</li></ul><b>It learns your car</b> (shown, frozen or reset on the <i>Learned</i> page)<ul><li>The real rev limit, from the limiter.</li><li>A shift point per gear, from the torque curve and gear ratios.</li><li>Your reaction time, so the lights flash early enough.</li><li>Shifts the gearbox makes in D / S aren't graded or learned from.</li></ul>Details in <a href="apps/redline/README.md">apps/redline/README.md</a>. |
 | **Virtual Dyno** | Do a full-throttle pull in one gear and get a power and torque curve, calculated from acceleration, car weight, air drag and rolling resistance. Settings for weight, body shape, drivetrain loss, hp/PS/kW and Nm/lb-ft. The rpm axis on Auto ends at 6000 for a diesel and 8000 for a petrol (*Engine* setting, as in Redline). Runs are saved; pin one as a baseline to see ± on every new pull. Optional overlay of the engine computer's own torque reading. |
 | **Brake Test** | 100-0 and 200-0 km/h (or 60-0 and 100-0 mph): distance, time, peak deceleration and a deceleration trace. The start crossing is interpolated between samples, so results don't depend on the sample rate. A brake-fade chart compares your last stops and warns when distances grow. Bests plus full history. |
 | **Drag Timer** | 0-50, 0-100, 100-200, 0-200 km/h and ¼ mile (or mph equivalents), with interpolated splits, optional one-foot rollout, a live speed trace and saved best times. |
@@ -236,7 +243,7 @@ the unit and kept across reboots.
 | **Service** | The car's service requirements (BMW Condition Based Service) as the iDrive's own *Vehicle status > Service requirements* shows them: engine oil, brakes, brake fluid, vehicle check, inspection and the rest, each with the distance and date the car gives (in its own language and units; a language the app's fonts have no glyphs for, such as Korean, shows the item's English name and the date's numbers instead of a "?" per character), coloured green / yellow / red, a summary of the next service, and the item's service hint text as details. Read from the instrument cluster (`KombiInterface_2`). Read-only: these cars offer the head unit no service reset (that is done in the cluster's own menu or by a workshop). |
 | **Doom** | Freedoom: Phase 1 (four episodes, free game data) running in the head unit as WebAssembly. The engine draws the 3D view in full resolution across the whole screen (1920 x 504, Doom's vertical field of view widened to the screen), with the status bar, menus and messages on top at 4:3; 35 fps on the VM. A main menu (Play / Continue, New game, all settings) comes first; the game then has the screen to itself with no header or button bar, and BACK returns to the menu. **Turn the controller to aim, push it to walk and sidestep, press to fire and open doors, press twice for the next weapon.** While you play, the game has the controller to itself: the HMI ignores the knob, press and tilt, so pushing forward no longer opens the HMI's pull-down menu and pushing left no longer leaves the game. BACK, MENU and the touchscreen always work. This uses the controller gate that `deploy-car.sh` loads into the HMI (see [5.1](#51-what-deploy-carsh-install-does)). Without the gate, the game reads the controller signal itself and the HMI reacts to it too. It pauses when you leave the screen or a popup / call covers it, and saves itself each time, so it carries on where you stopped. Settings, in the main menu: difficulty, episode, move speed (slow walk by default, walk, run), aim speed and direction, render resolution (full / medium / low). GPL-2.0, see [Doom licences](#doom-licences). **Parked only** by default: the game saves and waits while the car drives (setting *Parked only*, can be turned off). |
 | **Engine Config** | Live engine tweaks as tabs, starting with **Exhaust Flap**: Open the flap, Close it, hand control back to the car (OEM) or let it follow the driving mode (**Drive mode**: Sport open, Comfort / Adaptive OEM, Eco Pro closed, on every change), shown on the rear silencer with the flap's butterfly turning in the right tailpipe and the big state word. Open / Close are sent again every 15 s (*Hold*, the DME lets a tester's command go after ~20 s), and Close is handed back to the car above a set engine speed (*Close: hand back above*, 4,000 rpm by default) or without a live engine speed. **Safe by default** — the *Exhaust Flap* setting ships **Disarmed** (simulated, touches nothing); set it to **Armed** only after you have validated the command on your own car. When armed and a matching DME is detected, it drives the electric exhaust flap over the car's own diagnostic link (UDS `2F 60FD` "EL_AGK", Bosch MG1 / DME8 as used by B48 / B58 / S58 on MGU ID7; OPEN 10 %, CLOSE 90 %, OEM hands control back and the DME self-times the override in ~20 s). The command was confirmed on a real car; other DME variants are unverified, so each owner arms it themselves. **Tuned DME (experimental):** pick the tuning software the car runs in Settings (*Tuning software*: Off, BM3, MHD; ships Off, which sends nothing) and its tabs appear: **BM3** — Engine Map 1–4 and Burbles (written to the DME's memory and confirmed by read-back, only after the BM3 CustomROM is identified) and Active Sound (ASD on / off); **MHD** — Engine Map 1–4 and Max Cooling (each press counts when the DME echoes it). Other tuning software can be added (see the app's README). **xDrive (experimental, ships Off):** switches xDrive off until the next ignition cycle through the DSC's own `LMV_FUNKTION` job (issue #28). It only works with the engine off, in P, parking brake on, stationary, and needs two presses. The DSC reports AWD / RWD once the engine runs, and the ignition cycle brings xDrive back. **xDrive live** (read only, on an xDrive car or with the xDrive setting): the front / rear split, each wheel's slip, the front axle against the rear, steering wheel, yaw rate and g. |
-| **Ambient config** | The ambient light's colour: set one of BMW's colours by number, or let the driving mode choose (a colour each for Sport, Comfort, Eco Pro and Adaptive, or on a plug-in hybrid Sport, Hybrid, Hybrid Eco Pro and Electric; *Leave as is* gives your own colour back). It runs from the head unit's start, so the modes work with the app closed. Only the colour is set; brightness and the light's other modes stay as they are. |
+| **Ambient config** | The ambient light's colour: set one of BMW's colours by number, or let the driving mode choose (a colour each for Sport, Comfort and Eco Pro, on a plug-in hybrid Sport, Hybrid, Electric and Eco Pro, and Adaptive on cars that have it; *Leave as is* gives your own colour back). It runs from the head unit's start, so the modes work with the app closed. Only the colour is set; brightness and the light's other modes stay as they are. |
 
 **Experimental:** [Transmission Config](apps/zf8hp/README.md) (ZF 8HP) reads clutch adaptations, shift maps,
 temperature history and live transmission data; it is read-only, requires the verified EGS
@@ -253,6 +260,8 @@ cold). A **DEMO** badge shows when the data isn't from the car.
 ---
 
 ## 2. What you need
+
+> Not comfortable with root access, SSH and building? [idriveapps.com](https://idriveapps.com/) is a service that installs the apps for you.
 
 **In the car**
 
