@@ -9,11 +9,14 @@ from PIL import Image, ImageDraw, ImageFont
 from scipy import ndimage
 
 ROOT = Path(__file__).resolve().parent.parent
-SHARED = ROOT / 'cluster-shared'
+SHARED = ROOT / 'shared'
 LOCALE = ROOT / 'kit/runtime/locales/ko.json'
 UP = 4
 SPREAD = 8
 BASE = 0.79
+CLUSTER_KEYS = (
+    'OIL', 'COOLANT', 'FUEL', 'CHARGE', 'GEAR',
+)
 
 
 def glyph(font, ch, cell_w, cell_h):
@@ -32,7 +35,7 @@ def main(font_file):
     source = (SHARED / 'font_baked.js').read_text()
     metadata = json.loads(source[source.index('=') + 1:].strip().rstrip(';'))
     catalog = json.loads(LOCALE.read_text())
-    wanted = ''.join(sorted({ch for value in catalog.values() for ch in value if '\uac00' <= ch <= '\ud7a3'}))
+    wanted = ''.join(sorted({ch for key in CLUSTER_KEYS for ch in catalog.get(key, '') if '\uac00' <= ch <= '\ud7a3'}))
     for family, meta in metadata.items():
         missing = ''.join(ch for ch in wanted if ch not in meta['chars'])
         if not missing:

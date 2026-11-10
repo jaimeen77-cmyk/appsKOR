@@ -121,8 +121,9 @@ function digitAdvance(fam) { return atlas(fam).adv[0]; }
  * glyph heights; align 0 left, 0.5 centre, 1 right; tracking: extra space between glyphs (glyph heights).
  */
 function line(s, boxW, align, tracking, fam) {
-    s = translate(s);
-    const a = atlas(fam), chars = Array.from(String(s)).slice(0, 32);
+    const a = atlas(fam), translated = translate(s);
+    s = Array.from(String(translated)).every((ch) => a.code(ch) >= 0) ? translated : s;
+    const chars = Array.from(String(s)).slice(0, 32);
     // a space at least a third of a glyph height: the unit's fonts report next to nothing for it, which ran
     // 'F 0   R 100' together on the car
     const codes = chars.map(a.code), advs = codes.map((c, i) => (c < 0 ? 0.3 : chars[i] === ' ' ? Math.max(a.adv[c], 0.32) : a.adv[c]));
@@ -150,7 +151,9 @@ const smallPrint = (s) => String(s).replace(/[0-9A-Z+,\-./:]/g, (c) => String.fr
 /** Up to 32 codes for a string (the text shader's u_text), padded with -1. */
 function codes(s) {
     const out = [];
-    for (const ch of Array.from(String(translate(s))).slice(0, 32)) out.push(codeOf(ch));
+    const translated = translate(s);
+    s = Array.from(String(translated)).every((ch) => codeOf(ch) >= 0) ? translated : s;
+    for (const ch of Array.from(String(s)).slice(0, 32)) out.push(codeOf(ch));
     while (out.length < 32) out.push(-1);
     return out;
 }

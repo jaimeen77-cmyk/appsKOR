@@ -124,7 +124,7 @@ def prepare(dist, source):
             shutil.copy2(source_icon, listing / 'icon.png')
         else:
             # Some apps generate their Store icon from iconGlyph during build.
-            built_icon = stage / 'rhmiData/variantGroups/Common/images' / (app + '_icon.png')
+            built_icon = dist / app / 'source/rhmiData/variantGroups/Common/images' / (app + '_icon.png')
             if not built_icon.exists():
                 raise ValueError('Missing Store icon: ' + app)
             shutil.copy2(built_icon, listing / 'icon.png')

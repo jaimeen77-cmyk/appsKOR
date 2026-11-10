@@ -4,8 +4,8 @@
     {
       "id": "idrive7-renderd",
       "path": "kit/renderd/prebuilt",
-      "title": "GPU renderer",
-      "description": "The apps' own GPU renderer (mgu-render): draws them at 60 fps, beside the MGU Store's Renderer; installed with the apps",
+      "title": "GPU 화면 렌더러",
+      "description": "앱 화면을 초당 60프레임으로 그리는 필수 렌더러이며 앱과 함께 설치됩니다.",
       "provides": "renderer",
       "mguHmi": [
         "ID7"
@@ -15,8 +15,8 @@
       "id": "mgu-inputgate",
       "path": "kit/renderd/prebuilt",
       "version": "1.0.0",
-      "title": "Controller gate",
-      "description": "Lets the apps have the iDrive controller (tabs, page buttons, settings, Doom); loads into the HMI at the next start",
+      "title": "iDrive 컨트롤러 연결",
+      "description": "탭·화면 버튼·설정·Doom에서 iDrive 컨트롤러를 사용할 수 있게 하며 다음 HMI 시작 시 적용됩니다.",
       "needs": [
         "renderer"
       ],
@@ -122,6 +122,96 @@
           "tools/install-korean.py",
           "store/korean/common",
           "store/korean/car_vitals"
+        ]
+      }
+    },
+    {
+      "id": "cluster_centre",
+      "kind": "app",
+      "path": "store/apps/cluster_centre",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/cluster_centre"
+        ]
+      }
+    },
+    {
+      "id": "cluster_info",
+      "kind": "app",
+      "path": "store/apps/cluster_info",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/cluster_info"
+        ]
+      }
+    },
+    {
+      "id": "cluster_layouts",
+      "kind": "app",
+      "path": "store/apps/cluster_layouts",
+      "mguHmi": [
+        "ID7"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.17",
+        "idrive7-renderd": "2.1.7",
+        "mgu-inputgate": "1.0.0"
+      },
+      "build": {
+        "python": "tools/install-korean.py",
+        "args": [
+          "--id",
+          "{id}",
+          "--version",
+          "{version}",
+          "--dir",
+          "{dir}"
+        ],
+        "network": false,
+        "shared": [
+          "tools/install-korean.py",
+          "store/korean/common",
+          "store/korean/cluster_layouts"
         ]
       }
     },
