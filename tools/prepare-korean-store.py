@@ -15,6 +15,9 @@ DESCRIPTIONS = {
     'ambient_config': '앰비언트 조명 색상과 주행 모드별 색상 설정',
     'brake_test': '제동 구간의 시간과 거리 측정',
     'car_vitals': '엔진 회전수·출력·온도 등 실시간 차량 정보',
+    'cluster_centre': '순정 클러스터 중앙에 온도·연료·예열·주행 정보를 표시',
+    'cluster_info': '클러스터 지도와 HUD 위에 차량 정보를 표시',
+    'cluster_layouts': '계기판 전체에 사용자 레이아웃과 차량 정보를 표시',
     'doom': '한국어 메뉴의 Doom · Freedoom Phase 1 데이터 포함',
     'draggy': '가속 구간 시간·거리와 주행 기록 측정',
     'dtc_scanner': '차량 고장 코드 조회와 진단 정보 확인',
@@ -116,7 +119,15 @@ def prepare(dist, source):
         listing.mkdir(parents=True, exist_ok=True)
         manifest = dict(id=app, sourceId=app, version=spec['version'], title=data['localized']['title'] + ' (한국어)', description='한국어 고정 빌드 · ' + DESCRIPTIONS[app])
         (listing / 'app.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
-        shutil.copy2(ROOT / 'apps' / app / 'icon.png', listing / 'icon.png')
+        source_icon = ROOT / 'apps' / app / 'icon.png'
+        if source_icon.exists():
+            shutil.copy2(source_icon, listing / 'icon.png')
+        else:
+            # Some apps generate their Store icon from iconGlyph during build.
+            built_icon = stage / 'rhmiData/variantGroups/Common/images' / (app + '_icon.png')
+            if not built_icon.exists():
+                raise ValueError('Missing Store icon: ' + app)
+            shutil.copy2(built_icon, listing / 'icon.png')
         components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=['ID7'], requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {'idrive7-renderd':'2.1.7','mgu-inputgate':'1.0.0'})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app])))
         print(app + ': ' + str(meta['size']) + ' app bytes + shared Korean runtime; ' + data['localized']['version'])
     # Retain renderer/controller tools and their existing metadata unchanged.
