@@ -31,5 +31,10 @@ jobs:
           git diff --exit-code -- kit/runtime/locales/ko.json
       - name: Check Korean menus, font coverage and runtime
         run: python3 kit/tools/test_ko.py
+      - name: Check cluster renderer limits and app behaviour
+        run: |
+          node cluster-tools/test_engine.js
+          node cluster-tools/test_app.js
+          node cluster-tools/test_centre.js
       - name: Check precompiled Korean Store packages
         run: python3 tools/test-korean-store.py --build

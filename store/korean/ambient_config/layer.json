@@ -9,7 +9,7 @@
   "id": "ambient_config",
   "version": "1.3.0",
   "compiled_version": "1.3.0-ko.1",
-  "common_sha256": "5dcc65d839bc68926dd98899a380d98a5fb37d6970ab8592d40b3d38bf694894",
-  "source_commit": "d19dce5c5cb203bc6d56d3ef59f8b3817f47577e",
-  "source_hash": "85041599d6ae157a7188050256d7fc3059a475c9d875464d44e823f867032b8f"
+  "common_sha256": "c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
+  "source_commit": "a81b1e5a863631bb98afb60da599e94046914cec",
+  "source_hash": "0ef7d986e86271e62970a2a1e79dc38eb2b245b092524516b35e6f6a409867b5"
 }

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "language": "ko",
+  "size": 37070,
+  "sha256": "ba52c8090f8ee74bbe2a48f3330b30a958ea6718b76fbd2f0e58b803ad7bbc20",
+  "parts": [
+    "part-000"
+  ],
+  "id": "cluster_info",
+  "version": "1.6.6",
+  "compiled_version": "1.6.6-ko.1",
+  "common_sha256": "c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
+  "source_commit": "a81b1e5a863631bb98afb60da599e94046914cec",
+  "source_hash": "21876a727419b3bb12778a8efab3e6b1464d9596d29bb830b5a74af35abcc4ce"
+}

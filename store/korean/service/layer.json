@@ -9,7 +9,7 @@
   "id": "service",
   "version": "1.6.0",
   "compiled_version": "1.6.0-ko.1",
-  "common_sha256": "5dcc65d839bc68926dd98899a380d98a5fb37d6970ab8592d40b3d38bf694894",
-  "source_commit": "d19dce5c5cb203bc6d56d3ef59f8b3817f47577e",
-  "source_hash": "0d8f182df1affbd9cef78921358db8227649a3f0ab5960349822c2e4f24633c5"
+  "common_sha256": "c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
+  "source_commit": "a81b1e5a863631bb98afb60da599e94046914cec",
+  "source_hash": "6b23d274b6109c06689118b34f8df0f24c09df0817c91fe94c5ae59f8a11dd5a"
 }
