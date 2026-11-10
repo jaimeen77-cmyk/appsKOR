@@ -129,6 +129,7 @@ def prepare(dist, source):
                 raise ValueError('Missing Store icon: ' + app)
             shutil.copy2(built_icon, listing / 'icon.png')
         components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=['ID7'], requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {'idrive7-renderd':'2.1.7','mgu-inputgate':'1.0.0'})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app])))
+        components[-1]['requires'].update(spec.get('requires', {}))
         print(app + ': ' + str(meta['size']) + ' app bytes + shared Korean runtime; ' + data['localized']['version'])
     # Retain renderer/controller tools and their existing metadata unchanged.
     repo.pop('apps', None)

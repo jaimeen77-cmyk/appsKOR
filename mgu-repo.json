@@ -135,7 +135,8 @@
       "requires": {
         "mgu-deploy": "0.7.17",
         "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "mgu-inputgate": "1.0.0",
+        "cluster-render": "0.4.2"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -195,7 +196,8 @@
       "requires": {
         "mgu-deploy": "0.7.17",
         "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "mgu-inputgate": "1.0.0",
+        "cluster-render": "0.4.2"
       },
       "build": {
         "python": "tools/install-korean.py",
