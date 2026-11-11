@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 40101,
-  "sha256": "25c9fde811646701186b97fa23c39d9b16370ab406380586b06a1d2050ca0c0d",
+  "size": 40102,
+  "sha256": "3dd75a69e712f7ccafaf929d3bd618b4e1a83317b7b007b09f92826a05107fb2",
   "parts": [
     "part-000"
   ],
   "id": "brake_test",
-  "version": "1.5.19",
-  "compiled_version": "1.5.19-ko.1",
-  "common_sha256": "c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
-  "source_commit": "a81b1e5a863631bb98afb60da599e94046914cec",
-  "source_hash": "70e17e82dc22aabb3080e77235be662d0a69e593295f437534bf2550a294bcfa"
+  "version": "1.5.20",
+  "compiled_version": "1.5.20-ko.1",
+  "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+  "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+  "source_hash": "509fea93fb523b3b25925b0e7a6d9d1db57dc58d03e0ec0764ac4149c21dddc0"
 }

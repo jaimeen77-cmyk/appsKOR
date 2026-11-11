@@ -1,7 +1,7 @@
 {
   "id": "live_data",
   "sourceId": "live_data",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "title": "실시간 정보 (한국어)",
   "description": "한국어 고정 빌드 · 차량 진단 신호와 실시간 데이터 표시"
 }

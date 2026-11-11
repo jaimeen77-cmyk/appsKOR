@@ -1,7 +1,7 @@
 {
   "id": "ambient_config",
   "sourceId": "ambient_config",
-  "version": "1.3.0",
+  "version": "2.0.4",
   "title": "앰비언트 설정 (한국어)",
   "description": "한국어 고정 빌드 · 앰비언트 조명 색상과 주행 모드별 색상 설정"
 }

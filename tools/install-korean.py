@@ -53,6 +53,17 @@ def read_layer(folder):
     return info, files
 
 
+def read_common(own):
+    expected = own.get('common_sha256')
+    if not isinstance(expected, str) or not re.fullmatch(r'[0-9a-f]{64}', expected):
+        raise ValueError('Invalid common layer identity')
+    archived = ROOT / 'store/korean' / ('common-' + expected)
+    common, files = read_layer(archived if archived.is_dir() else ROOT / 'store/korean/common')
+    if common['sha256'] != expected:
+        raise ValueError('Stale or mismatched common layer')
+    return common, files
+
+
 def assemble(app_id, version, directory, output):
     if not ID.fullmatch(app_id) or not VERSION.fullmatch(version):
         raise ValueError('Invalid app identity/version')
@@ -61,8 +72,10 @@ def assemble(app_id, version, directory, output):
     original = listing.get('sourceId')
     if not isinstance(original, str) or not ID.fullmatch(original) or listing['id'] != app_id or listing['version'] != version:
         raise ValueError('Store listing does not match requested package')
-    common, files = read_layer(ROOT / 'store/korean/common')
     own, delta = read_layer(ROOT / 'store/korean' / original)
+    # Imported package cohorts can use different immutable runtimes. The full
+    # digest selects the archived layer; the same checksum checks still apply.
+    common, files = read_common(own)
     if own.get('id') != original or own.get('version') != version or own.get('common_sha256') != common['sha256']:
         raise ValueError('Stale or mismatched compiled package')
     if set(files).intersection(delta):

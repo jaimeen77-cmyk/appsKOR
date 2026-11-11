@@ -83,6 +83,11 @@ def prepare(dist, source):
     for spec_path in sorted((ROOT / 'apps').glob('*/app.json')):
         app = spec_path.parent.name
         original = json.loads(spec_path.read_text())
+        published = ROOT / 'store/apps' / app / 'app.json'
+        if published.exists():
+            previous = json.loads(published.read_text())
+            if tuple(map(int, original['version'].split('.'))) < tuple(map(int, previous['version'].split('.'))):
+                raise ValueError('Source is older than published ' + app + '; update the source before regenerating Store packages')
         stage = dist / app / 'source'
         localized = json.loads((stage / 'javascript/kit/app-spec.json').read_text())
         locale = json.loads((stage / 'javascript/kit/locale.json').read_text())

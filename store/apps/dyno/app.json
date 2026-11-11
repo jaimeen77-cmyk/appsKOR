@@ -1,7 +1,7 @@
 {
   "id": "dyno",
   "sourceId": "dyno",
-  "version": "1.5.2",
+  "version": "1.6.1",
   "title": "가상 다이노 (한국어)",
   "description": "한국어 고정 빌드 · 주행 데이터로 추정하는 출력·토크 그래프"
 }

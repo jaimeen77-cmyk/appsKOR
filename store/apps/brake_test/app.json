@@ -1,7 +1,7 @@
 {
   "id": "brake_test",
   "sourceId": "brake_test",
-  "version": "1.5.19",
+  "version": "1.5.20",
   "title": "제동 테스트 (한국어)",
   "description": "한국어 고정 빌드 · 제동 구간의 시간과 거리 측정"
 }

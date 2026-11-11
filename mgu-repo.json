@@ -151,7 +151,7 @@
         "network": false,
         "shared": [
           "tools/install-korean.py",
-          "store/korean/common",
+          "store/korean/common-c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
           "store/korean/cluster_centre"
         ]
       }
@@ -181,7 +181,7 @@
         "network": false,
         "shared": [
           "tools/install-korean.py",
-          "store/korean/common",
+          "store/korean/common-c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
           "store/korean/cluster_info"
         ]
       }
@@ -212,7 +212,7 @@
         "network": false,
         "shared": [
           "tools/install-korean.py",
-          "store/korean/common",
+          "store/korean/common-c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
           "store/korean/cluster_layouts"
         ]
       }

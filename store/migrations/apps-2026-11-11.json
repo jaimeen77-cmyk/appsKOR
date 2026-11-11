@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "source_repository": "jaimeen77-cmyk/apps",
+  "source_commit": "9f85edd693dd12815a1a1fdab8ce545051edcabe",
+  "target_previous_commit": "ce660077eb89b59bdaf318a63f8c0a388af383f4",
+  "apps": {
+    "ambient_config": {
+      "version": "2.0.4",
+      "previous_version": "1.3.0",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "32f4fc22f37c41c932bacdcbbdb92b4baf1a68fecd71025c6672617551b7f04a",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "e5e8838aa3839f888a120876632dc979993457d35c4d4bf13614560797085882",
+      "package_contents_sha256": "c8b0c1c2cb8c21c4da3c4d839a9201531fb613333157072472dbf35a78edbaa4"
+    },
+    "brake_test": {
+      "version": "1.5.20",
+      "previous_version": "1.5.19",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "509fea93fb523b3b25925b0e7a6d9d1db57dc58d03e0ec0764ac4149c21dddc0",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "3dd75a69e712f7ccafaf929d3bd618b4e1a83317b7b007b09f92826a05107fb2",
+      "package_contents_sha256": "b9643dcec763a71430e730afbb317bdd1fd32466cbf3b9ccaef09bb12fb1260f"
+    },
+    "car_vitals": {
+      "version": "2.27.1",
+      "previous_version": "2.26.0",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "852a836b5dfad8b609a1f7b2b93b14f9e29a657bedf95c0a2a4e1f02a6284f58",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "ae0190207cffa98485290e56e0bbcdb27b8923d85126f002dc325069f158d427",
+      "package_contents_sha256": "9669d9f3e008ffa0e8257381cccf9f6ee31de421d28632d663f1b5edd4bed22c"
+    },
+    "doom": {
+      "version": "1.7.20",
+      "previous_version": "1.7.19",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "4c00462e0371ae1c0681684a0337d4a368b6dd9235d9047ece288bad08605c91",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "88eed5639e1aa28cdf703290f73f0464d57ba317b183d0c52d398dc2e1894501",
+      "package_contents_sha256": "b882b108dd4e36c24aafe5fb376aef2286dcaec4ea9388ebed6f8e9de716dbf0"
+    },
+    "draggy": {
+      "version": "2.5.20",
+      "previous_version": "2.5.19",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "5157c1d44b6abf1d519a3d55ed986b0e45bbd7a0bd390ec7aea2bfde8248dc7c",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "1a698600f8fe1f3c9e743c9d2488a960d1fc66591a0b632684f0611c3d235098",
+      "package_contents_sha256": "3bf902b5771e0df25df277f6f78be714451b738d0074e876d15d2625d056d8ca"
+    },
+    "dtc_scanner": {
+      "version": "2.9.7",
+      "previous_version": "2.9.6",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "7f53f66bb7b413b05beff34abf0371afe36794d3ba23bcde70d65ee348c4f706",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "a5197c77760d5ae4e067ea70838be505d6be62b4f26464ef59f7fb1956ca92f3",
+      "package_contents_sha256": "a2c034d66791316db1276f6d4f204abfac4491ea11aa69a978ea644aecf4443d"
+    },
+    "dyno": {
+      "version": "1.6.1",
+      "previous_version": "1.5.2",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "f8349e09e5a7cf59d07517b8e025c289f8fca83343e9a5f8bfb8e287d67c98fa",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "5e6e30c3d186f255e49d72f175fd1cfe96e22acc3ffb7d258db50ec66178f6f0",
+      "package_contents_sha256": "2e57d948f7bbe081f2d8da343b7dcccc480dadda674e150d5b22d71561d644ca"
+    },
+    "edrive": {
+      "version": "2.8.5",
+      "previous_version": "2.8.4",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "97055166ce0937a01a1ed70867807d344f66d44a1c1deb0fb579ef587bf5b62f",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "aaad4c35ff476a4d679ddd4bf960ad1b59c7b582b7643c29eea9e6107345f9e6",
+      "package_contents_sha256": "44cd2f340ad6d2529124afdac64e5ba61d4f2481c19ead52a1e58c6ca4bb8428"
+    },
+    "gforce": {
+      "version": "1.6.21",
+      "previous_version": "1.6.20",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "98f4518c57db1c0bb6c5306869d874158410ccbe99effcf19d9aa9701a872eb3",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "a42580c609798f4287c4a94402fe53280c08d4bdee3c4bc5c016982d3f7ea7ef",
+      "package_contents_sha256": "8dcf14dad4894cc6fc77b72589c596395a9df3639b12a2475cce841ac1ef7d8c"
+    },
+    "live_adjustments": {
+      "version": "0.9.3",
+      "previous_version": "0.9.1",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "5beabe6d55fc218ee09fdca01f47f2160add210f67db3046c78bd072c2203bb2",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "340865a53947331c33efe457fea0d5495e5f8887c8b03b17d403f5d47b68f09c",
+      "package_contents_sha256": "16c71fd9240d0e1621a9bbd74974a99a962c0fd5e8d62843a2aa1aea7ecb13da"
+    },
+    "live_data": {
+      "version": "1.0.10",
+      "previous_version": "1.0.8",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "b93eafb7c13862e32a75b68b482f24fc80a9cc415af46c8da7a66ffe03dfe4f0",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "d0cde4835f0bd2dc359e80062a7e0abcdaab3e730764cfe113b5d5668d1f2eba",
+      "package_contents_sha256": "fbc3800065baf6d531782fd7a4e214cfee074f0a8808ca22c59ca04c3c5f017f"
+    },
+    "redline": {
+      "version": "2.0.20",
+      "previous_version": "1.16.8",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "4b16cfc3808db90aab961cd1beb37d3c72afd481962dc1801838fb7ea0847ae0",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "f0501a7231276036a1ba198d28b6c9ab7c7548057ed11f153d889405929d35dc",
+      "package_contents_sha256": "779cc1132bb26d6779d4dc19293f25e1975352954b253889fdfb4873f8d0ad07"
+    },
+    "service": {
+      "version": "1.6.1",
+      "previous_version": "1.6.0",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "2dbfb189ba92a7a6eec3bd6b18b88a21894ebe411804168802c029ab8e89cf27",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "1efa42fa9648c1181b6883a3056ab7f4977044b88296ad70b024e30d002a6c2b",
+      "package_contents_sha256": "fd5e11dca78ce7a3a06c87be92d430cf78e6de33200dc4e8e91f4ce0f670d7a8"
+    },
+    "warmup": {
+      "version": "1.7.4",
+      "previous_version": "1.7.3",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "a3e1302d059251547c694bcb9c3b075a07a79f1831d63e185d73b9d860d46c28",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "03a93b23144d391ce38acee76e968e79526563f51e3551d0f3a8c0bfb79b9304",
+      "package_contents_sha256": "cefa0255289fe0a5f41e7c4ceaaad3985d106ef84fb3187dcad6a1d7c4620910"
+    },
+    "zf8hp": {
+      "version": "1.5.6",
+      "previous_version": "1.5.5",
+      "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226",
+      "source_hash": "c9ee688f94b94530a06960b1ca56da4ce16944c44a536687a8bc1887cf84e6e0",
+      "common_sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+      "layer_sha256": "eb1d20e00ff77671e25d17674067546a0685ac489af3727e008e7b92ba954355",
+      "package_contents_sha256": "69a3e7c32569d20b55ecf61d558d70a457e2e6d790f5e45da440064c9fef8a18"
+    }
+  }
+}
