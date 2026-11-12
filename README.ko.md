@@ -1,5 +1,24 @@
 # appsKOR · MGU Store 한국어 앱
 
+![BMW Coding Study Cafe](https://raw.githubusercontent.com/jaimeen77-cmyk/apps/main/screenshots/banner.png)
+
+**제작: 잼님**
+
+| | |
+|---|---|
+| 다운로드 (GitHub) | **[github.com/jaimeen77-cmyk/appsKOR](https://github.com/jaimeen77-cmyk/appsKOR)** |
+| MGU Store 소스 | 저장소 **`jaimeen77-cmyk/appsKOR`** · 브랜치 **`main`** |
+| 계기판 레드라인 소스 | **`jaimeen77-cmyk/apps`** · 브랜치 **`main`** ([apps](https://github.com/jaimeen77-cmyk/apps) · [설치·사용 설명서](https://github.com/jaimeen77-cmyk/apps/blob/main/docs/CLUSTER-REDLINE.ko.md)) |
+| 네이버 블로그 | **[blog.naver.com/jaimeen77](https://blog.naver.com/jaimeen77)** |
+
+## 빠른 설치
+
+1. 차량에서 **MGU Store → Settings → 소스 추가** 를 엽니다.
+2. 저장소 **`jaimeen77-cmyk/appsKOR`**, 브랜치 **`main`** 을 입력하고 **새로고침** 합니다.
+3. 이름에 **(한국어)** 가 붙은 앱을 골라 **Install** 합니다. 필요한 도구 설치 안내가 나오면 따릅니다.
+
+---
+
 이 저장소를 MGU Store 소스로 등록하면 **한국어로 미리 빌드한 앱 18개**를 설치할 수 있습니다. `appsKOR_fork`의 일반 앱 15개와 `appscluster_fork`의 클러스터 앱 3개를 한 소스에서 제공합니다.
 
 - 저장소: `jaimeen77-cmyk/appsKOR`
