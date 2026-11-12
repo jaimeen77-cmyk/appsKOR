@@ -19,6 +19,28 @@
 
 ---
 
+## 한국어 앱 화면
+
+실제 앱 화면 코드에 데모 데이터를 넣어 만든 미리보기입니다. 화면 속 수치는 차량 측정값이 아닙니다.
+
+| M 차량 정보 | 실시간 정보 |
+|---|---|
+| ![M 차량 정보](docs/screens-ko/car_vitals.png) | ![실시간 정보](docs/screens-ko/live_data.png) |
+| eDrive | G 센서 |
+| ![eDrive](docs/screens-ko/edrive.png) | ![G 센서](docs/screens-ko/gforce.png) |
+| 레드라인 | 엔진 예열 |
+| ![레드라인](docs/screens-ko/redline.png) | ![엔진 예열](docs/screens-ko/warmup.png) |
+| 가속 타이머 | 제동 테스트 |
+| ![가속 타이머](docs/screens-ko/draggy.png) | ![제동 테스트](docs/screens-ko/brake_test.png) |
+| 가상 다이노 | 고장 진단 |
+| ![가상 다이노](docs/screens-ko/dyno.png) | ![고장 진단](docs/screens-ko/dtc_scanner.png) |
+| 정비 정보 | 변속기 정보 |
+| ![정비 정보](docs/screens-ko/service.png) | ![변속기 정보](docs/screens-ko/zf8hp.png) |
+| 엔진 설정 | 앰비언트 설정 |
+| ![엔진 설정](docs/screens-ko/live_adjustments.png) | ![앰비언트 설정](docs/screens-ko/ambient_config.png) |
+
+---
+
 이 저장소를 MGU Store 소스로 등록하면 **한국어로 미리 빌드한 앱 18개**를 설치할 수 있습니다. `appsKOR_fork`의 일반 앱 15개와 `appscluster_fork`의 클러스터 앱 3개를 한 소스에서 제공합니다.
 
 - 저장소: `jaimeen77-cmyk/appsKOR`
