@@ -26,7 +26,7 @@
   "id": "dtc_scanner",
   "version": "2.9.7",
   "compiled_version": "2.9.7-ko.1",
-  "common_sha256": "e13224ca6d700d45206a077b7ccda1de147cf769b947dc76504d836580776cff",
-  "source_commit": "a72f6fd62d470ca1111ee0039c7d5a3df65f9001",
-  "source_hash": "0cfda16e7ac2a9d4a40c23d2dfa5d799f5ec3d9e8aad145820021cad7371ca8d"
+  "common_sha256": "52260f1b5b66b5afdb6381f025f64635e84dda3bcf19056915807ff4488b2f72",
+  "source_commit": "b7c5a391989e36aa346fe2f2e8134564d65cfd60",
+  "source_hash": "c52d23c58174b09e2b7f4db704435b1b6227853b4f06c727b4493ea56b9e122c"
 }
