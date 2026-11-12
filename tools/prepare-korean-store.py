@@ -105,7 +105,8 @@ def prepare(dist, source):
                 data = data.decode('utf-8').replace(localized['version'], original['version']).encode('utf-8')
             files['package/' + rel] = data
         pkg = json.loads(files['package/package.json'])
-        pkg.update(mguHmi=['ID7'], mguLocalOnly=True)
+        # The Store shows the installed package's description; keep it Korean like the listing.
+        pkg.update(mguHmi=['ID7'], mguLocalOnly=True, description='한국어 고정 빌드 · ' + DESCRIPTIONS[app])
         files['package/package.json'] = (json.dumps(pkg, ensure_ascii=False, indent=2) + '\n').encode()
         if 'package/javascript/kit/fonts/korean.json' not in files or not any(n.endswith('/OFL-NotoSansKR.txt') for n in files):
             raise ValueError('Missing Hangul font/license: ' + app)

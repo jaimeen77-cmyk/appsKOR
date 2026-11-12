@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 244282,
-  "sha256": "03e60dd858c615aeff5cf4adef711099f6b65481a6973e937901b4ecf62d6c5f",
+  "size": 244245,
+  "sha256": "53a92c9de06fb1f938261f7886036bc5902a08ea7fb13c064d3d961186d7181e",
   "parts": [
     "part-000",
     "part-001"
@@ -10,7 +10,7 @@
   "id": "redline",
   "version": "2.0.38",
   "compiled_version": "2.0.38-ko.1",
-  "common_sha256": "d78ddfba065ba7e89a4bb45f2f55ae86350854af2edf31c20bf17a7e033536ea",
-  "source_commit": "e1e0ed4154c0c0ae9b7a9ba74965c4caab194b00",
-  "source_hash": "cb824ca18e13d4473d6e96431cb1dec33c38a58a8806855c17ce55a8d1f3794d"
+  "common_sha256": "e13224ca6d700d45206a077b7ccda1de147cf769b947dc76504d836580776cff",
+  "source_commit": "a72f6fd62d470ca1111ee0039c7d5a3df65f9001",
+  "source_hash": "e302d7771f61b552ab02ef110436fb60bd671f00133d4b549b5ba6a11acd44cd"
 }
