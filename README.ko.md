@@ -25,19 +25,19 @@
 
 | M 차량 정보 | 실시간 정보 |
 |---|---|
-| ![M 차량 정보](docs/screens-ko/car_vitals.jpg) | ![실시간 정보](docs/screens-ko/live_data.jpg) |
+| ![M 차량 정보](docs/screens-ko/car_vitals.png) | ![실시간 정보](docs/screens-ko/live_data.png) |
 | eDrive | G 센서 |
-| ![eDrive](docs/screens-ko/edrive.jpg) | ![G 센서](docs/screens-ko/gforce.jpg) |
+| ![eDrive](docs/screens-ko/edrive.png) | ![G 센서](docs/screens-ko/gforce.png) |
 | 레드라인 | 엔진 예열 |
-| ![레드라인](docs/screens-ko/redline.jpg) | ![엔진 예열](docs/screens-ko/warmup.jpg) |
+| ![레드라인](docs/screens-ko/redline.png) | ![엔진 예열](docs/screens-ko/warmup.png) |
 | 가속 타이머 | 제동 테스트 |
-| ![가속 타이머](docs/screens-ko/draggy.jpg) | ![제동 테스트](docs/screens-ko/brake_test.jpg) |
+| ![가속 타이머](docs/screens-ko/draggy.png) | ![제동 테스트](docs/screens-ko/brake_test.png) |
 | 가상 다이노 | 고장 진단 |
-| ![가상 다이노](docs/screens-ko/dyno.jpg) | ![고장 진단](docs/screens-ko/dtc_scanner.jpg) |
+| ![가상 다이노](docs/screens-ko/dyno.png) | ![고장 진단](docs/screens-ko/dtc_scanner.png) |
 | 정비 정보 | 변속기 정보 |
-| ![정비 정보](docs/screens-ko/service.jpg) | ![변속기 정보](docs/screens-ko/zf8hp.jpg) |
+| ![정비 정보](docs/screens-ko/service.png) | ![변속기 정보](docs/screens-ko/zf8hp.png) |
 | 엔진 설정 | 앰비언트 설정 |
-| ![엔진 설정](docs/screens-ko/live_adjustments.jpg) | ![앰비언트 설정](docs/screens-ko/ambient_config.jpg) |
+| ![엔진 설정](docs/screens-ko/live_adjustments.png) | ![앰비언트 설정](docs/screens-ko/ambient_config.png) |
 
 ---
 
