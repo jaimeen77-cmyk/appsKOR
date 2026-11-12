@@ -6,7 +6,6 @@
       "path": "kit/renderd/prebuilt",
       "title": "GPU 화면 렌더러",
       "description": "앱 화면을 초당 60프레임으로 그리는 필수 렌더러이며 앱과 함께 설치됩니다.",
-      "provides": "renderer",
       "mguHmi": [
         "ID7"
       ]

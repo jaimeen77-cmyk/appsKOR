@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 1090945,
-  "sha256": "37c759d7b35e9410e7c871cec0ec0b9f4ae245d5b20ef96f306593d41bf7a288",
+  "size": 1121972,
+  "sha256": "d78ddfba065ba7e89a4bb45f2f55ae86350854af2edf31c20bf17a7e033536ea",
   "parts": [
     "part-000",
     "part-001",
@@ -11,5 +11,5 @@
     "part-004",
     "part-005"
   ],
-  "source_commit": "ecf2261a0154b9ff92ca7781b7e9b410023dc226"
+  "source_commit": "e1e0ed4154c0c0ae9b7a9ba74965c4caab194b00"
 }

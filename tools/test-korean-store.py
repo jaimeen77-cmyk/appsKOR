@@ -27,7 +27,11 @@ def check(build=False):
     components = repo['components']
     expected = {p.parent.name for p in (ROOT / 'apps').glob('*/app.json')}
     assert {c['id'] for c in components} == expected and len(components) == len(expected)
-    imported = json.loads((ROOT / 'store/migrations/apps-2026-11-11.json').read_text())['apps']
+    # Each import pins the packages it published; a later import replaces an
+    # earlier one's pins for the same app.
+    imported = {}
+    for record in sorted((ROOT / 'store/migrations').glob('apps-*.json')):
+        imported.update(json.loads(record.read_text())['apps'])
     results = []
     for component in components:
         app = component['id']
