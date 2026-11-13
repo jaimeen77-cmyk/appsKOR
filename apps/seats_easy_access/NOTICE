@@ -1,0 +1,15 @@
+Seats Easy Access 0.3.0
+
+The RHMI generator and platform proxy/permission definitions are adapted from
+cauliflowermossgrape/idrive7-apps, commit
+1fb2bcc02013ff8f9dfb91b1b57e1db2c2beb2d2 (MIT).
+Copyright and full license: THIRD_PARTY_LICENSES/idrive7-apps.txt.
+
+No BMW SDK code or firmware is included. MGU Store supplies the SDK from the
+owner's head unit when preparing the app.
+
+This app is an independent JSON-protocol client for IterioDev's unmodified
+iteriodev-comfort service. No source or binaries from IterioDev/car-apps are
+included. That separately installed service retains its own license and credits.
+This app is not affiliated with BMW or with the authors of those projects.
+

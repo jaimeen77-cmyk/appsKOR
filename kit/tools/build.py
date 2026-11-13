@@ -400,6 +400,9 @@ def build_start_widget(spec, app_id, icon_src, out, pkg_out=None):
 
 def build(app_id, language='en', preview_only=False):
     language = normalize_language(language)
+    if app_id == 'seats_easy_access':
+        from seats_build import build_seats
+        return build_seats(ROOT, language, preview_only)
     if not preview_only and not all(os.path.isfile(os.path.join(SDK, name)) for name in ('index.js', 'package.json')):
         raise SystemExit('BMW oap-sdk is missing. Extract it from your own head unit with kit/tools/extract_sdk.js, '
                          'or use --preview-only for an offline preview (no installable package).')
