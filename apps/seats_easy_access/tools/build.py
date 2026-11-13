@@ -147,7 +147,7 @@ def main():
         if lang == 'ko_KR': translated.update({sid(ID, key): value for key, value in KOREAN.items()})
         write_json(rhmi / ('variantGroups/Common/texts/' + lang + '.json'), translated)
     images = rhmi / 'variantGroups/Common/images'
-    images.mkdir(parents=True); icon(images / (ID + '_icon.png'))
+    images.mkdir(parents=True); shutil.copy(ROOT / 'icon.png', images / (ID + '_icon.png'))
     shutil.copy(ROOT / 'assets/seat-control.png', images / 'seat-control.png')
     usb = dist / 'USB/mgu-repo/seats-easy-access'
     usb.mkdir(parents=True)
