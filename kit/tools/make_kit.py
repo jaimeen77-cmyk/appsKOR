@@ -161,7 +161,6 @@ def main():
     parser.add_argument('--language', type=normalize_language, choices=languages(), default='en',
                         help='UI language; Korean also accepts ko-KR, ko-kr and ko_KR')
     parser.add_argument('apps', nargs='*')
-    parser.add_argument('--no-renderer', action='store_true', help='omit renderer for native RHMI apps such as Seats')
     args = parser.parse_args()
     # English (the default) keeps the usual dist/mgu-custom-apps(.tar.gz); other languages get a suffix
     name = 'mgu-custom-apps' + ('' if args.language == 'en' else '-' + args.language)
@@ -169,7 +168,7 @@ def main():
     archive = os.path.join(DIST, name + '.tar.gz')
     apps = args.apps or sorted(d for d in os.listdir(os.path.join(ROOT, 'apps'))
                                   if os.path.isfile(os.path.join(ROOT, 'apps', d, 'app.json')))
-    rd = None if args.no_renderer else pick_renderer()
+    rd = pick_renderer()
 
     shutil.rmtree(OUT, ignore_errors=True)
     os.makedirs(os.path.join(OUT, 'apps'))
