@@ -5,32 +5,26 @@
       "id": "idrive7-renderd",
       "path": "kit/renderd/prebuilt",
       "title": "GPU 화면 렌더러",
-      "description": "앱 화면을 초당 60프레임으로 그리는 필수 렌더러이며 앱과 함께 설치됩니다.",
+      "description": "앱 화면을 초당 60프레임으로 그리는 필수 렌더러이며 iDrive 7과 iDrive 8에서 앱과 함께 설치됩니다.",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ]
     },
     {
       "id": "mgu-inputgate",
-      "path": "kit/renderd/prebuilt",
-      "version": "1.0.0",
+      "path": "kit/renderd/inputgate/tool",
       "title": "iDrive 컨트롤러 연결",
-      "description": "탭·화면 버튼·설정·Doom에서 iDrive 컨트롤러를 사용할 수 있게 하며 다음 HMI 시작 시 적용됩니다.",
+      "description": "iDrive 7과 iDrive 8에서 탭·화면 버튼·설정·Doom을 컨트롤러로 조작하게 하며 다음 HMI 시작 시 적용됩니다.",
       "needs": [
         "renderer"
       ],
       "optional": false,
+      "uninstallable": true,
       "mguHmi": [
-        "ID7"
-      ],
-      "preload": {
-        "library": "mgu-inputgate.so",
-        "unit": "hmi.service",
-        "process": "HmiMain3D",
-        "strikes": 2,
-        "checkAfterSeconds": 120,
-        "healthySeconds": 60
-      }
+        "ID7",
+        "ID8"
+      ]
     }
   ],
   "components": [

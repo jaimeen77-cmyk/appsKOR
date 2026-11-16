@@ -101,6 +101,7 @@ function dsc(kind) {
         } else if (sid === 0x2E && data[0] === 0xDB && data[1] === 0xE1) {
             if ((kind === 'session' || kind === 'nosession' || kind === 'session7e') && st.session !== 3) r = [0x7F, 0x2E, kind === 'session7e' ? 0x7E : 0x7F];
             else if (kind === 'refuse' || (st.engine && !g01)) r = [0x7F, 0x2E, st.engine ? 0x33 : 0x22];
+            else if (kind === 'dsc33') r = [0x7F, 0x2E, 0x33];      // G26 outside diagnostic mode (issue #63)
             else { st.lmv = data[2]; st.written = true; r = [0x6E, 0xDB, 0xE1]; }
         } else r = [0x7F, sid, 0x31];
         if (accept) assert(accept(r), 'reply filter rejects the answer to ' + req);
@@ -108,6 +109,51 @@ function dsc(kind) {
     };
     st.link = { available: true, diag: { available: true, physical } };
     return st;
+}
+
+/** The PIN in front of the Engine Map tab (pin.js): choose, confirm, unlock, wrong tries, off only with the PIN. */
+function pinChecks() {
+    const { PinLock, WAIT_MS } = require('../../apps/live_adjustments/pin');
+    const vals = { mapPin: false, mapPinCode: {} };
+    let clock = 1000;
+    let pin = null;
+    const set = (k, v) => { vals[k] = v; pin.settingChanged(k, v); };
+    pin = new PinLock({ get: (k) => vals[k], set, now: () => clock });
+    const type = (d) => String(d).split('').forEach((c) => pin.digit(Number(c)));
+    assert.strictEqual(pin.locked(), false, 'locked with the setting off');
+    set('mapPin', true);
+    assert.strictEqual(pin.locked(), true);
+    assert.strictEqual(pin.view().mode, 'choose');
+    type('1234'); assert.strictEqual(pin.view().mode, 'again');
+    type('9999'); assert.strictEqual(pin.view().mode, 'choose', 'two different PINs were taken');
+    type('1234'); type('1234');
+    assert.strictEqual(pin.locked(), false, 'not open after choosing');
+    assert(vals.mapPinCode.hash && !JSON.stringify(vals.mapPinCode).includes('1234'), 'the PIN is saved as it was typed');
+    pin.lock();
+    assert.strictEqual(pin.locked(), true, 'still open after leaving the screen');
+    type('12'); pin.back(); type('235');            // 1235: wrong
+    assert.strictEqual(pin.locked(), true, 'Delete did not take the digit back');
+    assert(/4 tries left/.test(pin.view().msg));
+    assert.strictEqual(pin.view('Burbles').title, 'Burbles is locked');
+    type('1234'); assert.strictEqual(pin.locked(), false, 'the right PIN did not open it');
+    pin.lock();
+    for (let i = 0; i < 5; i++) type('0000');
+    assert(pin.view().wait > 0, 'no wait after 5 wrong PINs');
+    type('1234'); assert.strictEqual(pin.locked(), true, 'taken during the wait');
+    clock += WAIT_MS + 1;
+    type('1234'); assert.strictEqual(pin.locked(), false);
+    // off while locked: back on until the PIN; off while open: at once
+    pin.lock();
+    set('mapPin', false);
+    assert.strictEqual(vals.mapPin, true, 'turned off without the PIN');
+    assert.strictEqual(pin.view().title, 'Enter the PIN to turn the lock off');
+    type('1234');
+    assert.strictEqual(vals.mapPin, false);
+    assert.deepStrictEqual(vals.mapPinCode, {}, 'the PIN outlived the lock');
+    set('mapPin', true); type('5555'); type('5555');
+    set('mapPin', false);
+    assert.strictEqual(vals.mapPin, false, 'open: not off at once');
+    assert.deepStrictEqual(vals.mapPinCode, {});
 }
 
 async function xdriveChecks() {
@@ -391,6 +437,12 @@ async function xdriveChecks() {
     await s.x.requestOff(); await s.x.requestOff();
     assert.deepStrictEqual(writes(s.d), ['dsc 2e db e1 00']);
 
+    // NRC 33 with the engine off and every check green (G26 outside diagnostic mode, issue #63): the tab says
+    // to try diagnostic mode, nothing recorded as done
+    s = await mk('on', 'dsc33');
+    await s.x.requestOff(); await s.x.requestOff();
+    assert(/DSC refused: .*diagnostic mode: press Start 3 times without the brake/.test(s.x.note), s.x.note);
+    assert.strictEqual(s.x.requested, false);
     // the DSC refuses the write (e.g. parking brake off): shown, nothing recorded as done
     s = await mk('on', 'refuse');
     await s.x.requestOff(); await s.x.requestOff();
@@ -657,5 +709,6 @@ async function xdriveChecks() {
     assert.strictEqual(s.tune.verified, true);
 
     await xdriveChecks();
-    console.log('Live Adjustments tune checks passed (off / MHD echo / cooling rpm gate / BM3 read-back + ASD / wrong tune / untuned / late link / one request at a time / xDrive).');
+    pinChecks();
+    console.log('Live Adjustments tune checks passed (off / MHD echo / cooling rpm gate / BM3 read-back + ASD / wrong tune / untuned / late link / one request at a time / xDrive / Engine Map PIN).');
 })().catch((e) => { console.error(e); process.exit(1); });

@@ -38,8 +38,46 @@ const RHMI_RES = path.join(APP_ROOT, 'rhmiData', 'resources');
 /* ---------------- logging: SDK logger (DLT) + small rotating file ---------------- */
 const LOG_FILE = path.join(DATA_DIR, SPEC.id + '.log');
 const RUN_TAG = Date.now().toString(36);
+// Drawn frames (the HMI screens' images without the GPU renderer, the home-screen widgets) are written to RAM, not to the
+// eMMC: /tmp is tmpfs (one mount for every process), and the HMI takes a frame from there as from the app's resource
+// folder, as long as it can read it (the folder and the files world-readable; mode 0770 gets RESOURCE_ERROR). Up to 4
+// rotating files an image, so this stays a few hundred KB. A head unit that refuses one: the resource folder again.
+const FRAME_DIR = path.join('/tmp', 'mgu-frames-' + SPEC.id + '-' + (process.getuid ? process.getuid() : 0));
+let frameRam = null;                    // null: not tried yet; true: frames in FRAME_DIR; false: in the resource folder
 // drop drawn frames left by earlier runs
 try { fs.readdirSync(RHMI_RES).filter((f) => /^dyn_/.test(f)).forEach((f) => { try { fs.unlinkSync(path.join(RHMI_RES, f)); } catch (e) {} }); } catch (e) {}
+try { fs.readdirSync(FRAME_DIR).forEach((f) => { try { fs.unlinkSync(path.join(FRAME_DIR, f)); } catch (e) {} }); } catch (e) {}
+/** Write a frame's PNG (file: its name in the resource folder); returns the path to hand to the HMI. */
+function writeFrame(file, png) {
+    if (frameRam !== false) {
+        try {
+            if (frameRam === null) {
+                try { fs.mkdirSync(FRAME_DIR, 0o755); } catch (e) { if (e.code !== 'EEXIST') throw e; }    // (node 8: no recursive)
+                fs.chmodSync(FRAME_DIR, 0o755);
+            }
+            const ram = path.join(FRAME_DIR, path.basename(file));
+            fs.writeFileSync(ram + '.tmp', png);
+            fs.chmodSync(ram + '.tmp', 0o644);
+            fs.renameSync(ram + '.tmp', ram);
+            if (frameRam === null) fileLog('INFO', 'frames: in RAM (' + FRAME_DIR + ')');
+            frameRam = true;
+            return ram;
+        } catch (e) {
+            frameRam = false;
+            fileLog('WARN', 'frames: not in RAM (' + (e && e.message || e) + '): written to the resource folder');
+        }
+    }
+    fs.writeFileSync(file + '.tmp', png);
+    fs.renameSync(file + '.tmp', file);
+    return file;
+}
+/** The HMI refused a frame: one from RAM sends the next ones to the resource folder. */
+function frameRefused(file, e) {
+    if (frameRam && file.indexOf(FRAME_DIR + '/') === 0) {
+        frameRam = false;
+        fileLog('WARN', 'frames: the HMI refused one from RAM (' + (e && e.message || e) + '): written to the resource folder from now on');
+    }
+}
 function fileLog(level, msg) {
     try {
         const st = fs.existsSync(LOG_FILE) ? fs.statSync(LOG_FILE) : null;
@@ -139,12 +177,25 @@ class Settings {
         if (!s || s.hidden) return false;
         return !s.when || Object.keys(s.when).every((k) => [].concat(s.when[k]).indexOf(this.values[k]) >= 0);
     }
+    /**
+     * The text of a number setting's value. "labels": a value's own text (e.g. 0 = "Auto"). "unitBy" + "units":
+     * the value is kept in "unit" and shown in the unit another setting chose (kit/tools/build.py names them all
+     * in the HMI's drop-down), e.g.
+     *   "unit": "kW", "unitBy": "powerUnit", "units": { "hp": { "unit": "hp", "mul": 1.34102 } }
+     *   "unit": "°C", "unitBy": "tempUnit", "units": { "f": { "unit": "°F", "mul": 1.8, "add": 32 } }
+     */
+    numberText(s, v) {
+        if (s.labels && s.labels[String(v)] !== undefined) return s.labels[String(v)];
+        const u = s.unitBy && s.units ? s.units[this.values[s.unitBy]] : null;
+        if (u && typeof v === 'number') return Math.round(v * (u.mul || 1) + (u.add || 0)) + ' ' + u.unit;
+        return String(v) + (s.unit ? ' ' + s.unit : '');
+    }
     /** Human text for the current value of a setting. */
     display(key) {
         const s = this.item(key), v = this.values[key];
         if (!s) return String(v);
         if (s.type === 'choice') { const o = (s.options || []).find((x) => x[0] === v); return o ? o[1] : String(v); }
-        if (s.type === 'number') return (s.labels && s.labels[String(v)] !== undefined ? s.labels[String(v)] : String(v) + (s.unit ? ' ' + s.unit : '')) + (s.markDefault && v === s.default ? ' (default)' : '');
+        if (s.type === 'number') return this.numberText(s, v) + (s.markDefault && v === s.default ? ' (default)' : '');
         if (s.type === 'bool') return v ? 'On' : 'Off';
         return String(v);
     }
@@ -160,6 +211,9 @@ class Settings {
     }
 }
 
+/* iDrive 7 cells -> iDrive 8's on a button (LT_Button_MediaEntry_1Row; kit/tools/build.py CELLS8) */
+const CELLS8 = { Text: 'PrimaryText', Text1stRow: 'PrimaryText', Text1stCol: 'PrimaryText', Text2ndRow: 'FrequencyText', Text2ndCol: 'FrequencyText' };
+
 /* ---------------- UI wrapper ---------------- */
 class Ui {
     constructor(app) {
@@ -172,6 +226,17 @@ class Ui {
         this._focusHandlers = [];
         this.timing = { png: 0, push: 0 };    // ms spent encoding / handing images to the HMI
         this._cnText = new HmiText();
+        // iDrive 8: the HMI installed the app's iDrive 8 description (kit/tools/build.py), known by its hidden
+        // label. Its buttons are list rows with other cells (PrimaryText, FrequencyText), it has no drop-downs.
+        this.id8 = !!(this.rhmi && this.rhmi.getByName && this.rhmi.getByName('KIT_HMI_ID8'));
+        if (this.id8) log.info('ui: iDrive 8 screens');
+    }
+    /** The cell of a write on this HMI: on iDrive 8 an iDrive 7 cell name the component's row does not have as
+     *  iDrive 8's (a button's Text is its PrimaryText; a label keeps Text). */
+    _cell(c, cell) {
+        if (!this.id8 || !CELLS8[cell]) return cell;
+        const d = c && c._uiDescription, r = d && d.rows && d.rows[0];
+        return r && Object.prototype.hasOwnProperty.call(r, cell) ? cell : CELLS8[cell];
     }
     comp(name) {
         const c = this.rhmi && this.rhmi.getByName(name);
@@ -187,13 +252,13 @@ class Ui {
     text(name, text, row, cell) {
         const c = this.comp(name);
         if (c && !row && (!cell || cell === 'Text') && this.display) this.display.label(name, text);   // slim bar mirrors it
-        return c ? this._try('text ' + name, this._cnText.set(c, name, row || 0, cell || 'Text', text)) : Promise.resolve();
+        return c ? this._try('text ' + name, this._cnText.set(c, name, row || 0, this._cell(c, cell || 'Text'), text)) : Promise.resolve();
     }
     /** Set several cells of one row: ui.cells('LIST', 3, { Text1stCol: 'a', Text2ndCol: 'b' }) */
     cells(name, row, obj) {
         const c = this.comp(name);
         if (!c) return Promise.resolve();
-        return Promise.all(Object.keys(obj).map((k) => this._try('cell ' + name + '.' + k, this._cnText.set(c, name, row, k, obj[k]))));
+        return Promise.all(Object.keys(obj).map((k) => this._try('cell ' + name + '.' + k, this._cnText.set(c, name, row, this._cell(c, k), obj[k]))));
     }
     /** Selected row of a drop-down menu. */
     selected(name, row) {
@@ -206,6 +271,7 @@ class Ui {
     checked(name, on, row) {
         const c = this.comp(name);
         if (!c) return Promise.resolve();
+        if (this.id8) return this._try('checked ' + name, this._cnText.set(c, name, row || 0, 'FrequencyText', on ? 'On' : 'Off'));
         // setValue creates the row if needed (setRowSelected only checks and fails)
         const p = c.setValue(row || 0, 'eParam_RowSelected', !!on, 'Bool');
         return this._try('checked ' + name, p);
@@ -271,14 +337,13 @@ class Ui {
             const rb = this.rhmi.getResourceBundle();
             // per-run file names: the HMI keeps state per resource path, so
             // names reused from an earlier run of the app get rejected
-            const file = path.join(RHMI_RES, 'dyn_' + RUN_TAG + '_' + name.toLowerCase() + '_' + (st.n++ % 4) + '.png');
+            let file = path.join(RHMI_RES, 'dyn_' + RUN_TAG + '_' + name.toLowerCase() + '_' + (st.n++ % 4) + '.png');
             const t0 = Date.now(), first = !st.shown;
             const png = Buffer.isBuffer(frame) ? frame : frame.png();
             const t1 = Date.now();
-            fs.writeFileSync(file + '.tmp', png);
-            fs.renameSync(file + '.tmp', file);
+            file = writeFrame(file, png);
             if (first) log.info('image ' + name + ': png written ' + (Date.now() - t0) + ' ms');
-            await rb.createResourceHandles([file]);
+            try { await rb.createResourceHandles([file]); } catch (e) { frameRefused(file, e); throw e; }
             const handle = rb.getResourceHandle(file);
             if (first) log.info('image ' + name + ': handle ' + JSON.stringify(handle));
             await c.setValue(0, cell || 'Graphic', handle, 'Asset');
@@ -381,12 +446,22 @@ class Widget {
         c.on('created', (e) => { this.vis[e.spawnId] = true; this._static(e.spawnId); this._changed('placed'); });
         c.on('resize', (e) => { this._forget(e.spawnId); this._changed('resized'); });
         c.on('visible', (e) => { this.vis[e.spawnId] = !!e.visible; if (e.visible) this._forget(e.spawnId); this._changed(e.visible ? 'shown' : 'hidden'); });
-        ['abort', 'destroyed'].forEach((n) => c.on(n, (e) => { delete this.vis[e.spawnId]; this._forget(e.spawnId); this._changed('removed'); }));
+        ['abort', 'destroyed'].forEach((n) => c.on(n, (e) => { delete this.vis[e.spawnId]; this._drop(e.spawnId); this._changed('removed'); }));
         c.on('action', (e) => { log.info('widget tapped (' + e.spawnId + ')'); this._tap.forEach((fn) => { try { fn(e); } catch (err) { log.error(err); } }); });
         this.instances().forEach((i) => this._static(i.spawnId));
         this._changed('ready');
     }
     _forget(spawnId) { const st = this._img[spawnId]; if (st) st.lastPx = null; }
+    /** a removed widget: its handles and drawn frames go (RAM or resource folder) */
+    _drop(spawnId) {
+        const st = this._img[spawnId];
+        delete this._img[spawnId];
+        if (st && st.live.length && this.comp) this.comp.getResourceBundle().destroyResourceHandles(st.live).catch(() => {});
+        for (let k = 0; k < 4; k++) {
+            const f = 'dyn_' + RUN_TAG + '_w' + spawnId + '_' + k + '.png';
+            [FRAME_DIR, RHMI_RES].forEach((d) => { try { fs.unlinkSync(path.join(d, f)); } catch (e) { /* not there */ } });
+        }
+    }
     /** The layout's fixed cells (app.json startWidget.cells), written once per placed widget. */
     _static(spawnId) {
         const cells = this.spec.cells || {};
@@ -411,11 +486,10 @@ class Widget {
             const px = Buffer.from(frame.d.buffer, frame.d.byteOffset, frame.d.length);
             if (st.lastPx && Date.now() - st.lastPush < 5000 && px.equals(st.lastPx)) return;
             const rb = this.comp.getResourceBundle();
-            const file = path.join(RHMI_RES, 'dyn_' + RUN_TAG + '_w' + spawnId + '_' + (st.n++ % 4) + '.png');
+            let file = path.join(RHMI_RES, 'dyn_' + RUN_TAG + '_w' + spawnId + '_' + (st.n++ % 4) + '.png');
             const t0 = Date.now(), png = frame.png(), t1 = Date.now();
-            fs.writeFileSync(file + '.tmp', png);
-            fs.renameSync(file + '.tmp', file);
-            await rb.createResourceHandles([file]);
+            file = writeFrame(file, png);
+            try { await rb.createResourceHandles([file]); } catch (e) { frameRefused(file, e); throw e; }
             await this.comp.setValue(Number(spawnId), cell, rb.getResourceHandle(file), 'Asset');
             this.timing.png += t1 - t0; this.timing.push += Date.now() - t1;
             if (!st.lastPush) log.info('widget ' + spawnId + ': first image in ' + (Date.now() - t0) + ' ms');
@@ -455,6 +529,8 @@ class Widget {
 }
 
 /* ---------------- generic settings screen ---------------- */
+// the app's own rows at the bottom of the settings where the kit draws them (ctx.settingsRow)
+const settingsRows = [];
 function wireSettings(ctx) {
     const { ui, settings } = ctx;
     // hidden settings (kept by the app itself, never on a screen) have no component to look up
@@ -462,13 +538,14 @@ function wireSettings(ctx) {
     // the settings screen, or an app's own menu screen that shows them ("settings": true)
     if (!schema.length || !schema.some((s) => ui.comp('SET_' + s.key.toUpperCase()))) return;
     // choice / number settings are drop-downs (kit/tools/build.py): their rows are the values in this order
-    const values = (s) => (s.type === 'choice' ? (s.options || []).map((o) => o[0]) : s.type === 'number' ? s.steps || [] : null);
+    // (iDrive 8 has no drop-downs: there every setting is a row, label | value, a press steps to the next value)
+    const values = (s) => (ui.id8 ? null : s.type === 'choice' ? (s.options || []).map((o) => o[0]) : s.type === 'number' ? s.steps || [] : null);
     const refresh = () => Promise.all(schema.map((s) => {
         const comp = 'SET_' + s.key.toUpperCase();
         if (!ui.comp(comp)) return null;
         // one another setting offers it ("when"): shown or not as that one is
         if (s.when) ui.visible(comp, settings.shown(s));
-        if (s.type === 'bool') return Promise.all([ui.text(comp, s.label), ui.checked(comp, !!settings.get(s.key))]);
+        if (s.type === 'bool' && !ui.id8) return Promise.all([ui.text(comp, s.label), ui.checked(comp, !!settings.get(s.key))]);
         if (values(s)) return ui.selected(comp, Math.max(0, values(s).indexOf(settings.get(s.key))));
         // other types: two-row buttons in the wide settings state, label above, value below
         return ui.cells(comp, 0, { Text1stRow: s.label, Text2ndRow: settings.display(s.key) });
@@ -490,7 +567,7 @@ function wireSettings(ctx) {
         ui.onClick('BTN_SETTINGS', () => {
             const d = ctx.display;
             if (d.sheet && d.sheet.settings) { d.closeSheet(); return null; }
-            const sh = listSheet(settings, null, { version: SPEC.version });
+            const sh = listSheet(settings, null, { version: SPEC.version, extra: () => settingsRows });
             sh.settings = true;
             sh.onClose = () => refresh();
             if (d.openSheet(sh)) return null;
@@ -582,6 +659,12 @@ async function runInner(impl) {
         onTab(fn) { display.onTab = fn; },
         /** onTap(fn): fn(x, y) for a tap on the page (app drawing px), where the kit runs the screen. */
         onTap(fn) { display.onTap = fn; },
+        /**
+         * settingsRow({ label, value, open }): a row of the app's own at the very bottom of Settings, where the kit
+         * draws them (the GPU renderer); value: text or () => text; open(): a sheet (sheet.js) shown in the settings'
+         * place, its Back ('close') back to them. The HMI's own settings screen has no such row.
+         */
+        settingsRow(row) { if (row && row.label) settingsRows.push(row); },
         /** Show a sheet (sheet.js) over the page; false where it can't be (software path, other renderers). */
         sheet(sh) { return display.openSheet(sh); },
         /** hideButton(id): leave bar button id out where the kit runs the screen (its job is on the page there). */
@@ -656,9 +739,12 @@ async function runInner(impl) {
         },
     };
 
+    // a separate SETTINGS state exists only when no menu screen shows the settings itself
+    // ("settings": true, as in Doom: kit/tools/build.py builds no SETTINGS state then)
+    const settingsScreen = !!(SPEC.settings && SPEC.settings.length) && !(SPEC.screens || []).some((s) => s.settings === true);
     // visibility of our states (pauses rendering when the user leaves); the HMI's settings screen too (the
     // drawn screen gives way to it: display.js)
-    const tracked = (SPEC.screens || []).concat(SPEC.settings && SPEC.settings.length ? [{ name: 'SETTINGS' }] : []);
+    const tracked = (SPEC.screens || []).concat(settingsScreen ? [{ name: 'SETTINGS' }] : []);
     tracked.forEach((s) => {
         const st = ui.comp(s.name);
         if (st && st.on) st.on('visible', (ev) => ui._setVisible(s.name, !!(ev && ev.visible)));
@@ -736,7 +822,7 @@ async function runInner(impl) {
     // (menu screens only: doing it on a canvas screen before its first image
     // makes every later createResourceHandles fail with INVALID_VALUE)
     await step('screen resources', Promise.all((SPEC.screens || []).filter((s) => s.kind !== 'canvas')
-        .concat(SPEC.settings && SPEC.settings.length ? [{ name: 'SETTINGS' }] : [])
+        .concat(settingsScreen ? [{ name: 'SETTINGS' }] : [])
         .map((s) => ui.comp(s.name)).filter((st) => st && st.updateResources)
         .map((st) => st.updateResources())), 4000);
     await step('settings screen', wireSettings(ctx), 3000);

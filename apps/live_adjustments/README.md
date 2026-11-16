@@ -20,7 +20,7 @@ flap's butterfly turning in the right tailpipe, and four buttons:
 | Open | the flap open |
 | Close | the flap closed (the rpm guard below) |
 | OEM | the flap handed back to the DME |
-| Drive mode | the flap follows the driving mode (FES) on every change: Sport / Sport+ / Sport Individual → Open; Comfort / Comfort+ / Comfort Individual / Adaptive → OEM; Eco Pro / Eco Pro+ / Eco Pro Individual → Close. The line under the state word names the driving mode. Open, Close or OEM stop following it. Saved with the settings (key `driveLink`, not in the menu), so it is still on after the next start |
+| Drive mode | the flap follows the driving mode (FES) on every change: Sport / Sport+ / Sport Individual → Open; Comfort / Comfort+ / Comfort Individual / Adaptive → OEM; Eco Pro / Eco Pro+ / Eco Pro Individual → Close. On a plug-in hybrid (330e, X5 45e ...): Sport / Sport Individual / Sport+ / Boost → Open; Hybrid / Hybrid Comfort → OEM; Hybrid Eco / Electric / Electric Individual → Close. The line under the state word names the driving mode. Open, Close or OEM stop following it. Saved with the settings (key `driveLink`, not in the menu), so it is still on after the next start |
 
 What the flap should do is `auto.js`; every command still goes through `controller.js`.
 
@@ -67,6 +67,11 @@ the check engine light flash (MHD's map-change indication) — the map page says
 normal. None of the DIDs MHD reads (`22 3010/3020/3030/3031/3032/37FE/586A/4098`) changed
 between map 1 and map 2. BM3: limited smoke testing on one G22 (as the former BM3 Live app).
 
+**PIN for Engine Map and Burbles** (setting, off by default): the Engine Map and Burbles tabs show a keypad
+until the PIN is entered (one PIN, one unlock for both). Turned on, it asks for a new 4-digit PIN twice. It locks again whenever the app leaves the screen;
+5 wrong PINs block it for 60 s. Turning the setting off asks for the PIN first. Only a salted hash is saved
+(`mapPinCode`). Forgot it: delete the app's `settings.json` or reinstall the app.
+
 **Other tuning software** (MG Flasher and others): add a choice to the `tuner` setting in
 `app.json`, its tabs to `FEATURES` in `tune.js` and its commands there, with a test case in
 `kit/tools/test_live_adjustments.js`. Contributions from owners who can capture the commands
@@ -111,8 +116,13 @@ then no tab appears and nothing is sent. Code: `xdrive.js`.
   (not READY) the engine counts as off whatever the rpm says: on some cars the rpm signal stays
   above 50 for minutes after switching off (issue #28). The button has to be pressed twice
   within 6 s.
-- A VIP that answers NRC `33` (security access, G05 xDrive45e `0F2530`) wants an unlock this app
-  doesn't do; the tab says so. The ICE G05's `0F2520` answers it only with the engine running.
+- The G05 xDrive45e has the same VIP (`0F2520`) and takes the job the same way, with the engine off
+  and the ignition on (confirmed in diagnostic mode, issue #52). Another VIP that answers NRC `33`
+  may want an unlock this app doesn't do; the tab suggests diagnostic mode first.
+- **Diagnostic mode:** where the DSC answers NRC `33` (security access) with every check green,
+  switch the ignition on in diagnostic mode (press Start three times quickly, without the brake)
+  and press again. That is how the write went through on a G26 (DSC_G20 `0F2510`, issue #63) and
+  a G20 330e (issue #52); the tab says so.
 - The mode comes from the transfer case itself when it has been read: the requested-torque
   qualifier in `22 DB 32` (bytes 7-8, also the last byte of `DB31`) is `0x20` / `0x21` while the
   LMV is active and `0xE8` after the OFF write (`(q & 0xC0) == 0xC0` = off; the same two values are
