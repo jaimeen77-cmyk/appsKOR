@@ -56,30 +56,30 @@
 
 | 한국어 앱 | 스토어 버전 |
 |---|---|
-| 앰비언트 설정 (한국어) | 2.1.5 |
+| 앰비언트 설정 (한국어) | 2.5.0 |
 | 제동 테스트 (한국어) | 1.5.20 |
-| M 차량 정보 (한국어) | 2.27.1 |
+| M 차량 정보 (한국어) | 2.27.3 |
 | 클러스터 중앙 화면 (한국어) | 0.8.0 |
 | 클러스터 정보 (한국어) | 1.6.6 |
 | 클러스터 레이아웃 (한국어) | 0.27.1 |
-| Doom (한국어) | 1.7.20 |
+| Doom (한국어) | 1.7.21 |
 | 가속 타이머 (한국어) | 2.5.20 |
 | 고장 진단 (한국어) | 2.9.7 |
-| 가상 다이노 (한국어) | 1.6.1 |
-| eDrive (한국어) | 2.9.1 |
+| 가상 다이노 (한국어) | 1.6.2 |
+| eDrive (한국어) | 2.9.2 |
 | G 센서 (한국어) | 1.6.21 |
-| 엔진 설정 (한국어) | 0.9.3 |
-| 실시간 정보 (한국어) | 1.0.10 |
-| 레드라인 (한국어) | 2.0.39 |
+| 엔진 설정 (한국어) | 0.9.6 |
+| 실시간 정보 (한국어) | 1.0.13 |
+| 레드라인 (한국어) | 2.0.42 |
 | 정비 정보 (한국어) | 1.6.1 |
-| 엔진 예열 (한국어) | 1.7.4 |
+| 엔진 예열 (한국어) | 1.8.1 |
 | 변속기 정보 (한국어) | 1.5.6 |
 
 스토어가 요구하는 `x.y.z` 버전 형식을 사용합니다. 컴파일 원본의 `-ko.1` 정보는 앱별 `store/korean/<id>/layer.json`에 기록되어 있으며 설치 파일의 언어는 한국어로 고정됩니다.
 
 이 저장소의 `레드라인`은 원본 프로젝트의 앱입니다. 별도로 개발한 `계기판 레드라인(cluster_redline)`은 [jaimeen77-cmyk/apps](https://github.com/jaimeen77-cmyk/apps)에서 배포합니다.
 
-현재 한국어 번역은 2,146개입니다. 차량/진단기에서 직접 받은 고유명·원본 고장 설명 등은 원래 언어로 나올 수 있습니다. 클러스터 앱의 MGU 메뉴와 설정은 한국어이며, 계기판은 성능 한도 안에서 오일·냉각수·연료·충전·기어 핵심 표기를 한글로 표시합니다. 나머지 짧은 계기판 단위와 고유 레이아웃 표기는 원문을 유지합니다.
+현재 한국어 번역은 2,574개입니다. 차량/진단기에서 직접 받은 고유명·원본 고장 설명 등은 원래 언어로 나올 수 있습니다. 클러스터 앱의 MGU 메뉴와 설정은 한국어이며, 계기판은 성능 한도 안에서 오일·냉각수·연료·충전·기어 핵심 표기를 한글로 표시합니다. 나머지 짧은 계기판 단위와 고유 레이아웃 표기는 원문을 유지합니다.
 
 클러스터 앱 원본과 GPL 소스: [eroobeeroo/idrive7-cluster-info](https://github.com/eroobeeroo/idrive7-cluster-info). 원본 저작권·라이선스·고지는 `LICENSE.cluster-*`, `NOTICE.cluster.md`, 각 앱의 `NOTICE`에 보존되어 있습니다.
 
@@ -87,7 +87,7 @@
 
 ---
 
-8# MGU Custom Apps 한국어판
+# MGU Custom Apps 한국어판
 
 원본: https://github.com/cauliflowermossgrape/idrive7-apps
 
@@ -107,7 +107,7 @@ Translation by：jaimeen shim
 - Redline, Service, M Vitals, eDrive, Live Data, G-Force, Warm-Up, Virtual Dyno,
   Brake Test, Drag Timer, Fault Scanner, Engine Config, Transmission Config,
   Doom의 공통 설정 및 앱 표시 문구 번역.
-- `kit/runtime/locales/ko.tsv`와 `ko.json`: 한국어 사전 1,774개 항목.
+- `kit/runtime/locales/ko.tsv`와 `ko.json`: 한국어 사전 2,574개 항목.
 - Noto Sans CJK KR 기반 한글 글꼴. 번역에 쓰인 모든 글자, KS X 1001의 완성형
   한글 2,350자, 호환 자모, 숫자·단위·기호를 하나의 공용 아틀라스에 포함.
 - 한국어가 들어 있는 문장을 한글 글꼴로 그리도록 공통 런타임 수정.
@@ -166,7 +166,7 @@ Python 3와 Node.js 14 이상이 필요합니다. 기존 프로젝트에 이미 
 python kit/tools/make_kit.py --language ko redline service car_vitals edrive warmup gforce
 ```
 
-앱 이름을 생략하면 전체 14개 앱을 한국어로 빌드합니다.
+앱 이름을 생략하면 전체 18개 앱을 한국어로 빌드합니다.
 ```sh
 python kit/tools/make_kit.py --language ko
 ```
@@ -283,7 +283,7 @@ python kit/tools/test_ko.py
 
 검증일: 2026-11-04
 
-- 한국어 검사: 15개 앱의 메뉴·리소스 한도, 번역 1,774개와 글꼴 포함 범위,
+- 한국어 검사: 18개 앱의 메뉴·리소스 한도, 번역 2,574개와 글꼴 포함 범위,
   Service 한국어 날짜·정비 명칭·힌트·깨진 값 대체, 단위·단복수 처리 검사.
 - M Vitals와 Redline의 `Rev scale up to`를 `회전수 눈금 최댓값`으로 번역.
   설정 키 `rpmScale`, 숫자 선택값과 기본값은 원본 그대로 유지.

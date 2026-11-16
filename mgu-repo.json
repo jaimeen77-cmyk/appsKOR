@@ -37,8 +37,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -67,8 +67,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -97,8 +97,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -144,7 +144,7 @@
         "network": false,
         "shared": [
           "tools/install-korean.py",
-          "store/korean/common-c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
+          "store/korean/common",
           "store/korean/cluster_centre"
         ]
       }
@@ -174,7 +174,7 @@
         "network": false,
         "shared": [
           "tools/install-korean.py",
-          "store/korean/common-c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
+          "store/korean/common",
           "store/korean/cluster_info"
         ]
       }
@@ -205,7 +205,7 @@
         "network": false,
         "shared": [
           "tools/install-korean.py",
-          "store/korean/common-c36beb65706af2b9aa2a226824cebc95fd0358dc3ca3093e37f0a36be99f7089",
+          "store/korean/common",
           "store/korean/cluster_layouts"
         ]
       }
@@ -219,8 +219,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -249,8 +249,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -279,8 +279,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -309,7 +309,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
+        "idrive7-renderd": "2.1.15",
         "mgu-inputgate": "1.0.0"
       },
       "build": {
@@ -339,7 +339,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
+        "idrive7-renderd": "2.1.15",
         "mgu-inputgate": "1.0.0"
       },
       "build": {
@@ -369,7 +369,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
+        "idrive7-renderd": "2.1.15",
         "mgu-inputgate": "1.0.0"
       },
       "build": {
@@ -399,8 +399,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -429,8 +429,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -459,7 +459,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
+        "idrive7-renderd": "2.1.15",
         "mgu-inputgate": "1.0.0"
       },
       "build": {
@@ -489,7 +489,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
+        "idrive7-renderd": "2.1.15",
         "mgu-inputgate": "1.0.0"
       },
       "build": {
@@ -519,7 +519,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
+        "idrive7-renderd": "2.1.15",
         "mgu-inputgate": "1.0.0"
       },
       "build": {
@@ -549,8 +549,8 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.18",
+        "mgu-inputgate": "1.1.0"
       },
       "build": {
         "python": "tools/install-korean.py",
