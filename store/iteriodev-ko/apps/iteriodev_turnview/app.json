@@ -1,0 +1,17 @@
+{
+  "id": "iteriodev_turnview",
+  "version": "1.5.0",
+  "title": "Turn View",
+  "description": "비공식 한국어 번역 · 전방 카메라 영상과 다음 회전 안내를 계기판에 표시합니다.",
+  "mguHmi": [
+    "ID7",
+    "ID8"
+  ],
+  "needs": [
+    "renderer"
+  ],
+  "requires": {
+    "iteriodev-turnview": "0.7.0",
+    "mgu-deploy": "0.7.5"
+  }
+}

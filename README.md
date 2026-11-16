@@ -1,6 +1,6 @@
 # appsKOR · MGU Store 한국어 앱
 
-이 저장소를 MGU Store 소스로 등록하면 **한국어로 미리 빌드한 앱 18개**를 설치할 수 있습니다.
+이 저장소를 MGU Store 소스로 등록하면 기존 한국어 앱 18개와 IterioDev 앱 11개의 비공식 한국어판을 설치할 수 있습니다. IterioDev 앱은 원래 이름으로 표시됩니다. [지원 버전과 설치 안내](README.ko.md#iteriodev-앱-11개)
 
 - 저장소: `jaimeen77-cmyk/appsKOR`
 - 브랜치: `main`

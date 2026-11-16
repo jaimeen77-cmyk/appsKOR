@@ -569,6 +569,235 @@
           "store/korean/zf8hp"
         ]
       }
+    },
+    {
+      "id": "iteriodev_cardash",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_cardash",
+      "mguHmi": [
+        "ID8"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_draggy",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_draggy",
+      "mguHmi": [
+        "ID8"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_dtcscan",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_dtcscan",
+      "mguHmi": [
+        "ID8"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_edrive",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_edrive",
+      "mguHmi": [
+        "ID8"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_liveadjust",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_liveadjust",
+      "mguHmi": [
+        "ID8"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_overlays",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_overlays",
+      "mguHmi": [
+        "ID8"
+      ],
+      "requires": {
+        "iteriodev-overlays": "0.5.0",
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_seats",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_seats",
+      "mguHmi": [
+        "ID7",
+        "ID8"
+      ],
+      "requires": {
+        "iteriodev-comfort": "0.6.0",
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_service",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_service",
+      "mguHmi": [
+        "ID8"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_tailscale",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_tailscale",
+      "mguHmi": [
+        "ID7",
+        "ID8"
+      ],
+      "requires": {
+        "iteriodev-tailscale": "1.104.4",
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "iteriodev_turnview",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/iteriodev_turnview",
+      "mguHmi": [
+        "ID7",
+        "ID8"
+      ],
+      "requires": {
+        "iteriodev-turnview": "0.7.0",
+        "mgu-deploy": "0.7.5"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
+    },
+    {
+      "id": "oap-driverecorder-next",
+      "kind": "app",
+      "path": "store/iteriodev-ko/apps/oap-driverecorder-next",
+      "mguHmi": [
+        "ID7",
+        "ID8"
+      ],
+      "requires": {
+        "mgu-deploy": "0.7.5",
+        "iteriodev-drplay": "1.2.0"
+      },
+      "uninstallable": true,
+      "build": {
+        "node": "store/iteriodev-ko/prebuilt.js",
+        "output": "{dir}/{id}@{version}.tgz",
+        "network": false,
+        "shared": [
+          "store/iteriodev-ko/prebuilt.js"
+        ]
+      }
     }
   ]
 }

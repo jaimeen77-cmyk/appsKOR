@@ -1,0 +1,15 @@
+{
+  "id": "iteriodev_dtcscan",
+  "version": "1.2.0",
+  "title": "Fault Codes",
+  "description": "비공식 한국어 번역 · 제어기 고장 코드와 체크 컨트롤 메시지를 확인합니다.",
+  "mguHmi": [
+    "ID8"
+  ],
+  "needs": [
+    "renderer"
+  ],
+  "requires": {
+    "mgu-deploy": "0.7.5"
+  }
+}

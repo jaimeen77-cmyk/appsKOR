@@ -17,6 +17,19 @@
 2. 저장소 **`jaimeen77-cmyk/appsKOR`**, 브랜치 **`main`** 을 입력하고 **새로고침** 합니다.
 3. 이름에 **(한국어)** 가 붙은 앱을 골라 **Install** 합니다. 필요한 도구 설치 안내가 나오면 따릅니다.
 
+### IterioDev 앱 11개
+
+IterioDev 앱은 **원래 이름**으로 표시됩니다. 앱 설명에서 **비공식 한국어 번역** 표시를 확인하세요. 이름, 아이콘, 제작자 표기와 라이선스를 유지하며 무료로 배포합니다. [IterioDev의 배포 허락](https://github.com/IterioDev/car-apps/issues/25#issuecomment-6864458723) · [원본 라이선스](store/iteriodev-ko/LICENSE.IterioDev.md)
+
+- **iDrive 7 및 8** · Seats, Tailscale, Turn View, Drive Recorder
+- **iDrive 8** · Car Data, Drag Timer, Fault Codes, eDrive, Live Adjustments, Overlays, Service
+
+MGU Store에서 기존 `appsKOR` 소스를 새로고침하세요. Comfort, Overlays, Tailscale, Turn View 및 Drive Recorder에 필요한 원본 도구는 `IterioDev/car-apps` 소스에서 찾을 수 있습니다. 같은 ID의 영어판을 이미 설치했다면 Store에서 한국어판으로 소스 교체를 선택하세요.
+
+앱 메뉴와 주요 화면 문구를 번역했습니다. 제어기에서 오는 진단 문구나 일부 실시간 메시지는 원문으로 표시될 수 있습니다.
+
+이 패키지는 [동기화된 iterio_fork 소스](https://github.com/jaimeen77-cmyk/iterio_fork/tree/0f03f32d5b607103cd0c8f184dfdd5d3c0f83cb7/apps)를 사용합니다. 앰비언트 조명은 기존 앰비언트 설정 앱을 사용하세요.
+
 ---
 
 ## 한국어 앱 화면
@@ -41,7 +54,7 @@
 
 ---
 
-이 저장소를 MGU Store 소스로 등록하면 **한국어로 미리 빌드한 앱 18개**를 설치할 수 있습니다. `appsKOR_fork`의 일반 앱 15개와 `appscluster_fork`의 클러스터 앱 3개를 한 소스에서 제공합니다.
+이 저장소는 `appsKOR_fork`의 일반 앱 15개, `appscluster_fork`의 클러스터 앱 3개, IterioDev의 비공식 한국어판 앱 11개를 한 소스에서 제공합니다.
 
 - 저장소: `jaimeen77-cmyk/appsKOR`
 - 브랜치: `main`

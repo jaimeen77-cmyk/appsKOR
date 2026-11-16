@@ -24,7 +24,7 @@ def check(build=False):
     installer = module('installer', 'install-korean.py')
     repo = json.loads((ROOT / 'mgu-repo.json').read_text())
     assert 'apps' not in repo
-    components = repo['components']
+    components = [c for c in repo['components'] if c['path'].startswith('store/apps/')]
     expected = {p.parent.name for p in (ROOT / 'apps').glob('*/app.json')}
     assert {c['id'] for c in components} == expected and len(components) == len(expected)
     # Each import pins the packages it published; a later import replaces an

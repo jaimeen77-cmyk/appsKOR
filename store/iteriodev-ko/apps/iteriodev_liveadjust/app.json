@@ -1,0 +1,15 @@
+{
+  "id": "iteriodev_liveadjust",
+  "version": "1.2.0",
+  "title": "Live Adjustments",
+  "description": "비공식 한국어 번역 · 지원 차량에서 엔진 맵, 배기 플랩 및 최대 냉각 설정을 조절합니다.",
+  "mguHmi": [
+    "ID8"
+  ],
+  "needs": [
+    "renderer"
+  ],
+  "requires": {
+    "mgu-deploy": "0.7.5"
+  }
+}
