@@ -33,7 +33,8 @@
       "kind": "app",
       "path": "store/apps/ambient_config",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -63,7 +64,8 @@
       "kind": "app",
       "path": "store/apps/brake_test",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -93,7 +95,8 @@
       "kind": "app",
       "path": "store/apps/car_vitals",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -123,7 +126,8 @@
       "kind": "app",
       "path": "store/apps/cluster_centre",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -154,7 +158,8 @@
       "kind": "app",
       "path": "store/apps/cluster_info",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -184,7 +189,8 @@
       "kind": "app",
       "path": "store/apps/cluster_layouts",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -215,7 +221,8 @@
       "kind": "app",
       "path": "store/apps/doom",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -245,7 +252,8 @@
       "kind": "app",
       "path": "store/apps/draggy",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -275,7 +283,8 @@
       "kind": "app",
       "path": "store/apps/dtc_scanner",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -305,7 +314,8 @@
       "kind": "app",
       "path": "store/apps/dyno",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -335,7 +345,8 @@
       "kind": "app",
       "path": "store/apps/edrive",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -365,7 +376,8 @@
       "kind": "app",
       "path": "store/apps/gforce",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -395,7 +407,8 @@
       "kind": "app",
       "path": "store/apps/live_adjustments",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -425,7 +438,8 @@
       "kind": "app",
       "path": "store/apps/live_data",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -455,7 +469,8 @@
       "kind": "app",
       "path": "store/apps/redline",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -485,7 +500,8 @@
       "kind": "app",
       "path": "store/apps/service",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -515,7 +531,8 @@
       "kind": "app",
       "path": "store/apps/warmup",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -545,7 +562,8 @@
       "kind": "app",
       "path": "store/apps/zf8hp",
       "mguHmi": [
-        "ID7"
+        "ID7",
+        "ID8"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
