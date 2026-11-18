@@ -13,6 +13,11 @@
 - `mgu-repo.json`의 `mguHmi`만 손으로 고치지 않습니다. 설치 패키지 안의 `package.json`에도 같은 값이 들어가야
   iDrive 8에서 설치가 거부되지 않습니다(`... is for iDrive 7; this head unit is iDrive 8`).
 
+## 차량 빌드
+
+Store 항목은 원본처럼 차에서 빌드합니다(`tools/build-korean.py`, `"sdk": "oap-sdk"`).
+미리 빌드한 SDK 없는 패키지만 설치하면 iDrive 8에서 '로딩중'에 멈춥니다. `install-korean.py`로 되돌리지 않습니다.
+
 ## 원본 갱신 절차
 
 1. `appsKOR_fork`의 `main`을 병합합니다. 원본 파일(`apps/`, `kit/` 등)은 고치지 않습니다.
@@ -21,6 +26,6 @@
 2. `python3 kit/tools/build.py --preview-only --language ko <앱>`으로 15개 앱을 빌드합니다.
 3. `python3 tools/prepare-korean-store.py --source-commit <appsKOR_fork 커밋>`:
    패키지와 목록의 버전·`mguHmi`를 원본 `app.json`에서 가져옵니다.
-4. 검증: `python3 kit/tools/test_ko.py`, `python3 tools/test-korean-store.py --build`
-   (목록·패키지·원본의 버전이나 `mguHmi`가 다르면 실패합니다).
+4. 검증: `python3 kit/tools/test_ko.py`, `python3 tools/test-korean-store.py --build --car`
+   (목록·패키지·원본의 버전이나 `mguHmi`가 다르면 실패합니다. `--car`는 Store처럼 차에서 빌드해 봅니다).
 5. `README.ko.md`, `README.md`의 버전 표와 `docs/APPS-MIGRATION.ko.md`를 갱신합니다.

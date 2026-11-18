@@ -41,6 +41,13 @@ TOOL_TEXTS = {
 }
 
 
+# What kit/tools/build.py reads on the head unit (appsKOR_fork mgu-repo.json "apps" "shared").
+CAR_SHARED = ['kit/runtime', 'kit/platform', 'kit/localization', 'kit/tools/build.py', 'kit/tools/pack_data.py',
+              'kit/tools/localize.py', 'kit/tools/locale-revisions.json', 'kit/tools/oapgen', 'oap-sdk']
+# Apps whose build downloads checked assets (appsKOR_fork "network").
+CAR_NETWORK = {'doom'}
+
+
 def hmi_of(spec):
     # The head units the source app is built and tested for (app.json mguHmi);
     # the package and the listing say the same, so the Store installs it there.
@@ -94,6 +101,32 @@ def layer(folder, files, **extra):
     return meta
 
 
+def store_identity(files, app, original, compiled_version):
+    """What the Store package says about itself, for a prebuilt layer and a head-unit build alike."""
+    result = {}
+    for name, data in files.items():
+        rel = name[len('package/'):]
+        # Store's component parser requires x.y.z; label and resources stay
+        # Korean. Only identity metadata versions lose the locale suffix.
+        if rel.endswith(('.json', '.xml')) and (rel.startswith('rhmiData') or rel in ['package.json', 'npm-shrinkwrap.json', 'javascript/kit/app-spec.json']):
+            data = data.decode('utf-8').replace(compiled_version, original['version']).encode('utf-8')
+        result[name] = data
+    pkg = json.loads(result['package/package.json'])
+    # The Store shows the installed package's description; keep it Korean like the listing.
+    pkg.update(mguHmi=hmi_of(original), mguLocalOnly=True, description='한국어 고정 빌드 · ' + DESCRIPTIONS[app])
+    result['package/package.json'] = (json.dumps(pkg, ensure_ascii=False, indent=2) + '\n').encode()
+    return result
+
+
+def car_build(app):
+    """The Store builds the app on the head unit, as appsKOR_fork's own entry does ("sdk": "oap-sdk"):
+    the unit's oap-sdk goes into the package and the manifest is fitted to its interface catalog."""
+    return dict(python='tools/build-korean.py', args=['--id', '{id}', '--version', '{version}', '--dir', '{dir}'],
+                sdk='oap-sdk', network=[app] if app in CAR_NETWORK else False,
+                shared=['tools/build-korean.py', 'tools/install-korean.py', 'tools/prepare-korean-store.py',
+                        'apps/' + app] + CAR_SHARED)
+
+
 def prepare(dist, source):
     # Validate every staged app before replacing any published layer.
     apps = {}
@@ -114,17 +147,8 @@ def prepare(dist, source):
         for p in sorted(stage.rglob('*')):
             if not p.is_file() or 'node_modules' in p.relative_to(stage).parts:
                 continue
-            rel = p.relative_to(stage).as_posix()
-            data = p.read_bytes()
-            # Store's component parser requires x.y.z; label and resources stay
-            # Korean. Only identity metadata versions lose the locale suffix.
-            if p.suffix in ['.json', '.xml'] and (rel.startswith('rhmiData') or rel in ['package.json', 'npm-shrinkwrap.json', 'javascript/kit/app-spec.json']):
-                data = data.decode('utf-8').replace(localized['version'], original['version']).encode('utf-8')
-            files['package/' + rel] = data
-        pkg = json.loads(files['package/package.json'])
-        # The Store shows the installed package's description; keep it Korean like the listing.
-        pkg.update(mguHmi=hmi_of(original), mguLocalOnly=True, description='한국어 고정 빌드 · ' + DESCRIPTIONS[app])
-        files['package/package.json'] = (json.dumps(pkg, ensure_ascii=False, indent=2) + '\n').encode()
+            files['package/' + p.relative_to(stage).as_posix()] = p.read_bytes()
+        files = store_identity(files, app, original, localized['version'])
         if 'package/javascript/kit/fonts/korean.json' not in files or not any(n.endswith('/OFL-NotoSansKR.txt') for n in files):
             raise ValueError('Missing Hangul font/license: ' + app)
         apps[app] = dict(spec=original, localized=localized, files=files, source_hash=inputs(app))
@@ -151,7 +175,7 @@ def prepare(dist, source):
             if not built_icon.exists():
                 raise ValueError('Missing Store icon: ' + app)
             shutil.copy2(built_icon, listing / 'icon.png')
-        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=hmi_of(spec), requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app])))
+        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=hmi_of(spec), requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {})), build=car_build(app)))
         components[-1]['requires'].update(spec.get('requires', {}))
         print(app + ': ' + str(meta['size']) + ' app bytes + shared Korean runtime; ' + data['localized']['version'])
     # The renderer / controller tools stay as the source lists them (versions, mguHmi); only their texts are Korean.

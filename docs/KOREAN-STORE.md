@@ -2,7 +2,9 @@
 
 `mgu-repo.json`은 `store/apps/<id>/app.json`의 한국어 목록만 노출합니다. 원본 `apps/` 소스는 보존합니다. 기존 GPU 렌더러와 컨트롤러 도구 항목도 유지합니다.
 
-공통 글꼴·런타임은 `store/korean/common`, 앱별 완성된 UI·코드·데이터는 `store/korean/<id>`에 나눠 보관합니다. 각 레이어의 크기와 SHA-256을 설치 전에 검증합니다. `tools/install-korean.py`는 빌드된 파일을 묶는 역할만 하며 네트워크·차량 신호 접근·SDK 복사를 하지 않습니다. Store 설치 단계가 차량 SDK를 준비합니다.
+Store는 원본 `appsKOR_fork`처럼 앱을 **차에서 빌드합니다**(`"sdk": "oap-sdk"`). `tools/build-korean.py`가 원본 `kit/tools/build.py`로 `apps/<sourceId>`를 한국어로 빌드합니다. 이때 그 차량의 `oap-sdk`가 `node_modules/oap-sdk`에 들어가고, SOME/IP manifest가 차량의 인터페이스 목록에 맞춰집니다. 패키지 버전(`x.y.z`)·`mguHmi`·한국어 설명은 `prepare-korean-store.py`의 `store_identity`가 정합니다.
+
+공통 글꼴·런타임은 `store/korean/common`, 앱별 완성된 UI·코드·데이터는 `store/korean/<id>`에 나눠 보관합니다. 이 레이어는 설치에 쓰지 않고, 차량 빌드 결과를 확인하는 기준입니다(`tools/install-korean.py`로 SDK 없는 패키지를 조립해 비교).
 
 앱 15개는 `appsKOR_fork`의 원본 그대로이며 버전도 같습니다. 소스 커밋은 [갱신 기록](APPS-MIGRATION.ko.md)을 확인하세요.
 
@@ -14,7 +16,7 @@ SDK 없이 `--preview-only`로 한국어 화면과 패키지 내용을 만듭니
 python kit/tools/test_ko.py
 python kit/tools/build.py --preview-only --language ko
 python tools/prepare-korean-store.py --dist dist --source-commit <빌드한_소스_커밋>
-python tools/test-korean-store.py --build
+python tools/test-korean-store.py --build --car
 ```
 
 공개 대상은 `mgu-repo.json`, `store/apps`, `store/korean`, 이 문서와 `tools/install-korean.py`, `tools/prepare-korean-store.py`, `tools/test-korean-store.py`입니다. SDK와 개인 차량 파일은 포함하지 않습니다. `.github/workflows/korean-localization.yml`에서도 패키지의 체크섬·원본 소스 일치 여부를 검사합니다. 원본 앱/번역/런타임을 갱신했다면 공개 레이어도 다시 생성해야 합니다.

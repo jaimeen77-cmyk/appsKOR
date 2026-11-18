@@ -1,5 +1,16 @@
 # 일반 한국어 앱의 배포 소스 통합
 
+## 2026-11-18 원본처럼 차에서 빌드 (iDrive 8 '로딩중' 수정)
+
+iDrive 8에서 원본 앱은 열리는데 한국어 앱은 '로딩중'에서 멈췄습니다. 원본 Store 항목에는 `"sdk": "oap-sdk"`가 있어서 차량에서 SDK를 넣고 인터페이스를 맞춰 빌드합니다. 반면 이 저장소는 SDK 없이 미리 만든 패키지를 묶기만 했습니다.
+
+- Store 항목 15개가 `tools/build-korean.py`로 차에서 빌드합니다(`"sdk": "oap-sdk"`, 원본과 같은 `shared`, Doom만 `network`).
+- 원본 `kit/tools/build.py --language ko`를 그대로 씁니다. 패키지에 차량의 `node_modules/oap-sdk`가 들어가고 `fit_to_unit`이 그 차량의 인터페이스 목록에 맞춥니다.
+- 버전(`x.y.z`)·`mguHmi`·한국어 설명과 별도 ID 재할당은 미리 빌드한 패키지와 같습니다. eDrive와 실시간 데이터에는 미리 빌드에서 빠졌던 홈 화면 위젯(`rhmiDataStartWidget`)이 원본처럼 들어갑니다.
+- `store/korean` 레이어는 검증 기준으로 남깁니다. `tools/test-korean-store.py --build --car`가 Store가 넘기는 파일만으로 차량 빌드를 흉내 내어(SDK는 대용품), 결과가 레이어에 SDK와 위젯만 더한 것인지 확인합니다.
+- 앱 버전은 원본과 같으므로 그대로입니다. 이미 설치한 차량은 업데이트로 받지 못하니 앱을 삭제한 뒤 다시 설치하세요.
+- 실제 iDrive 8 차량 확인은 아직입니다.
+
 ## 2026-11-18 앰비언트 설정 2.7.9
 
 `appsKOR_fork`의 `main`(3e492de)을 병합했습니다. 바뀐 앱은 앰비언트 설정(2.7.7 → 2.7.9)뿐입니다.

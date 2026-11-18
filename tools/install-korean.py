@@ -64,6 +64,66 @@ def read_common(own):
     return common, files
 
 
+def rename(files, original, app_id):
+    """The Store can resolve an app-ID collision. Rewrite identities and icons,
+    preserving all application code, signal declarations and setting values."""
+    if app_id == original:
+        return files
+    replacements = {}
+    for name, data in files.items():
+        if name.endswith('/application.json'):
+            for match in UUID.findall(data.decode('utf-8')):
+                replacements[match.lower()] = str(uuid.uuid5(uuid.NAMESPACE_URL, 'appsKOR:' + app_id + ':' + match.lower()))
+    renamed = {}
+    for name, data in files.items():
+        if name.endswith(('.json', '.xml')) and (name.startswith('package/rhmiData') or name in {
+                'package/package.json', 'package/npm-shrinkwrap.json', 'package/manifest.json',
+                'package/permissions.json', 'package/config/base.json', 'package/javascript/kit/app-spec.json'}):
+            def identity(value):
+                if isinstance(value, dict):
+                    return {identity(k): identity(v) for k, v in value.items()}
+                if isinstance(value, list):
+                    return [identity(v) for v in value]
+                if isinstance(value, str):
+                    value = UUID.sub(lambda m: replacements.get(m.group(0).lower(), m.group(0)), value)
+                    if value == original:
+                        return app_id
+                    if value.startswith(original + '_') and value.endswith('.png'):
+                        return app_id + value[len(original):]
+                    return value.replace('SID_' + original.upper() + '_', 'SID_' + app_id.upper() + '_')
+                return value
+            text = data.decode('utf-8')
+            if name.endswith('.json'):
+                data = (json.dumps(identity(json.loads(text)), ensure_ascii=False, indent=2) + '\n').encode('utf-8')
+            else:
+                text = UUID.sub(lambda m: replacements.get(m.group(0).lower(), m.group(0)), text)
+                text = text.replace('SID_' + original.upper() + '_', 'SID_' + app_id.upper() + '_')
+                data = text.replace(original + '_icon.png', app_id + '_icon.png').encode('utf-8')
+        basename = PurePosixPath(name).name
+        if basename.startswith(original + '_') and basename.endswith('.png'):
+            name = str(PurePosixPath(name).with_name(app_id + basename[len(original):]))
+        if name in renamed:
+            raise ValueError('Duplicate renamed package member')
+        renamed[name] = data
+    return renamed
+
+
+def write_package(files, app_id, version, output):
+    output = Path(output).resolve()
+    output.mkdir(parents=True, exist_ok=True)
+    if any(output.iterdir()):
+        raise ValueError('Output folder must be empty')
+    target = output / (app_id + '@' + version + '.tgz')
+    with target.open('wb') as stream, gzip.GzipFile(filename='', fileobj=stream, mode='wb', mtime=0) as compressed:
+        with tarfile.open(fileobj=compressed, mode='w', format=tarfile.USTAR_FORMAT) as archive:
+            for name in sorted(files):
+                info = tarfile.TarInfo(name)
+                info.size = len(files[name])
+                info.mode = 0o644
+                archive.addfile(info, io.BytesIO(files[name]))
+    return target
+
+
 def assemble(app_id, version, directory, output):
     if not ID.fullmatch(app_id) or not VERSION.fullmatch(version):
         raise ValueError('Invalid app identity/version')
@@ -87,58 +147,8 @@ def assemble(app_id, version, directory, output):
         raise ValueError('Compiled identity/language mismatch')
     if 'package/javascript/app.js' not in files or 'package/javascript/kit/fonts/korean.json' not in files:
         raise ValueError('Compiled application or Hangul font is missing')
-    # The Store can resolve an app-ID collision. Rewrite identities and icons,
-    # preserving all application code, signal declarations and setting values.
-    if app_id != original:
-        replacements = {}
-        for name, data in files.items():
-            if name.endswith('/application.json'):
-                for match in UUID.findall(data.decode('utf-8')):
-                    replacements[match.lower()] = str(uuid.uuid5(uuid.NAMESPACE_URL, 'appsKOR:' + app_id + ':' + match.lower()))
-        renamed = {}
-        for name, data in files.items():
-            if name.endswith(('.json', '.xml')) and (name.startswith('package/rhmiData') or name in {
-                    'package/package.json', 'package/npm-shrinkwrap.json', 'package/manifest.json',
-                    'package/permissions.json', 'package/config/base.json', 'package/javascript/kit/app-spec.json'}):
-                def identity(value):
-                    if isinstance(value, dict):
-                        return {identity(k): identity(v) for k, v in value.items()}
-                    if isinstance(value, list):
-                        return [identity(v) for v in value]
-                    if isinstance(value, str):
-                        value = UUID.sub(lambda m: replacements.get(m.group(0).lower(), m.group(0)), value)
-                        if value == original:
-                            return app_id
-                        if value.startswith(original + '_') and value.endswith('.png'):
-                            return app_id + value[len(original):]
-                        return value.replace('SID_' + original.upper() + '_', 'SID_' + app_id.upper() + '_')
-                    return value
-                text = data.decode('utf-8')
-                if name.endswith('.json'):
-                    data = (json.dumps(identity(json.loads(text)), ensure_ascii=False, indent=2) + '\n').encode('utf-8')
-                else:
-                    text = UUID.sub(lambda m: replacements.get(m.group(0).lower(), m.group(0)), text)
-                    text = text.replace('SID_' + original.upper() + '_', 'SID_' + app_id.upper() + '_')
-                    data = text.replace(original + '_icon.png', app_id + '_icon.png').encode('utf-8')
-            basename = PurePosixPath(name).name
-            if basename.startswith(original + '_') and basename.endswith('.png'):
-                name = str(PurePosixPath(name).with_name(app_id + basename[len(original):]))
-            if name in renamed:
-                raise ValueError('Duplicate renamed package member')
-            renamed[name] = data
-        files = renamed
-    output = Path(output).resolve()
-    output.mkdir(parents=True, exist_ok=True)
-    if any(output.iterdir()):
-        raise ValueError('Output folder must be empty')
-    target = output / (app_id + '@' + version + '.tgz')
-    with target.open('wb') as stream, gzip.GzipFile(filename='', fileobj=stream, mode='wb', mtime=0) as compressed:
-        with tarfile.open(fileobj=compressed, mode='w', format=tarfile.USTAR_FORMAT) as archive:
-            for name in sorted(files):
-                info = tarfile.TarInfo(name)
-                info.size = len(files[name])
-                info.mode = 0o644
-                archive.addfile(info, io.BytesIO(files[name]))
+    files = rename(files, original, app_id)
+    target = write_package(files, app_id, version, output)
     print('Prepared Korean Store package: ' + str(target))
     return target
 
