@@ -2,16 +2,16 @@
   "schema": 1,
   "language": "ko",
   "size": 453471,
-  "sha256": "2500f41b85518232dbe670930ad1bafc75e4b9e2318568c3c86c9c9320dcdf6c",
+  "sha256": "f63c9705ec066c2759a85ba36c5215cd906b5f7d8f63b1166d96f2bff4b21a08",
   "parts": [
     "part-000",
     "part-001",
     "part-002"
   ],
   "id": "cluster_layouts",
-  "version": "0.27.1",
-  "compiled_version": "0.27.1-ko.1",
+  "version": "0.27.2",
+  "compiled_version": "0.27.2-ko.1",
   "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
   "source_commit": "01e9587",
-  "source_hash": "7a7b5e4bcc0d9a67e087de1ea0ba7e0a11bb4cecf5910dae0689cb97b3db6c04"
+  "source_hash": "30c797c5c43515a0d354b8c4c70fe5d71f2b1c4e7cb731d17b3cd5d948943328"
 }
