@@ -48,6 +48,10 @@ def check(build=False):
         assert json.loads(files['package/javascript/kit/locale.json'])['language'] == 'ko'
         pkg = json.loads(files['package/package.json'])
         assert pkg['name'] == app and pkg['version'] == listing['version'] and pkg['mguLocalOnly']
+        # iDrive 7 / 8: the source app.json (appsKOR_fork) decides; the listing and the package say the same.
+        hmi = prepare.hmi_of(source)
+        assert component['mguHmi'] == hmi, '%s: mgu-repo.json mguHmi %r, apps/%s/app.json %r' % (app, component['mguHmi'], app, hmi)
+        assert pkg['mguHmi'] == hmi, '%s: package mguHmi %r, apps/%s/app.json %r; regenerate with tools/prepare-korean-store.py' % (app, pkg['mguHmi'], app, hmi)
         spec = json.loads(files['package/javascript/kit/app-spec.json'])
         pin = imported.get(app)
         if pin and own.get('source_commit') == pin['source_commit'] and own.get('source_hash') == pin['source_hash']:
@@ -76,6 +80,11 @@ def check(build=False):
                     assert set(archive.getnames()) == set(files)
                     assert all(archive.extractfile(n).read() == b for n, b in files.items())
         results.append(app)
+    # IterioDev Korean editions: the listing keeps iterio_fork's own mguHmi (tools/prepare-iteriodev-ko.py).
+    for component in repo['components']:
+        if component['path'].startswith('store/iteriodev-ko/'):
+            own = json.loads((ROOT / component['path'] / 'app.json').read_text())
+            assert component['mguHmi'] == own['mguHmi'], '%s: mgu-repo.json mguHmi %r, iterio_fork %r' % (component['id'], component['mguHmi'], own['mguHmi'])
     # Host tests exercise a Store ID collision using a temporary manifest. Keep
     # it inside the repo, where the same path guards apply on the car.
     temporary = ROOT / 'store/apps/service_kor_test'
