@@ -11,7 +11,7 @@
   "id": "cluster_layouts",
   "version": "0.27.1",
   "compiled_version": "0.27.1-ko.1",
-  "common_sha256": "d19da0f4a9643986e0e995b7bcc2721f9c4958019e9467945ff3fb6e13384df1",
-  "source_commit": "e5e4c5c",
-  "source_hash": "58eac99819880b9880b68d785f02cb711674637cc8dff246b0da7d9df2e7fc69"
+  "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
+  "source_commit": "01e9587",
+  "source_hash": "7a7b5e4bcc0d9a67e087de1ea0ba7e0a11bb4cecf5910dae0689cb97b3db6c04"
 }

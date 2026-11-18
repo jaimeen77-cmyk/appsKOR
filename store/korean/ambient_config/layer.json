@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 66195,
-  "sha256": "a1d1478df274485795dbe40ca350be6fef5aa6868222b8c8b9b6eacb6322eec3",
+  "size": 70291,
+  "sha256": "bfab607ff090108a2893d6c587abc990fd9b580afd222adfd9602c83beec46c0",
   "parts": [
     "part-000"
   ],
   "id": "ambient_config",
-  "version": "2.5.0",
-  "compiled_version": "2.5.0-ko.1",
-  "common_sha256": "d19da0f4a9643986e0e995b7bcc2721f9c4958019e9467945ff3fb6e13384df1",
-  "source_commit": "e5e4c5c",
-  "source_hash": "79c3ba39693eb35313b7971123449a9535f2027cea900f0df47f33c56a603384"
+  "version": "2.7.6",
+  "compiled_version": "2.7.6-ko.1",
+  "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
+  "source_commit": "01e9587",
+  "source_hash": "7f73c6e90b1a52709a0f48148acf42e539251aea13329d6caef7b15768ee82e5"
 }

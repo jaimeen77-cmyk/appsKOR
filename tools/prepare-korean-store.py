@@ -33,6 +33,15 @@ DESCRIPTIONS = {
 }
 
 
+def hmi_of(spec):
+    # The head units the source app is built and tested for (app.json mguHmi);
+    # the package and the listing say the same, so the Store installs it there.
+    hmi = spec.get('mguHmi') or ['ID7']
+    if not isinstance(hmi, list) or not hmi or any(h not in ('ID7', 'ID8') for h in hmi):
+        raise ValueError('Invalid mguHmi: ' + repr(hmi))
+    return hmi
+
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -106,7 +115,7 @@ def prepare(dist, source):
             files['package/' + rel] = data
         pkg = json.loads(files['package/package.json'])
         # The Store shows the installed package's description; keep it Korean like the listing.
-        pkg.update(mguHmi=['ID7'], mguLocalOnly=True, description='한국어 고정 빌드 · ' + DESCRIPTIONS[app])
+        pkg.update(mguHmi=hmi_of(original), mguLocalOnly=True, description='한국어 고정 빌드 · ' + DESCRIPTIONS[app])
         files['package/package.json'] = (json.dumps(pkg, ensure_ascii=False, indent=2) + '\n').encode()
         if 'package/javascript/kit/fonts/korean.json' not in files or not any(n.endswith('/OFL-NotoSansKR.txt') for n in files):
             raise ValueError('Missing Hangul font/license: ' + app)
@@ -134,12 +143,14 @@ def prepare(dist, source):
             if not built_icon.exists():
                 raise ValueError('Missing Store icon: ' + app)
             shutil.copy2(built_icon, listing / 'icon.png')
-        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=['ID7'], requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {'idrive7-renderd':'2.1.7','mgu-inputgate':'1.0.0'})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app])))
+        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=hmi_of(spec), requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app])))
         components[-1]['requires'].update(spec.get('requires', {}))
         print(app + ': ' + str(meta['size']) + ' app bytes + shared Korean runtime; ' + data['localized']['version'])
     # Retain renderer/controller tools and their existing metadata unchanged.
     repo.pop('apps', None)
-    repo['components'] = components
+    # Components this script does not build (e.g. the IterioDev Korean packages) stay listed.
+    built = {c['id'] for c in components}
+    repo['components'] = components + [c for c in repo.get('components', []) if c['id'] not in built and c['id'] not in DESCRIPTIONS]
     (ROOT / 'mgu-repo.json').write_text(json.dumps(repo, ensure_ascii=False, indent=2) + '\n')
     print('Prepared %d Korean-only apps; common %d bytes.' % (len(apps), common['size']))
 

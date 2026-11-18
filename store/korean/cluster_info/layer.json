@@ -9,7 +9,7 @@
   "id": "cluster_info",
   "version": "1.6.6",
   "compiled_version": "1.6.6-ko.1",
-  "common_sha256": "d19da0f4a9643986e0e995b7bcc2721f9c4958019e9467945ff3fb6e13384df1",
-  "source_commit": "e5e4c5c",
-  "source_hash": "eb2b9d3d8da4818cc8507f6cdd4cecc4bce8e93ccfac3ab9d53e90a3a28fc440"
+  "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
+  "source_commit": "01e9587",
+  "source_hash": "d9ba12859dcc2e9b81a18250be3dbf1cb9887266d4b9cc138c22d75df7560111"
 }

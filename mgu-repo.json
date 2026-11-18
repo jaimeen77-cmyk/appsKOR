@@ -126,8 +126,7 @@
       "kind": "app",
       "path": "store/apps/cluster_centre",
       "mguHmi": [
-        "ID7",
-        "ID8"
+        "ID7"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -158,8 +157,7 @@
       "kind": "app",
       "path": "store/apps/cluster_info",
       "mguHmi": [
-        "ID7",
-        "ID8"
+        "ID7"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -189,8 +187,7 @@
       "kind": "app",
       "path": "store/apps/cluster_layouts",
       "mguHmi": [
-        "ID7",
-        "ID8"
+        "ID7"
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
@@ -319,8 +316,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.15",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.15"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -350,8 +346,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.15",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.15"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -381,8 +376,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.15",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.15"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -474,8 +468,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.15",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.15"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -505,8 +498,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.15",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.15"
       },
       "build": {
         "python": "tools/install-korean.py",
@@ -536,8 +528,7 @@
       ],
       "requires": {
         "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.15",
-        "mgu-inputgate": "1.0.0"
+        "idrive7-renderd": "2.1.15"
       },
       "build": {
         "python": "tools/install-korean.py",
