@@ -64,7 +64,7 @@
   "id": "doom",
   "version": "1.7.22",
   "compiled_version": "1.7.22-ko.1",
-  "common_sha256": "3b3c126c47287929375d88cc25669967d12f74b5e29a57bac4aeb135a326722c",
-  "source_commit": "4be3e52",
-  "source_hash": "ee7ef76f957f4e62de9adac5cf1aa9967ab36cebe1aa7a8f65441c476b443e98"
+  "common_sha256": "2cd1d0ca4e94f94e662c45e608db539e1f2707c4ee2b0d92e584ab07f403d81b",
+  "source_commit": "3e492de",
+  "source_hash": "fbe06df8cf65239ca6075e37c5c26b103437275f12e7632632b2e81d243d20fe"
 }
