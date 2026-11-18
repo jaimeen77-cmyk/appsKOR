@@ -2,15 +2,15 @@
   "schema": 1,
   "language": "ko",
   "size": 251634,
-  "sha256": "f7f9232aa005f0ded71c4cc59a0ce15f193dbdcc59818d9675cf0d7dd1aa658d",
+  "sha256": "61da00a4d7c7f7bf9417e0630860b9a6005342e0269b8da5839120f331d0d63a",
   "parts": [
     "part-000",
     "part-001"
   ],
   "id": "redline",
-  "version": "2.0.45",
-  "compiled_version": "2.0.45-ko.1",
+  "version": "2.0.46",
+  "compiled_version": "2.0.46-ko.1",
   "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
   "source_commit": "01e9587",
-  "source_hash": "321b21163774e23cc3afa57f06734cdc120802cfec621550b9176e0c067eb5ba"
+  "source_hash": "b7cc44dda336c391c270c217ac14176e288f89e9d3c16cac65cc6a7c7eab78cd"
 }

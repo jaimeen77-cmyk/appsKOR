@@ -2,14 +2,14 @@
   "schema": 1,
   "language": "ko",
   "size": 70291,
-  "sha256": "bfab607ff090108a2893d6c587abc990fd9b580afd222adfd9602c83beec46c0",
+  "sha256": "a2947bb2c001113855c8e36c7041fe38de93698ad78ec352241331a612682d83",
   "parts": [
     "part-000"
   ],
   "id": "ambient_config",
-  "version": "2.7.6",
-  "compiled_version": "2.7.6-ko.1",
+  "version": "2.7.7",
+  "compiled_version": "2.7.7-ko.1",
   "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
   "source_commit": "01e9587",
-  "source_hash": "7f73c6e90b1a52709a0f48148acf42e539251aea13329d6caef7b15768ee82e5"
+  "source_hash": "9a00afeac0aa67fff3133161a57241da45cf7c80e4c4ad4432684b21eecc7e12"
 }
