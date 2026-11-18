@@ -4,6 +4,8 @@
 
 공통 글꼴·런타임은 `store/korean/common`, 앱별 완성된 UI·코드·데이터는 `store/korean/<id>`에 나눠 보관합니다. 각 레이어의 크기와 SHA-256을 설치 전에 검증합니다. `tools/install-korean.py`는 빌드된 파일을 묶는 역할만 하며 네트워크·차량 신호 접근·SDK 복사를 하지 않습니다. Store 설치 단계가 차량 SDK를 준비합니다.
 
+차량에서 패키지를 만들 때 원본 `kit/tools/build.py`의 `fit_to_unit()`과 같이 그 차의 SOME/IP 인터페이스 목록(`/etc/oap/someip/someip-interfaces.json`)에 없는 필드·메서드·이벤트·인스턴스를 `manifest.json`에서 빼고 `javascript/kit/missing-interfaces.json`에 기록합니다. iDrive 8은 펌웨어의 인터페이스 목록이 iDrive 7과 달라, 이 단계가 없으면 설치 후 앱이 "로딩 중"에서 멈출 수 있습니다. 목록이 없는 PC에서는 패키지가 바뀌지 않습니다.
+
 일반 앱 15개는 `apps`에서 이관한 최신 패키지로 배포합니다. 기존 클러스터 앱의 이전 공통 런타임은 해시별 폴더로 보관하며, 설치 도구가 앱에 맞는 레이어를 선택합니다. 소스 커밋과 재생성 조건은 [이동 기록](APPS-MIGRATION.ko.md)을 확인하세요.
 
 ## 다시 생성

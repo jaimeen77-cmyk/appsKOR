@@ -55,7 +55,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/ambient_config"
+          "store/korean/ambient_config",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/ambient_config/app.json"
         ]
       }
     },
@@ -86,7 +90,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/brake_test"
+          "store/korean/brake_test",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/brake_test/app.json"
         ]
       }
     },
@@ -117,7 +125,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/car_vitals"
+          "store/korean/car_vitals",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/car_vitals/app.json"
         ]
       }
     },
@@ -148,7 +160,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/cluster_centre"
+          "store/korean/cluster_centre",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/cluster_centre/app.json"
         ]
       }
     },
@@ -178,7 +194,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/cluster_info"
+          "store/korean/cluster_info",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/cluster_info/app.json"
         ]
       }
     },
@@ -209,7 +229,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/cluster_layouts"
+          "store/korean/cluster_layouts",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/cluster_layouts/app.json"
         ]
       }
     },
@@ -240,7 +264,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/doom"
+          "store/korean/doom",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/doom/app.json"
         ]
       }
     },
@@ -271,7 +299,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/draggy"
+          "store/korean/draggy",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/draggy/app.json"
         ]
       }
     },
@@ -302,7 +334,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/dtc_scanner"
+          "store/korean/dtc_scanner",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/dtc_scanner/app.json"
         ]
       }
     },
@@ -332,7 +368,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/dyno"
+          "store/korean/dyno",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/dyno/app.json"
         ]
       }
     },
@@ -362,7 +402,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/edrive"
+          "store/korean/edrive",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/edrive/app.json"
         ]
       }
     },
@@ -392,7 +436,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/gforce"
+          "store/korean/gforce",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/gforce/app.json"
         ]
       }
     },
@@ -423,7 +471,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/live_adjustments"
+          "store/korean/live_adjustments",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/live_adjustments/app.json"
         ]
       }
     },
@@ -454,7 +506,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/live_data"
+          "store/korean/live_data",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/live_data/app.json"
         ]
       }
     },
@@ -484,7 +540,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/redline"
+          "store/korean/redline",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/redline/app.json"
         ]
       }
     },
@@ -514,7 +574,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/service"
+          "store/korean/service",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/service/app.json"
         ]
       }
     },
@@ -544,7 +608,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/warmup"
+          "store/korean/warmup",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/warmup/app.json"
         ]
       }
     },
@@ -575,7 +643,11 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/zf8hp"
+          "store/korean/zf8hp",
+          "kit/tools/build.py",
+          "kit/tools/localize.py",
+          "kit/tools/pack_data.py",
+          "apps/zf8hp/app.json"
         ]
       }
     },

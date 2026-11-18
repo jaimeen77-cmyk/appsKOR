@@ -143,7 +143,7 @@ def prepare(dist, source):
             if not built_icon.exists():
                 raise ValueError('Missing Store icon: ' + app)
             shutil.copy2(built_icon, listing / 'icon.png')
-        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=hmi_of(spec), requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app])))
+        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=hmi_of(spec), requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app,'kit/tools/build.py','kit/tools/localize.py','kit/tools/pack_data.py','apps/' + app + '/app.json'])))
         components[-1]['requires'].update(spec.get('requires', {}))
         print(app + ': ' + str(meta['size']) + ' app bytes + shared Korean runtime; ' + data['localized']['version'])
     # Retain renderer/controller tools and their existing metadata unchanged.
