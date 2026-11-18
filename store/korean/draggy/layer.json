@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 41479,
-  "sha256": "0fba729d74d4d9bb1e70ff984f4f968fb8c15ab067bd93bc26c0e1b0f2ff1eec",
+  "size": 41477,
+  "sha256": "c3986f222d95ff3d84bc14c3927cb85de10295cba3ecf4f81017380d099539be",
   "parts": [
     "part-000"
   ],
   "id": "draggy",
-  "version": "2.6.2",
-  "compiled_version": "2.6.2-ko.1",
-  "common_sha256": "1dfb33a56196838c2b18269e20acecff0a9a1ab882ff1ec9365791dd2b8f6ce8",
-  "source_commit": "01e9587",
-  "source_hash": "20f0e208d52e85360644a4c79f9566b0bb843154d42595909cb107caedce1c08"
+  "version": "2.6.0",
+  "compiled_version": "2.6.0-ko.1",
+  "common_sha256": "3b3c126c47287929375d88cc25669967d12f74b5e29a57bac4aeb135a326722c",
+  "source_commit": "4be3e52",
+  "source_hash": "1d6166e1f74d889f876191abd9dc858fb271875bef378ddd66960d390777f030"
 }

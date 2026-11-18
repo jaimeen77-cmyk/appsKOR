@@ -55,11 +55,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/ambient_config",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/ambient_config/app.json"
+          "store/korean/ambient_config"
         ]
       }
     },
@@ -90,11 +86,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/brake_test",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/brake_test/app.json"
+          "store/korean/brake_test"
         ]
       }
     },
@@ -125,115 +117,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/car_vitals",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/car_vitals/app.json"
-        ]
-      }
-    },
-    {
-      "id": "cluster_centre",
-      "kind": "app",
-      "path": "store/apps/cluster_centre",
-      "mguHmi": [
-        "ID7"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0",
-        "cluster-render": "0.4.2"
-      },
-      "build": {
-        "python": "tools/install-korean.py",
-        "args": [
-          "--id",
-          "{id}",
-          "--version",
-          "{version}",
-          "--dir",
-          "{dir}"
-        ],
-        "network": false,
-        "shared": [
-          "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/cluster_centre",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/cluster_centre/app.json"
-        ]
-      }
-    },
-    {
-      "id": "cluster_info",
-      "kind": "app",
-      "path": "store/apps/cluster_info",
-      "mguHmi": [
-        "ID7"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0"
-      },
-      "build": {
-        "python": "tools/install-korean.py",
-        "args": [
-          "--id",
-          "{id}",
-          "--version",
-          "{version}",
-          "--dir",
-          "{dir}"
-        ],
-        "network": false,
-        "shared": [
-          "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/cluster_info",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/cluster_info/app.json"
-        ]
-      }
-    },
-    {
-      "id": "cluster_layouts",
-      "kind": "app",
-      "path": "store/apps/cluster_layouts",
-      "mguHmi": [
-        "ID7"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.17",
-        "idrive7-renderd": "2.1.7",
-        "mgu-inputgate": "1.0.0",
-        "cluster-render": "0.4.2"
-      },
-      "build": {
-        "python": "tools/install-korean.py",
-        "args": [
-          "--id",
-          "{id}",
-          "--version",
-          "{version}",
-          "--dir",
-          "{dir}"
-        ],
-        "network": false,
-        "shared": [
-          "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/cluster_layouts",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/cluster_layouts/app.json"
+          "store/korean/car_vitals"
         ]
       }
     },
@@ -264,11 +148,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/doom",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/doom/app.json"
+          "store/korean/doom"
         ]
       }
     },
@@ -299,11 +179,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/draggy",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/draggy/app.json"
+          "store/korean/draggy"
         ]
       }
     },
@@ -334,11 +210,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/dtc_scanner",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/dtc_scanner/app.json"
+          "store/korean/dtc_scanner"
         ]
       }
     },
@@ -368,11 +240,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/dyno",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/dyno/app.json"
+          "store/korean/dyno"
         ]
       }
     },
@@ -402,11 +270,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/edrive",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/edrive/app.json"
+          "store/korean/edrive"
         ]
       }
     },
@@ -436,11 +300,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/gforce",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/gforce/app.json"
+          "store/korean/gforce"
         ]
       }
     },
@@ -471,11 +331,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/live_adjustments",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/live_adjustments/app.json"
+          "store/korean/live_adjustments"
         ]
       }
     },
@@ -506,11 +362,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/live_data",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/live_data/app.json"
+          "store/korean/live_data"
         ]
       }
     },
@@ -540,11 +392,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/redline",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/redline/app.json"
+          "store/korean/redline"
         ]
       }
     },
@@ -574,11 +422,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/service",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/service/app.json"
+          "store/korean/service"
         ]
       }
     },
@@ -608,11 +452,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/warmup",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/warmup/app.json"
+          "store/korean/warmup"
         ]
       }
     },
@@ -643,240 +483,7 @@
         "shared": [
           "tools/install-korean.py",
           "store/korean/common",
-          "store/korean/zf8hp",
-          "kit/tools/build.py",
-          "kit/tools/localize.py",
-          "kit/tools/pack_data.py",
-          "apps/zf8hp/app.json"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_cardash",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_cardash",
-      "mguHmi": [
-        "ID8"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_draggy",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_draggy",
-      "mguHmi": [
-        "ID8"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_dtcscan",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_dtcscan",
-      "mguHmi": [
-        "ID8"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_edrive",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_edrive",
-      "mguHmi": [
-        "ID8"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_liveadjust",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_liveadjust",
-      "mguHmi": [
-        "ID8"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_overlays",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_overlays",
-      "mguHmi": [
-        "ID8"
-      ],
-      "requires": {
-        "iteriodev-overlays": "0.5.0",
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_seats",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_seats",
-      "mguHmi": [
-        "ID7",
-        "ID8"
-      ],
-      "requires": {
-        "iteriodev-comfort": "0.6.0",
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_service",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_service",
-      "mguHmi": [
-        "ID8"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_tailscale",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_tailscale",
-      "mguHmi": [
-        "ID7",
-        "ID8"
-      ],
-      "requires": {
-        "iteriodev-tailscale": "1.104.4",
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "iteriodev_turnview",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/iteriodev_turnview",
-      "mguHmi": [
-        "ID7",
-        "ID8"
-      ],
-      "requires": {
-        "iteriodev-turnview": "0.7.0",
-        "mgu-deploy": "0.7.5"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
-        ]
-      }
-    },
-    {
-      "id": "oap-driverecorder-next",
-      "kind": "app",
-      "path": "store/iteriodev-ko/apps/oap-driverecorder-next",
-      "mguHmi": [
-        "ID7",
-        "ID8"
-      ],
-      "requires": {
-        "mgu-deploy": "0.7.5",
-        "iteriodev-drplay": "1.2.0"
-      },
-      "uninstallable": true,
-      "build": {
-        "node": "store/iteriodev-ko/prebuilt.js",
-        "output": "{dir}/{id}@{version}.tgz",
-        "network": false,
-        "shared": [
-          "store/iteriodev-ko/prebuilt.js"
+          "store/korean/zf8hp"
         ]
       }
     }

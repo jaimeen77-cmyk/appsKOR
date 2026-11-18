@@ -27,11 +27,6 @@ def check(build=False):
     components = [c for c in repo['components'] if c['path'].startswith('store/apps/')]
     expected = {p.parent.name for p in (ROOT / 'apps').glob('*/app.json')}
     assert {c['id'] for c in components} == expected and len(components) == len(expected)
-    # Each import pins the packages it published; a later import replaces an
-    # earlier one's pins for the same app.
-    imported = {}
-    for record in sorted((ROOT / 'store/migrations').glob('apps-*.json')):
-        imported.update(json.loads(record.read_text())['apps'])
     results = []
     for component in components:
         app = component['id']
@@ -53,24 +48,14 @@ def check(build=False):
         assert component['mguHmi'] == hmi, '%s: mgu-repo.json mguHmi %r, apps/%s/app.json %r' % (app, component['mguHmi'], app, hmi)
         assert pkg['mguHmi'] == hmi, '%s: package mguHmi %r, apps/%s/app.json %r; regenerate with tools/prepare-korean-store.py' % (app, pkg['mguHmi'], app, hmi)
         spec = json.loads(files['package/javascript/kit/app-spec.json'])
-        pin = imported.get(app)
-        if pin and own.get('source_commit') == pin['source_commit'] and own.get('source_hash') == pin['source_hash']:
-            # These packages were built from a newer pinned source than this
-            # repo's retained source checkout. Verify every published byte
-            # against the migration inventory, rather than relabeling old code.
-            pairs = sorted((name, hashlib.sha256(data).hexdigest()) for name, data in files.items())
-            digest = hashlib.sha256(json.dumps(pairs, separators=(',', ':')).encode()).hexdigest()
-            assert listing['version'] == pin['version']
-            assert own['sha256'] == pin['layer_sha256'] and own['common_sha256'] == pin['common_sha256']
-            assert digest == pin['package_contents_sha256'], 'Imported package changed: ' + app
-        else:
-            assert listing['version'] == source['version']
-            assert own['source_hash'] == prepare.inputs(app), 'Korean compiled app is stale: ' + app
-            assert files['package/javascript/kit/fonts/korean.json'] == (ROOT / 'kit/localization/fonts/korean.json').read_bytes()
-            assert files['package/javascript/app.js'] == (ROOT / 'apps' / app / 'main.js').read_bytes()
-            for old, new in zip(source['settings'], spec['settings']):
-                assert old['key'] == new['key'] and old['default'] == new['default']
-                assert [o[0] for o in old.get('options', [])] == [o[0] for o in new.get('options', [])]
+        # versions and code exactly as the source (appsKOR_fork)
+        assert listing['version'] == source['version']
+        assert own['source_hash'] == prepare.inputs(app), 'Korean compiled app is stale: ' + app
+        assert files['package/javascript/kit/fonts/korean.json'] == (ROOT / 'kit/localization/fonts/korean.json').read_bytes()
+        assert files['package/javascript/app.js'] == (ROOT / 'apps' / app / 'main.js').read_bytes()
+        for old, new in zip(source['settings'], spec['settings']):
+            assert old['key'] == new['key'] and old['default'] == new['default']
+            assert [o[0] for o in old.get('options', [])] == [o[0] for o in new.get('options', [])]
         if app == 'doom':
             assert hashlib.sha256(files['package/javascript/freedoom1.wad']).hexdigest() == source['assets'][0]['sha256']
         if build:
@@ -80,11 +65,6 @@ def check(build=False):
                     assert set(archive.getnames()) == set(files)
                     assert all(archive.extractfile(n).read() == b for n, b in files.items())
         results.append(app)
-    # IterioDev Korean editions: the listing keeps iterio_fork's own mguHmi (tools/prepare-iteriodev-ko.py).
-    for component in repo['components']:
-        if component['path'].startswith('store/iteriodev-ko/'):
-            own = json.loads((ROOT / component['path'] / 'app.json').read_text())
-            assert component['mguHmi'] == own['mguHmi'], '%s: mgu-repo.json mguHmi %r, iterio_fork %r' % (component['id'], component['mguHmi'], own['mguHmi'])
     # Host tests exercise a Store ID collision using a temporary manifest. Keep
     # it inside the repo, where the same path guards apply on the car.
     temporary = ROOT / 'store/apps/service_kor_test'
@@ -116,7 +96,7 @@ def check(build=False):
             pass
         else:
             raise AssertionError('Unknown or unsafe common layer accepted')
-    print('PASS: %d Korean compiled apps; pinned imports, local source freshness, exact package bytes, matching runtime cohorts, fonts, Doom data and Store collision IDs.' % len(results))
+    print('PASS: %d Korean compiled apps; source versions, local source freshness, exact package bytes, matching runtime cohorts, fonts, Doom data and Store collision IDs.' % len(results))
 
 
 if __name__ == '__main__':

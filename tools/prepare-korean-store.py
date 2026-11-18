@@ -15,9 +15,6 @@ DESCRIPTIONS = {
     'ambient_config': '앰비언트 조명 색상과 주행 모드별 색상 설정',
     'brake_test': '제동 구간의 시간과 거리 측정',
     'car_vitals': '엔진 회전수·출력·온도 등 실시간 차량 정보',
-    'cluster_centre': '순정 클러스터 중앙에 온도·연료·예열·주행 정보를 표시',
-    'cluster_info': '클러스터 지도와 HUD 위에 차량 정보를 표시',
-    'cluster_layouts': '계기판 전체에 사용자 레이아웃과 차량 정보를 표시',
     'doom': '한국어 메뉴의 Doom · Freedoom Phase 1 데이터 포함',
     'draggy': '가속 구간 시간·거리와 주행 기록 측정',
     'dtc_scanner': '차량 고장 코드 조회와 진단 정보 확인',
@@ -30,6 +27,17 @@ DESCRIPTIONS = {
     'service': '정비 항목·교환 시점·차량 서비스 정보',
     'warmup': '냉각수·오일 온도로 확인하는 엔진 예열 상태',
     'zf8hp': 'ZF 8HP 변속기 상태·온도·주행 정보',
+}
+
+TOOL_TEXTS = {
+    "idrive7-renderd": {
+        "title": "GPU 화면 렌더러",
+        "description": "앱 화면을 초당 60프레임으로 그리는 필수 렌더러이며 iDrive 7과 iDrive 8에서 앱과 함께 설치됩니다."
+    },
+    "mgu-inputgate": {
+        "title": "iDrive 컨트롤러 연결",
+        "description": "iDrive 7과 iDrive 8에서 탭·화면 버튼·설정·Doom을 컨트롤러로 조작하게 하며 다음 HMI 시작 시 적용됩니다."
+    }
 }
 
 
@@ -143,14 +151,14 @@ def prepare(dist, source):
             if not built_icon.exists():
                 raise ValueError('Missing Store icon: ' + app)
             shutil.copy2(built_icon, listing / 'icon.png')
-        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=hmi_of(spec), requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app,'kit/tools/build.py','kit/tools/localize.py','kit/tools/pack_data.py','apps/' + app + '/app.json'])))
+        components.append(dict(id=app, kind='app', path='store/apps/' + app, mguHmi=hmi_of(spec), requires=dict({'mgu-deploy':'0.7.17'}, **repo.get('apps', {}).get('requires', {})), build=dict(python='tools/install-korean.py', args=['--id','{id}','--version','{version}','--dir','{dir}'], network=False, shared=['tools/install-korean.py','store/korean/common','store/korean/' + app])))
         components[-1]['requires'].update(spec.get('requires', {}))
         print(app + ': ' + str(meta['size']) + ' app bytes + shared Korean runtime; ' + data['localized']['version'])
-    # Retain renderer/controller tools and their existing metadata unchanged.
+    # The renderer / controller tools stay as the source lists them (versions, mguHmi); only their texts are Korean.
     repo.pop('apps', None)
-    # Components this script does not build (e.g. the IterioDev Korean packages) stay listed.
-    built = {c['id'] for c in components}
-    repo['components'] = components + [c for c in repo.get('components', []) if c['id'] not in built and c['id'] not in DESCRIPTIONS]
+    for tool in repo.get('tools', []):
+        tool.update(TOOL_TEXTS.get(tool['id'], {}))
+    repo['components'] = components
     (ROOT / 'mgu-repo.json').write_text(json.dumps(repo, ensure_ascii=False, indent=2) + '\n')
     print('Prepared %d Korean-only apps; common %d bytes.' % (len(apps), common['size']))
 

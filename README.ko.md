@@ -17,19 +17,6 @@
 2. 저장소 **`jaimeen77-cmyk/appsKOR`**, 브랜치 **`main`** 을 입력하고 **새로고침** 합니다.
 3. 이름에 **(한국어)** 가 붙은 앱을 골라 **Install** 합니다. 필요한 도구 설치 안내가 나오면 따릅니다.
 
-### IterioDev 앱 11개
-
-IterioDev 앱은 **원래 이름**으로 표시됩니다. 앱 설명에서 **비공식 한국어 번역** 표시를 확인하세요. 이름, 아이콘, 제작자 표기와 라이선스를 유지하며 무료로 배포합니다. [IterioDev의 배포 허락](https://github.com/IterioDev/car-apps/issues/25#issuecomment-6864458723) · [원본 라이선스](store/iteriodev-ko/LICENSE.IterioDev.md)
-
-- **iDrive 7 및 8** · Seats, Tailscale, Turn View, Drive Recorder
-- **iDrive 8** · Car Data, Drag Timer, Fault Codes, eDrive, Live Adjustments, Overlays, Service
-
-MGU Store에서 기존 `appsKOR` 소스를 새로고침하세요. Comfort, Overlays, Tailscale, Turn View 및 Drive Recorder에 필요한 원본 도구는 `IterioDev/car-apps` 소스에서 찾을 수 있습니다. 같은 ID의 영어판을 이미 설치했다면 Store에서 한국어판으로 소스 교체를 선택하세요.
-
-앱 메뉴와 주요 화면 문구를 번역했습니다. 제어기에서 오는 진단 문구나 일부 실시간 메시지는 원문으로 표시될 수 있습니다.
-
-이 패키지는 [동기화된 iterio_fork 소스](https://github.com/jaimeen77-cmyk/iterio_fork/tree/0f03f32d5b607103cd0c8f184dfdd5d3c0f83cb7/apps)를 사용합니다. 앰비언트 조명은 기존 앰비언트 설정 앱을 사용하세요.
-
 ---
 
 ## 한국어 앱 화면
@@ -54,7 +41,7 @@ MGU Store에서 기존 `appsKOR` 소스를 새로고침하세요. Comfort, Overl
 
 ---
 
-이 저장소는 `appsKOR_fork`의 일반 앱 15개, `appscluster_fork`의 클러스터 앱 3개, IterioDev의 비공식 한국어판 앱 11개를 한 소스에서 제공합니다.
+이 저장소는 `jaimeen77-cmyk/appsKOR_fork`(원본 `cauliflowermossgrape/idrive7-apps`의 포크)의 앱 15개를 한국어로 빌드해 한 소스에서 제공합니다. 앱 버전은 원본과 같습니다.
 
 - 저장소: `jaimeen77-cmyk/appsKOR`
 - 브랜치: `main`
@@ -63,42 +50,35 @@ MGU Store에서 기존 `appsKOR` 소스를 새로고침하세요. Comfort, Overl
 
 화면·설정·한글 글꼴과 앱 데이터는 이미 빌드되어 있습니다. 차에서는 체크섬을 확인한 한국어 파일을 설치 패키지로 묶으며, 영어 재컴파일이나 Doom 데이터 다운로드를 하지 않습니다. 차량에 필요한 SDK는 Store의 기존 설치 절차에서 준비합니다. 이 저장소의 배포 파일에는 BMW SDK가 들어 있지 않습니다.
 
-일반 앱 15개의 최신 한국어 패키지는 `jaimeen77-cmyk/apps`에서 이 저장소로 통합했습니다. `apps`는 계기판 레드라인과 아이드라이브 회로의 한국어·영어판만 배포합니다. 기존 클러스터 앱 3개도 이 소스에서 계속 제공합니다. [이동 기록](docs/APPS-MIGRATION.ko.md)
+필요한 렌더러와 컨트롤러 도구는 Store가 의존성으로 확인합니다. 앱의 차량 신호·설정 기본값·동작은 원본 그대로 유지합니다.
 
-필요한 `mgu-python`, 렌더러와 컨트롤러 도구는 Store가 의존성으로 확인합니다. 기존 앱의 차량 신호·설정 기본값·동작은 원본 그대로 유지합니다.
+**iDrive 7·8:** 앱 15개는 원본처럼 iDrive 7과 iDrive 8에 모두 설치됩니다. 설치 패키지(`package.json`)와 Store 목록의 `mguHmi`가 원본 `apps/<id>/app.json`을 따릅니다.
 
-**iDrive 7·8:** 일반 앱 15개는 iDrive 7과 iDrive 8에 모두 설치됩니다. 패키지에 두 HMI의 화면이 들어 있고, 설치 패키지(`package.json`)와 Store 목록의 `mguHmi`가 원본 `apps/<id>/app.json`을 따릅니다. 클러스터 앱 3개는 원본처럼 iDrive 7 전용입니다.
-
-iDrive 8에서 `needs mgu-inputgate 1.1.0 or newer, which no source has`가 나오면, 차량에 다른 소스에서 받은 오래된 컨트롤러 연결 도구가 설치되어 있는 경우입니다. Store는 설치된 도구를 처음 받은 소스에서만 업데이트합니다. Store에서 **iDrive 컨트롤러 연결 (mgu-inputgate)** 을 제거한 뒤 앱을 다시 설치하세요.
+`needs mgu-inputgate 1.1.0 or newer, which no source has`가 나오면, 차량에 다른 소스에서 받은 오래된 컨트롤러 연결 도구가 설치되어 있는 경우입니다(iDrive 7·8 공통). Store는 설치된 도구를 처음 받은 소스에서만 업데이트합니다. 그 소스를 새로고침해 업데이트하거나, Store에서 **iDrive 컨트롤러 연결 (mgu-inputgate)** 을 제거한 뒤 앱을 다시 설치하세요.
 
 | 한국어 앱 | 스토어 버전 |
 |---|---|
-| 앰비언트 설정 (한국어) | 2.7.8 |
-| 제동 테스트 (한국어) | 1.5.23 |
-| M 차량 정보 (한국어) | 2.27.10 |
-| 클러스터 중앙 화면 (한국어) | 0.8.3 |
-| 클러스터 정보 (한국어) | 1.6.9 |
-| 클러스터 레이아웃 (한국어) | 0.27.4 |
-| Doom (한국어) | 1.7.24 |
-| 가속 타이머 (한국어) | 2.6.2 |
-| 고장 진단 (한국어) | 2.9.10 |
-| 가상 다이노 (한국어) | 1.6.5 |
-| eDrive (한국어) | 2.11.2 |
-| G 센서 (한국어) | 1.6.24 |
-| 엔진 설정 (한국어) | 0.9.10 |
-| 실시간 정보 (한국어) | 1.0.19 |
-| 레드라인 (한국어) | 2.0.47 |
-| 정비 정보 (한국어) | 1.6.5 |
-| 엔진 예열 (한국어) | 1.9.2 |
-| 변속기 정보 (한국어) | 1.5.10 |
+| 앰비언트 설정 (한국어) | 2.7.7 |
+| 제동 테스트 (한국어) | 1.5.21 |
+| M 차량 정보 (한국어) | 2.27.8 |
+| Doom (한국어) | 1.7.22 |
+| 가속 타이머 (한국어) | 2.6.0 |
+| 고장 진단 (한국어) | 2.9.8 |
+| 가상 다이노 (한국어) | 1.6.3 |
+| eDrive (한국어) | 2.11.0 |
+| G 센서 (한국어) | 1.6.22 |
+| 엔진 설정 (한국어) | 0.9.8 |
+| 실시간 정보 (한국어) | 1.0.18 |
+| 레드라인 (한국어) | 2.0.45 |
+| 정비 정보 (한국어) | 1.6.3 |
+| 엔진 예열 (한국어) | 1.9.0 |
+| 변속기 정보 (한국어) | 1.5.8 |
 
 스토어가 요구하는 `x.y.z` 버전 형식을 사용합니다. 컴파일 원본의 `-ko.1` 정보는 앱별 `store/korean/<id>/layer.json`에 기록되어 있으며 설치 파일의 언어는 한국어로 고정됩니다.
 
 이 저장소의 `레드라인`은 원본 프로젝트의 앱입니다. 별도로 개발한 `계기판 레드라인(cluster_redline)`은 [jaimeen77-cmyk/apps](https://github.com/jaimeen77-cmyk/apps)에서 배포합니다.
 
-현재 한국어 번역은 2,591개입니다. 차량/진단기에서 직접 받은 고유명·원본 고장 설명 등은 원래 언어로 나올 수 있습니다. 클러스터 앱의 MGU 메뉴와 설정은 한국어이며, 계기판은 성능 한도 안에서 오일·냉각수·연료·충전·기어 핵심 표기를 한글로 표시합니다. 나머지 짧은 계기판 단위와 고유 레이아웃 표기는 원문을 유지합니다.
-
-클러스터 앱 원본과 GPL 소스: [eroobeeroo/idrive7-cluster-info](https://github.com/eroobeeroo/idrive7-cluster-info). 원본 저작권·라이선스·고지는 `LICENSE.cluster-*`, `NOTICE.cluster.md`, 각 앱의 `NOTICE`에 보존되어 있습니다.
+현재 한국어 번역은 2,603개입니다. 차량/진단기에서 직접 받은 고유명·원본 고장 설명 등은 원래 언어로 나올 수 있습니다.
 
 유지보수·재생성 방법: [한국어 Store 패키지 안내](docs/KOREAN-STORE.md).
 
@@ -183,7 +163,7 @@ Python 3와 Node.js 14 이상이 필요합니다. 기존 프로젝트에 이미 
 python kit/tools/make_kit.py --language ko redline service car_vitals edrive warmup gforce
 ```
 
-앱 이름을 생략하면 전체 18개 앱을 한국어로 빌드합니다.
+앱 이름을 생략하면 전체 15개 앱을 한국어로 빌드합니다.
 ```sh
 python kit/tools/make_kit.py --language ko
 ```

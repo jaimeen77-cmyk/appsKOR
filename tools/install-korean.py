@@ -8,7 +8,6 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import re
-import sys
 import tarfile
 import uuid
 
@@ -65,30 +64,6 @@ def read_common(own):
     return common, files
 
 
-def fit_to_unit(files, original, catalog=None):
-    """As kit/tools/build.py does when the Store builds an app on the head unit: take out of the SOME/IP
-    manifest what this unit's interface catalog lacks (iDrive 8 firmware has a different catalog than the
-    iDrive 7 one the compiled layer was made without), and record it in kit/missing-interfaces.json.
-    Without a catalog (not on a head unit) nothing changes."""
-    path = catalog or os.environ.get('MGU_SOMEIP_CATALOG', '/etc/oap/someip/someip-interfaces.json')
-    if not os.path.isfile(path):
-        return {}
-    sys.path.insert(0, str(ROOT / 'kit/tools'))
-    try:
-        import build
-    finally:
-        sys.path.pop(0)
-    spec = json.loads((ROOT / 'apps' / original / 'app.json').read_text(encoding='utf-8'))
-    manifest = json.loads(files['package/manifest.json'].decode('utf-8'))
-    missing = build.fit_to_unit(manifest, spec, path)
-    files['package/manifest.json'] = json.dumps(manifest, indent=2).encode('utf-8')
-    if missing:
-        files['package/javascript/kit/missing-interfaces.json'] = json.dumps(missing, indent=1).encode('utf-8')
-        for what, loses in missing.items():
-            print('  this unit has no %s - built without it: %s' % (what, loses))
-    return missing
-
-
 def assemble(app_id, version, directory, output):
     if not ID.fullmatch(app_id) or not VERSION.fullmatch(version):
         raise ValueError('Invalid app identity/version')
@@ -112,7 +87,6 @@ def assemble(app_id, version, directory, output):
         raise ValueError('Compiled identity/language mismatch')
     if 'package/javascript/app.js' not in files or 'package/javascript/kit/fonts/korean.json' not in files:
         raise ValueError('Compiled application or Hangul font is missing')
-    fit_to_unit(files, original)
     # The Store can resolve an app-ID collision. Rewrite identities and icons,
     # preserving all application code, signal declarations and setting values.
     if app_id != original:
