@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 39582,
-  "sha256": "b998d51a164f668928e33eef52b66f497b4034e0a6cab2aeb3e920d78401ea9f",
+  "size": 39583,
+  "sha256": "2614f09111a9e4488e202837106326c209e85df854230a223d0332b5fc0c002b",
   "parts": [
     "part-000"
   ],
   "id": "gforce",
-  "version": "1.6.23",
-  "compiled_version": "1.6.23-ko.1",
-  "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
+  "version": "1.6.24",
+  "compiled_version": "1.6.24-ko.1",
+  "common_sha256": "1dfb33a56196838c2b18269e20acecff0a9a1ab882ff1ec9365791dd2b8f6ce8",
   "source_commit": "01e9587",
-  "source_hash": "fafafd0f308854bb977a65a6682e278474ed6ab8d34d7f7fab840d6fa4cc761f"
+  "source_hash": "2ccb36da28103d85b98bca14d9f134bec23567e20c5bc15980f3fd09492ce8db"
 }

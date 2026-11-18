@@ -1,16 +1,16 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 218440,
-  "sha256": "f780691bd65a835a87787401f0619b4ffe88aafbd61e5b27f3dd5532daf931f2",
+  "size": 218443,
+  "sha256": "b8c557c2dbbf90bfef056bf82ce17804cdc75cab92b17e8b9b627cfd1443b62a",
   "parts": [
     "part-000",
     "part-001"
   ],
   "id": "live_adjustments",
-  "version": "0.9.9",
-  "compiled_version": "0.9.9-ko.1",
-  "common_sha256": "210936f1e09f037b8998c05180c41f64e94f0d9b0457d335bcfec7198d274be8",
+  "version": "0.9.10",
+  "compiled_version": "0.9.10-ko.1",
+  "common_sha256": "1dfb33a56196838c2b18269e20acecff0a9a1ab882ff1ec9365791dd2b8f6ce8",
   "source_commit": "01e9587",
-  "source_hash": "8d033e28b07ea805c29411c4e532776c7dd9c0815ec43a16c3b2ebb80060ffd8"
+  "source_hash": "5a0b929a2ba7b15996edf84cf1774bdc0c72baee8ecf72dfb73495a2442dee71"
 }
