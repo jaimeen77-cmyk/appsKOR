@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 111323,
-  "sha256": "df4c04a18f80391c02a496858645727907c4a32bd871e2a6da5817494b1ce142",
+  "size": 111325,
+  "sha256": "2abc63a7703ee03a5b1cc62d5db47b269b647a167d35981baf20c9c1f57a10fe",
   "parts": [
     "part-000"
   ],
   "id": "edrive",
-  "version": "2.11.0",
-  "compiled_version": "2.11.0-ko.1",
-  "common_sha256": "2cd1d0ca4e94f94e662c45e608db539e1f2707c4ee2b0d92e584ab07f403d81b",
-  "source_commit": "3e492de",
-  "source_hash": "47a9cbf270ee41631b1625d1614642bec79e8be69ecf00d7e2956ac038559f92"
+  "version": "2.11.1",
+  "compiled_version": "2.11.1-ko.1",
+  "common_sha256": "8d7a55a5a907595433443f3e0d732549b7c124758a01e1618b0c20b20884294e",
+  "source_commit": "44b159e",
+  "source_hash": "4b1f4d464c7542cbb0efd235e5e3b885cd19aeba67ebc43bda0d3c854814c548"
 }
