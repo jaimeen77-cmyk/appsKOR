@@ -9,7 +9,7 @@
   "id": "edrive",
   "version": "2.11.1",
   "compiled_version": "2.11.1-ko.1",
-  "common_sha256": "8d7a55a5a907595433443f3e0d732549b7c124758a01e1618b0c20b20884294e",
-  "source_commit": "44b159e",
-  "source_hash": "4b1f4d464c7542cbb0efd235e5e3b885cd19aeba67ebc43bda0d3c854814c548"
+  "common_sha256": "e6a489821dbe14a0757ae6433d59a3f7112f4829c8df4433b1891c14e3d440ba",
+  "source_commit": "92da265",
+  "source_hash": "b45ac5f10b7abab9ad9dcac53235ca3bc5cc785f4a2824d3f39ce8561fa38f6e"
 }
