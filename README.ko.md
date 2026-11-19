@@ -9,7 +9,6 @@
 | 다운로드 (GitHub) | **[github.com/jaimeen77-cmyk/appsKOR](https://github.com/jaimeen77-cmyk/appsKOR)** |
 | MGU Store 소스 | 저장소 **`jaimeen77-cmyk/appsKOR`** · 브랜치 **`main`** |
 | 계기판 레드라인 소스 | **`jaimeen77-cmyk/apps`** · 브랜치 **`main`** ([apps](https://github.com/jaimeen77-cmyk/apps) · [설치·사용 설명서](https://github.com/jaimeen77-cmyk/apps/blob/main/docs/CLUSTER-REDLINE.ko.md)) |
-| 네이버 블로그 | **[blog.naver.com/jaimeen77](https://blog.naver.com/jaimeen77)** |
 
 ## 빠른 설치
 
@@ -87,14 +86,6 @@
 # MGU Custom Apps 한국어판
 
 원본: https://github.com/cauliflowermossgrape/idrive7-apps
-
-Translation by：jaimeen shim
-
-코딩나눔터(https://cafe.naver.com/codingbmw) : 서울||잼님
-
-네이버블로그(https://blog.naver.com/jaimeen77/224465347509)
-
-문의사항은 코딩나눔터나 네이버블로그를 통해 문의 주세요.
 
 
 [검증 기록](#검증-기록)
