@@ -42,7 +42,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -51,11 +51,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/ambient_config"
+          "tools/prepare-korean-store.py",
+          "apps/ambient_config",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -73,7 +84,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -82,11 +93,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/brake_test"
+          "tools/prepare-korean-store.py",
+          "apps/brake_test",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -104,7 +126,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -113,11 +135,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/car_vitals"
+          "tools/prepare-korean-store.py",
+          "apps/car_vitals",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -135,7 +168,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -144,11 +177,24 @@
           "--dir",
           "{dir}"
         ],
-        "network": false,
+        "sdk": "oap-sdk",
+        "network": [
+          "doom"
+        ],
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/doom"
+          "tools/prepare-korean-store.py",
+          "apps/doom",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -166,7 +212,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -175,11 +221,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/draggy"
+          "tools/prepare-korean-store.py",
+          "apps/draggy",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -197,7 +254,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -206,11 +263,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/dtc_scanner"
+          "tools/prepare-korean-store.py",
+          "apps/dtc_scanner",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -227,7 +295,7 @@
         "idrive7-renderd": "2.1.15"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -236,11 +304,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/dyno"
+          "tools/prepare-korean-store.py",
+          "apps/dyno",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -257,7 +336,7 @@
         "idrive7-renderd": "2.1.15"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -266,11 +345,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/edrive"
+          "tools/prepare-korean-store.py",
+          "apps/edrive",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -287,7 +377,7 @@
         "idrive7-renderd": "2.1.15"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -296,11 +386,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/gforce"
+          "tools/prepare-korean-store.py",
+          "apps/gforce",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -318,7 +419,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -327,11 +428,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/live_adjustments"
+          "tools/prepare-korean-store.py",
+          "apps/live_adjustments",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -349,7 +461,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -358,11 +470,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/live_data"
+          "tools/prepare-korean-store.py",
+          "apps/live_data",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -379,7 +502,7 @@
         "idrive7-renderd": "2.1.15"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -388,11 +511,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/redline"
+          "tools/prepare-korean-store.py",
+          "apps/redline",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -409,7 +543,7 @@
         "idrive7-renderd": "2.1.15"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -418,11 +552,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/service"
+          "tools/prepare-korean-store.py",
+          "apps/service",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -439,7 +584,7 @@
         "idrive7-renderd": "2.1.15"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -448,11 +593,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/warmup"
+          "tools/prepare-korean-store.py",
+          "apps/warmup",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     },
@@ -470,7 +626,7 @@
         "mgu-inputgate": "1.1.0"
       },
       "build": {
-        "python": "tools/install-korean.py",
+        "python": "tools/build-korean.py",
         "args": [
           "--id",
           "{id}",
@@ -479,11 +635,22 @@
           "--dir",
           "{dir}"
         ],
+        "sdk": "oap-sdk",
         "network": false,
         "shared": [
+          "tools/build-korean.py",
           "tools/install-korean.py",
-          "store/korean/common",
-          "store/korean/zf8hp"
+          "tools/prepare-korean-store.py",
+          "apps/zf8hp",
+          "kit/runtime",
+          "kit/platform",
+          "kit/localization",
+          "kit/tools/build.py",
+          "kit/tools/pack_data.py",
+          "kit/tools/localize.py",
+          "kit/tools/locale-revisions.json",
+          "kit/tools/oapgen",
+          "oap-sdk"
         ]
       }
     }

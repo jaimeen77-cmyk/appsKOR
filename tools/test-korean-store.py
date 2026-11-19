@@ -4,8 +4,11 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import shutil
+import subprocess
+import sys
 import tarfile
 import tempfile
 
@@ -19,7 +22,40 @@ def module(name, file):
     return result
 
 
-def check(build=False):
+def car_build(prepare, component, listing, files):
+    """The Store's build on a head unit: only the entry's path and "shared" files, the unit's oap-sdk
+    (a stand-in here) at the root. The package is the checked layer plus that oap-sdk and the
+    home-screen widget the preview build stops before."""
+    app = component['id']
+    with tempfile.TemporaryDirectory(prefix='korean-store-car-') as work:
+        tree = Path(work) / 'repo'
+        for rel in [component['path']] + component['build']['shared']:
+            source, dest = ROOT / rel, tree / rel
+            if rel == 'oap-sdk':
+                dest.mkdir(parents=True)
+                (dest / 'index.js').write_text('module.exports = {};\n')
+                (dest / 'package.json').write_text('{"name": "oap-sdk", "version": "0.0.0-test"}\n')
+            elif source.is_dir():
+                shutil.copytree(source, dest, ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.wad'))
+            else:
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, dest)
+        env = dict(os.environ, MGU_OUT=str(Path(work) / 'out'))
+        env.pop('MGU_SOMEIP_CATALOG', None)
+        subprocess.run([sys.executable, str(tree / component['build']['python'])] +
+                       [a.format(id=app, version=listing['version'], dir=component['path'])
+                        for a in component['build']['args']],
+                       cwd=str(tree), env=env, check=True, stdout=subprocess.DEVNULL)
+        with tarfile.open(str(Path(work) / 'out' / (app + '@' + listing['version'] + '.tgz'))) as archive:
+            built = {n: archive.extractfile(n).read() for n in archive.getnames() if archive.getmember(n).isfile()}
+    extra = set(built) - set(files)
+    assert set(files) <= set(built), app + ': head-unit build lacks ' + repr(sorted(set(files) - set(built))[:5])
+    assert {'package/node_modules/oap-sdk/index.js', 'package/node_modules/oap-sdk/package.json'} <= extra
+    assert all(n.startswith(('package/node_modules/oap-sdk/', 'package/rhmiDataStartWidget/')) for n in extra), sorted(extra)
+    assert all(built[n] == b for n, b in files.items()), app + ': head-unit build differs from the checked layer'
+
+
+def check(build=False, car=False):
     prepare = module('prepare', 'prepare-korean-store.py')
     installer = module('installer', 'install-korean.py')
     repo = json.loads((ROOT / 'mgu-repo.json').read_text())
@@ -36,7 +72,8 @@ def check(build=False):
         common, shared = installer.read_common(own)
         assert listing['version'] == own['version']
         assert own['common_sha256'] == common['sha256']
-        assert component['build']['network'] is False and 'sdk' not in component['build']
+        # Built on the head unit with its oap-sdk, as appsKOR_fork's own Store entry is.
+        assert component['build'] == prepare.car_build(app), app + ': Store build is not the head-unit build'
         assert set(shared).isdisjoint(delta)
         files = dict(shared, **delta)
         assert all('node_modules' not in n.split('/') and 'oap-sdk' not in n.split('/') for n in files)
@@ -64,6 +101,8 @@ def check(build=False):
                 with tarfile.open(target) as archive:
                     assert set(archive.getnames()) == set(files)
                     assert all(archive.extractfile(n).read() == b for n, b in files.items())
+        if car:
+            car_build(prepare, component, listing, files)
         results.append(app)
     # Host tests exercise a Store ID collision using a temporary manifest. Keep
     # it inside the repo, where the same path guards apply on the car.
@@ -102,4 +141,6 @@ def check(build=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--build', action='store_true', help='assemble and inspect all installable SDK-free archives')
-    check(parser.parse_args().build)
+    parser.add_argument('--car', action='store_true', help="also build every app as the Store does on a head unit (stand-in oap-sdk)")
+    args = parser.parse_args()
+    check(args.build, args.car)
