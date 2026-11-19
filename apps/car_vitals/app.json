@@ -351,6 +351,12 @@
       "default": false
     },
     {
+      "key": "programSteady",
+      "label": "M-Track (or similar) module: S while S / M flickers",
+      "type": "bool",
+      "default": false
+    },
+    {
       "key": "peaks",
       "label": "Show peak markers",
       "type": "bool",
