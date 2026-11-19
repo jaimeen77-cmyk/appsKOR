@@ -1,7 +1,5 @@
 # appsKOR · MGU Store 한국어 앱
 
-![BMW Coding Study Cafe](https://raw.githubusercontent.com/jaimeen77-cmyk/apps/main/screenshots/banner.png)
-
 **제작: 잼님**
 
 | | |
