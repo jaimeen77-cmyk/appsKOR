@@ -9,7 +9,7 @@
   "id": "car_vitals",
   "version": "2.27.9",
   "compiled_version": "2.27.9-ko.1",
-  "common_sha256": "8d7a55a5a907595433443f3e0d732549b7c124758a01e1618b0c20b20884294e",
-  "source_commit": "44b159e",
-  "source_hash": "97c0764b5c4a149eda6fc9dabf707e1ddfed11be1cde276e23d9ba34ad970d4f"
+  "common_sha256": "e6a489821dbe14a0757ae6433d59a3f7112f4829c8df4433b1891c14e3d440ba",
+  "source_commit": "92da265",
+  "source_hash": "2fd7a67a6788c37505b19eed43f83c5b24bc4e8dc05d8f4b699e499ef73065bd"
 }
