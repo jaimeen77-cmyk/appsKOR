@@ -9,7 +9,7 @@
   "id": "draggy",
   "version": "2.6.1",
   "compiled_version": "2.6.1-ko.1",
-  "common_sha256": "e6a489821dbe14a0757ae6433d59a3f7112f4829c8df4433b1891c14e3d440ba",
-  "source_commit": "92da265",
-  "source_hash": "77853d896adecd530181bb3bb105feb5910e17ad556ef89c549159ffc56e8544"
+  "common_sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
+  "source_commit": "11f6763",
+  "source_hash": "bcd0a8c65686bdf6cccf5e432d89844f660a9b472fc0c1cb508ecc613a6de058"
 }
