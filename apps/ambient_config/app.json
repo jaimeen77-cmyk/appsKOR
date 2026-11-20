@@ -103,6 +103,13 @@
       "hidden": true
     },
     {
+      "key": "decorWith",
+      "label": "Decor lights (dash, under the door trim) with",
+      "type": "choice",
+      "default": "upper",
+      "options": [["upper", "Upper lights"], ["lower", "Lower lights (like BMW)"]]
+    },
+    {
       "key": "nightDim",
       "label": "Dimmer at night",
       "type": "bool",
