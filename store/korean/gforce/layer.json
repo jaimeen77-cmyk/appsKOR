@@ -9,7 +9,7 @@
   "id": "gforce",
   "version": "1.6.23",
   "compiled_version": "1.6.23-ko.1",
-  "common_sha256": "e6a489821dbe14a0757ae6433d59a3f7112f4829c8df4433b1891c14e3d440ba",
-  "source_commit": "92da265",
-  "source_hash": "3b0f4bff6714083e681694e4fdd2caf79e62997af5f3d4edc001616f13dcf00a"
+  "common_sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
+  "source_commit": "11f6763",
+  "source_hash": "b508a25bc990a4bbe29e794d1f11e3dd963ba735e533d76bd5da432e33c3f991"
 }

@@ -9,7 +9,7 @@
   "id": "live_data",
   "version": "1.0.19",
   "compiled_version": "1.0.19-ko.1",
-  "common_sha256": "e6a489821dbe14a0757ae6433d59a3f7112f4829c8df4433b1891c14e3d440ba",
-  "source_commit": "92da265",
-  "source_hash": "8a9a69a490381c415430de7f1294df565d4b665f10b8d712461f8b6d3df84778"
+  "common_sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
+  "source_commit": "11f6763",
+  "source_hash": "573553ae5420a69b9121332c3e6f0c3198757a8f41804054d270e8e7f4c8e662"
 }

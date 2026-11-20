@@ -2601,5 +2601,9 @@
   "Water": "냉각수",
   "12 V battery charge (%)": "12 V 배터리 충전량 (%)",
   "12 V battery voltage": "12 V 배터리 전압",
-  "Not set": "설정 안 됨"
+  "Not set": "설정 안 됨",
+  "Decor lights (dash, under the door trim) with": "장식 조명(대시보드·도어 트림 아래)을 묶을 조명",
+  "Lower lights (like BMW)": "아래쪽 조명 (BMW 방식)",
+  "M-Track (or similar) module: S while S / M flickers": "M-Track(또는 비슷한) 모듈: S / M 깜빡일 때 S로 표시",
+  "Electric flap (MG1 / V8)": "전동 밸브 (MG1 / V8)"
 }
