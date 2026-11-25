@@ -2,14 +2,14 @@
   "schema": 1,
   "language": "ko",
   "size": 35856,
-  "sha256": "f07318985ba2a56195f2fa7dbe52c1c078411dd5b03e6158dc6f1706cb0b3f69",
+  "sha256": "16441f62ffba983302f53d1daf01a3639d6fdf5cd3d6b31530b59364cc7be7fd",
   "parts": [
     "part-000"
   ],
   "id": "warmup",
-  "version": "1.9.1",
-  "compiled_version": "1.9.1-ko.1",
-  "common_sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
-  "source_commit": "11f6763",
-  "source_hash": "3779064355150ca7ad0694105ac5b1f009d4b1dbe9bca02652d48625628cc891"
+  "version": "1.9.2",
+  "compiled_version": "1.9.2-ko.1",
+  "common_sha256": "69d90d5e01635f48daec7aefcc62472004d8c578175abd2af18eb9bb46721df2",
+  "source_commit": "6553be2",
+  "source_hash": "da181ecbde2af724b062cc64ccbbb092d385c4f114fb636f26216bdd6108ad2d"
 }

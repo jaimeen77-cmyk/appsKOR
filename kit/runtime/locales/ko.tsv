@@ -2681,3 +2681,72 @@ Outside air with each run	측정마다 외기 정보
 Show (pressure from the engine unit)	표시 (엔진 제어기의 대기압)
 Show, times corrected to standard air (SAE J1349)	표시, 표준 대기로 보정한 시간 (SAE J1349)
 Off (no engine unit requests)	꺼짐 (엔진 제어기 요청 없음)
+# appsKOR_fork 6553be2 (upstream 2026-11-24): Live data (48 V, fuel trips, unit pages), Service, Live adjustments xDrive, DTC scanner
+12 V current	12 V 전류
+12 V power	12 V 전력
+12 V side voltage	12 V 측 전압
+48 V / 12 V converter	48 V / 12 V 컨버터
+48 V battery: scan required; absence is inconclusive	48 V 배터리: 진단 필요, 없다고 단정할 수 없음
+48 V converter: PCU48_2	48 V 컨버터: PCU48_2
+48 V converter: scan required	48 V 컨버터: 진단 필요
+48 V current	48 V 전류
+48 V power	48 V 전력
+48 V side voltage	48 V 측 전압
+All units	전체 제어기
+Battery current (negative = charging)	배터리 전류 (음수 = 충전)
+Comfort individual	컴포트 개별 설정
+Eco pro	에코 프로
+Eco pro individual	에코 프로 개별 설정
+Sport individual	스포츠 개별 설정
+Environment	환경
+FUEL PRICE	연료 가격
+From the engine unit	엔진 제어기 값
+From the engine unit (B58 / B48 / B38), read	엔진 제어기(B58 / B48 / B38)에서 읽음
+the engine unit has none of these values	엔진 제어기에 이 값이 없습니다
+Details not available	세부 정보 없음
+Engine unit:	엔진 제어기:
+Invalid	유효하지 않음
+Make a screen in the app first	먼저 앱에서 화면을 만드세요
+No Gauges	게이지 화면 없음
+No battery or converter values are available	배터리·컨버터 값이 없습니다
+Nothing has come from the car yet	아직 차량에서 받은 값이 없습니다
+Nothing to show (Settings: Unit pages show)	표시할 항목 없음 (설정: 제어기 화면 표시 항목)
+Press again to switch xDrive back on	한 번 더 누르면 xDrive를 다시 켭니다
+back after an ignition cycle	점화를 껐다 켜면 복구
+xDrive is back · the transfer case reports it on	xDrive 복구됨 · 트랜스퍼 케이스가 켜짐으로 보고
+xDrive on brings it back	xDrive 켜기로 복구
+above full	최대 초과
+at minimum	최저
+below minimum	최저 미만
+engine unit	엔진 제어기
+front left	앞 왼쪽
+front right	앞 오른쪽
+rear left	뒤 왼쪽
+rear right	뒤 오른쪽
+knob: choose  ·  press: open	컨트롤러: 선택  ·  누르기: 열기
+knob: choose a gauge  ·  press: its value and the layout  ·  push up / down: page	컨트롤러: 게이지 선택  ·  누르기: 값과 배치  ·  위 / 아래로 밀기: 페이지
+knob: scroll  ·  push up / down: page	컨트롤러: 스크롤  ·  위 / 아래로 밀기: 페이지
+Knob: ±0.10  ·  press: keep  ·  this trip, and trips that had no price, follow it; the others keep theirs	컨트롤러: ±0.10  ·  누르기: 저장  ·  이번 주행과 가격이 없던 주행에 적용, 나머지는 기존 가격 유지
+press: keep  ·  this trip, and trips that had no price, follow it; the others keep theirs	누르기: 저장  ·  이번 주행과 가격이 없던 주행에 적용, 나머지는 기존 가격 유지
+no reading	읽은 값 없음
+not available now	지금은 정보 없음
+not in this unit	이 제어기에 없음
+not in this unit type	이 제어기 종류에 없음
+not in this version	이 버전에 없음
+not supported	지원 안 함
+this unit has no such value	이 제어기에 그런 값이 없음
+set the fuel price	연료 가격을 설정하세요
+under 1 km	1 km 미만
+Asking control unit	제어기 확인 중
+Cleared; back at once (still present):	삭제 완료, 바로 다시 발생 (아직 있음):
+Layout:	배치:
+Read all done:	모두 읽기 완료:
+h (not counted)	시간 (계산 제외)
+h driving,	시간 주행,
+h standing, fuel from	시간 정차, 연료 출처
+no fuel figure for	연료값 없음
+refused:	거부됨:
+stopped:	중지됨:
+stopped answering (ignition on?)	응답 없음 (점화가 켜져 있나요?)
+shifts)	변속)
+transport busy	통신 대기

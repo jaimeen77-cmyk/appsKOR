@@ -2,7 +2,7 @@
   "schema": 1,
   "language": "ko",
   "size": 10999550,
-  "sha256": "0d81cad02b9809d72e97bdc498f6499b4b6384574bd544d2225e59d4a56757c6",
+  "sha256": "ff10ddc8000712202cc6264fbe380c386ab7fb4b745fa876984b418f2acb69c9",
   "parts": [
     "part-000",
     "part-001",
@@ -62,9 +62,9 @@
     "part-055"
   ],
   "id": "doom",
-  "version": "1.7.23",
-  "compiled_version": "1.7.23-ko.1",
-  "common_sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
-  "source_commit": "11f6763",
-  "source_hash": "c91a1615eb386b4a183ffbe7ab5ca5a81e7ba2c79712a2c2d83a3f32db21fec4"
+  "version": "1.7.24",
+  "compiled_version": "1.7.24-ko.1",
+  "common_sha256": "69d90d5e01635f48daec7aefcc62472004d8c578175abd2af18eb9bb46721df2",
+  "source_commit": "6553be2",
+  "source_hash": "1e8f8e64131da6fdf913acdc73d9765f454ed6bfca28d64634076d4b5ec9c8ea"
 }

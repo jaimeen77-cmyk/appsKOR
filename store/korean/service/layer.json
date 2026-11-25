@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 40297,
-  "sha256": "d1204e8f3f80b0d3a1b615e695af2b0273d5d25faa9b3d5e4476936bd51b8f34",
+  "size": 40298,
+  "sha256": "373b67d105e817b0fa7163998b43ed491f2d9fd123e56412b9c24e8a99294884",
   "parts": [
     "part-000"
   ],
   "id": "service",
-  "version": "1.6.4",
-  "compiled_version": "1.6.4-ko.1",
-  "common_sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
-  "source_commit": "11f6763",
-  "source_hash": "58e4b7cbaff3a12003e2d37fd469457a62c94ff27a6fad339af18a85f3fee0ce"
+  "version": "1.6.5",
+  "compiled_version": "1.6.5-ko.1",
+  "common_sha256": "69d90d5e01635f48daec7aefcc62472004d8c578175abd2af18eb9bb46721df2",
+  "source_commit": "6553be2",
+  "source_hash": "67d1f0410f8a7574ef1705893f47d1251d2c6e252d549638020f4992a813181d"
 }

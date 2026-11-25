@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 71769,
-  "sha256": "e6dfed5d537b3d18737320c1fe3d0e07ee4406976d6d5306fe9c2b36c227d537",
+  "size": 72132,
+  "sha256": "667b3444cedcdec616abdb920b398539bba3105e66fffc6f6e2fc5c18f54caef",
   "parts": [
     "part-000"
   ],
   "id": "car_vitals",
-  "version": "2.27.10",
-  "compiled_version": "2.27.10-ko.1",
-  "common_sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
-  "source_commit": "11f6763",
-  "source_hash": "52ac1e6280fd88537f8309348dd0ab5cff7aeac3969f54a4e27643fbd0a82e94"
+  "version": "2.27.13",
+  "compiled_version": "2.27.13-ko.1",
+  "common_sha256": "69d90d5e01635f48daec7aefcc62472004d8c578175abd2af18eb9bb46721df2",
+  "source_commit": "6553be2",
+  "source_hash": "1da600d6e0463119ac56771621666bb0b97317a0fe688cf69f8f0243c437b44f"
 }

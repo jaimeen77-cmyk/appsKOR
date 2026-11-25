@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 1148034,
-  "sha256": "caefb516a23a53aa23b4d61085a7bab1676a138b98f70ca0cfbd13793e608654",
+  "size": 1157483,
+  "sha256": "69d90d5e01635f48daec7aefcc62472004d8c578175abd2af18eb9bb46721df2",
   "parts": [
     "part-000",
     "part-001",
@@ -11,5 +11,5 @@
     "part-004",
     "part-005"
   ],
-  "source_commit": "11f6763"
+  "source_commit": "6553be2"
 }
