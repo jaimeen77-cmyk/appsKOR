@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "language": "ko",
-  "size": 36845,
-  "sha256": "47dd1cc5418a20d18464bf9cd6f9ee2f45ec769a826ed6bf165c4471014d2281",
+  "size": 35563,
+  "sha256": "ea406c241214ec934595d3b63b1b39e4e12ee95249105bf11d02eebb7b994d47",
   "parts": [
     "part-000"
   ],
   "id": "dyno",
-  "version": "1.6.5",
-  "compiled_version": "1.6.5-ko.1",
-  "common_sha256": "69d90d5e01635f48daec7aefcc62472004d8c578175abd2af18eb9bb46721df2",
-  "source_commit": "6553be2",
-  "source_hash": "569215e827da4bdea4f7e4a1e141619a8497eafe744795f3d144f9fbdeb73ff7"
+  "version": "1.6.8",
+  "compiled_version": "1.6.8-ko.1",
+  "common_sha256": "c697e2a2e4cbe8d9685c2fe2cf569a22c8a32f6aaae915527382b260c1070eb7",
+  "source_commit": "f54fc27",
+  "source_hash": "a23f2a3dce914145df4b0693bd9dc15e40799f9904d7d1231ae4a9363ac228d5"
 }
